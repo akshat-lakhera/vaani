@@ -21,7 +21,9 @@ COPY pyproject.toml README.md ./
 COPY src ./src
 COPY web ./web
 COPY scripts ./scripts
-RUN pip install --no-cache-dir -e . \
+# CPU torch only — the default Linux wheel pulls a multi-GB CUDA toolkit.
+RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch \
+    && pip install --no-cache-dir -e . \
     && useradd --create-home --uid 10001 vaani \
     && mkdir -p /app/data \
     && chown -R vaani:vaani /app
