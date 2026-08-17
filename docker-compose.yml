@@ -12,3 +12,10 @@ services:
       VAANI_HOST: 0.0.0.0
       VAANI_PORT: 8080
       TOKENIZERS_PARALLELISM: "false"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8080/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s

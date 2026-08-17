@@ -1,0 +1,27 @@
+# Persistent Render Web Service + disk.
+# Create the service from this file, attach a 10GB disk at /app/data,
+# then upload indexes/shipped and models/e5-small onto that disk.
+
+services:
+  - type: web
+    name: vaani
+    runtime: docker
+    plan: standard
+    healthCheckPath: /api/health
+    envVars:
+      - key: VAANI_DATA_DIR
+        value: /app/data
+      - key: VAANI_HOST
+        value: 0.0.0.0
+      - key: VAANI_PORT
+        value: "8080"
+      - key: TOKENIZERS_PARALLELISM
+        value: "false"
+      - key: STT_PROVIDER
+        value: sarvam
+      - key: SARVAM_API_KEY
+        sync: false
+    disk:
+      name: vaani-data
+      mountPath: /app/data
+      sizeGB: 10

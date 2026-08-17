@@ -1,0 +1,14 @@
+{
+  "bug": "भारत की राजधानी क्या है? extracted Mumbai as capital of Maharashtra.",
+  "cause": "Coverage is bag-of-words. The Maharashtra sentence contains भारत and राजधानी, so it beat the Delhi passage. BM25 actually ranked the Delhi passage higher; dense+RRF put Mumbai first; extract then copied that sentence.",
+  "fix": "Genitive attachment check: query 'भारत की राजधानी' expects owner=भारत for prop=राजधानी. 'महाराष्ट्र राज्य की राजधानी' is a different owner → conflict. Hits are reranked; conflicting extracts are dropped. Not a Delhi hardcode.",
+  "measured_after": {
+    "query": "भारत की राजधानी क्या है?",
+    "status": "grounded",
+    "answer": "दिल्ली, भारत: 2.5 करोड़ के साथ, भारतीय राजधानी दुनिया का दूसरा सबसे अधिक आबादी वाला शहर है।",
+    "mentions_delhi": true,
+    "mentions_mumbai": false,
+    "via": "in-process Pipeline and HTTP /api/ask (deploy_smoke.py)"
+  },
+  "not_claimed": ["Sarvam STT", "sub-200ms HTTP or audio pipeline"]
+}

@@ -28,5 +28,8 @@ ablate:
 e2e:
 	$(PY) scripts/e2e_voice.py
 
+smoke:
+	$(PY) scripts/deploy_smoke.py --base http://127.0.0.1:8080
+
 serve:
 	TOKENIZERS_PARALLELISM=false $(PY) -m vaani.api

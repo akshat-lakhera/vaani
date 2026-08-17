@@ -1,0 +1,56 @@
+{
+  "base": "http://127.0.0.1:8080",
+  "steps": [
+    {
+      "name": "health",
+      "http": 200,
+      "ms": 13.5,
+      "body": {
+        "ok": true,
+        "index_loaded": true,
+        "chunks": 57331,
+        "strategies": [
+          "whole"
+        ],
+        "stt_provider": "sarvam",
+        "stt_configured": false,
+        "llm_configured": false,
+        "model": "intfloat/multilingual-e5-small",
+        "dense": true
+      }
+    },
+    {
+      "name": "home",
+      "http": 200,
+      "ms": 3.9,
+      "has_mic": true
+    },
+    {
+      "name": "ask_capital",
+      "http": 200,
+      "ms": 503.1,
+      "status": "grounded",
+      "rag_ms": 495.671582990326,
+      "within_budget": false,
+      "answer": "दिल्ली, भारत: 2.5 करोड़ के साथ, भारतीय राजधानी दुनिया का दूसरा सबसे अधिक आबादी वाला शहर है।",
+      "mentions_delhi": true,
+      "mentions_mumbai": false
+    },
+    {
+      "name": "refuse_password",
+      "http": 200,
+      "ms": 1.0,
+      "status": "refuse",
+      "reason": "unsafe intent"
+    },
+    {
+      "name": "ask_audio",
+      "http": 200,
+      "ms": 167.5,
+      "status": "refuse",
+      "reason": "SARVAM_API_KEY is not set"
+    }
+  ],
+  "pass": true,
+  "note": "Persistent-deploy smoke. Sarvam STT not asserted. 200ms budget not asserted (HTTP wall time includes embed jitter)."
+}

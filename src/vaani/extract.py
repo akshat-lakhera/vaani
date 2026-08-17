@@ -8,7 +8,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from vaani.guardrails import content_tokens
 from vaani.index import StoredChunk
+from vaani.relevance import attachment_conflict
 from vaani.text import jaccard, normalize, sentences, tokenize
 
 
@@ -23,14 +25,16 @@ class Extract:
 def _score(query: str, sent: str) -> float:
     if not sent:
         return 0.0
-    # Blend Jaccard (set overlap) with coverage of query tokens.
+    if attachment_conflict(query, sent):
+        return -1.0
+    q_content = content_tokens(query)
     jac = jaccard(query, sent)
-    q = tokenize(query)
-    if not q:
-        return jac
     s = set(tokenize(sent))
-    cover = sum(1 for t in q if t in s) / len(q)
-    # Prefer slightly longer, but not dump-the-passage, sentences.
+    if q_content:
+        cover = sum(1 for t in q_content if t in s) / len(q_content)
+    else:
+        q = tokenize(query)
+        cover = (sum(1 for t in q if t in s) / len(q)) if q else 0.0
     length_pen = 1.0
     n = len(sent)
     if n < 20:
@@ -65,11 +69,13 @@ def extract(query: str, hits: list[tuple[StoredChunk, float, float, float]]) -> 
                 best_score = sc
                 best_sent = sent
                 best_chunk = chunk
-    if not best_sent:
+    if not best_sent or best_score < 0:
         return None
-    # If the best sentence is still thin, return the whole parent (short
-    # MSMARCO passages are often a single fact).
-    if len(best_sent) < 24 and len(best_chunk.parent_text) <= 280:
+    if (
+        len(best_sent) < 24
+        and len(best_chunk.parent_text) <= 280
+        and not attachment_conflict(q, best_chunk.parent_text)
+    ):
         best_sent = best_chunk.parent_text
     return Extract(
         answer=best_sent,

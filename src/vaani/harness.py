@@ -14,6 +14,7 @@ from vaani.embeddings import Encoder
 from vaani.extract import extract
 from vaani.generate import GenerateError, polish
 from vaani.guardrails import (
+    GuardDecision,
     abstain_message,
     clip_query,
     coverage_gate,
@@ -24,6 +25,7 @@ from vaani.guardrails import (
     refuse_message,
     support_score,
 )
+from vaani.relevance import attachment_conflict, rerank_hits
 from vaani.index import HybridIndex
 from vaani.schema import AskResponse, Citation, Timings
 from vaani.stt import STTError, Transcript, transcribe_with_retry
@@ -90,7 +92,7 @@ class Pipeline:
         timings.embed_ms = _ms(t0)
 
         t0 = _now()
-        hits = self.index.search(query, qvec, top_k=self.settings.top_k)
+        hits = rerank_hits(query, self.index.search(query, qvec, top_k=self.settings.top_k))
         timings.retrieve_ms = _ms(t0)
 
         if self.index.faiss_index is not None:
@@ -138,6 +140,8 @@ class Pipeline:
         contexts = [h[0].parent_text for h in hits]
         if ext is None:
             g = grounding("", contexts, self.settings.support_threshold)
+        elif attachment_conflict(query, ext.answer):
+            g = GuardDecision(False, "abstain", "extract attaches the property to a different owner")
         else:
             g = grounding(ext.answer, contexts, self.settings.support_threshold)
         support = support_score(ext.answer, contexts) if ext else 0.0

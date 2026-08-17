@@ -87,11 +87,14 @@ Live P50/P70/P100 against the running process:
 curl -s "http://127.0.0.1:8080/api/benchmark?n=80"
 ```
 
-Docker (index must already exist under `data/indexes/shipped`):
+Persistent deploy is **Docker**, not ngrok. The image does not bake the 57k index or e5 weights; mount `./data` (or a 10GB disk at `/app/data` on Fly/Render). Needs ~4 GB RAM.
 
 ```bash
 docker compose up --build
+python scripts/deploy_smoke.py --base http://127.0.0.1:8080
 ```
+
+Host files: `fly.toml` (Fly.io volume at `/app/data`) and `render.yaml` (Render disk). Set `SARVAM_API_KEY` in the host’s secret store. I have not deployed to Fly/Render from this machine (Railway logged out, Docker daemon was down when last checked).
 
 ## What is in the 200ms number
 
