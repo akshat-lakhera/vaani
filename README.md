@@ -130,11 +130,14 @@ Splitting already-short MSMARCO passages **hurts** sparse retrieval. `whole` and
 
 On the 200-query / 57k-index bench the coverage gate abstained 63 times. Unsafe password prompts are refused before retrieval.
 
-**Voice:** the browser records WebM/Opus (or mp4); the server converts to 16 kHz mono WAV with `ffmpeg` and sends that to Sarvam. Chrome's native WebM is not a Sarvam-supported format — without this conversion the mic button is theatre. `SARVAM_API_KEY` must be set for the mic to work. Typed questions do not need it.
+**Voice (tested 2026-08-18, local HTTP, Saaras v3):** synthesized Lekha WAV → ffmpeg 16 kHz → Sarvam → RAG. See `data/reports/stt_http.json`.
 
-```bash
-python scripts/e2e_voice.py   # synthesizes Hindi speech; calls Sarvam if keyed
-```
+| Clip | Transcript | STT | RAG | HTTP wall | Result |
+|------|------------|----:|----:|----------:|--------|
+| कॉर्पोरेशन क्या है? | exact | 706ms | 422ms | 1142ms | grounded |
+| भारत की राजधानी क्या है? | `Bharat की राजधानी क्या है?` (then folded to भारत) | 796ms | 172ms | 987ms | grounded, Delhi not Mumbai |
+
+Full audio→answer is **not** under 200ms. STT alone was 700–1500ms on these runs. The 200ms number in the bench table is still **transcript → extract only**.
 
 ## Guardrails
 

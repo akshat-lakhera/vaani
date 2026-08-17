@@ -1,0 +1,43 @@
+{
+  "health": {
+    "ok": true,
+    "index_loaded": true,
+    "chunks": 57331,
+    "strategies": [
+      "whole"
+    ],
+    "stt_provider": "sarvam",
+    "stt_configured": true,
+    "llm_configured": false,
+    "model": "intfloat/multilingual-e5-small",
+    "dense": true
+  },
+  "asks": [
+    {
+      "phrase": "कॉर्पोरेशन क्या है?",
+      "http": 200,
+      "wall_ms": 1142.2,
+      "status": "grounded",
+      "transcript": "कॉर्पोरेशन क्या है?",
+      "stt_ms": 705.5,
+      "rag_ms": 422.1,
+      "within_budget": false,
+      "answer": "कॉर्पोरेशन का क्या अर्थ है?",
+      "delhi": false,
+      "mumbai": false
+    },
+    {
+      "phrase": "भारत की राजधानी क्या है?",
+      "http": 200,
+      "wall_ms": 987.3,
+      "status": "grounded",
+      "transcript": "Bharat की राजधानी क्या है?",
+      "stt_ms": 795.7,
+      "rag_ms": 172.4,
+      "within_budget": true,
+      "answer": "दिल्ली, भारत: 2.5 करोड़ के साथ, भारतीय राजधानी दुनिया का दूसरा सबसे अधिक आबादी वाला शहर है।",
+      "delhi": true,
+      "mumbai": false
+    }
+  ]
+}

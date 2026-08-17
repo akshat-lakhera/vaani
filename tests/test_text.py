@@ -26,6 +26,13 @@ def test_marathi_roundtrip():
     assert "महाराष्ट्राची" in toks
 
 
+def test_fold_bharat_from_measured_stt():
+    from vaani.text import fold_stt_transcript
+
+    assert fold_stt_transcript("Bharat की राजधानी क्या है?") == "भारत की राजधानी क्या है?"
+    assert fold_stt_transcript("कॉर्पोरेशन क्या है?") == "कॉर्पोरेशन क्या है?"
+
+
 def test_overlap_and_hash():
     ctx = "The capital of India is New Delhi."
     assert overlap_precision("New Delhi", ctx) == 1.0

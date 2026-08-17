@@ -29,6 +29,7 @@ from vaani.relevance import attachment_conflict, rerank_hits
 from vaani.index import HybridIndex
 from vaani.schema import AskResponse, Citation, Timings
 from vaani.stt import STTError, Transcript, transcribe_with_retry
+from vaani.text import fold_stt_transcript
 
 
 def _now() -> float:
@@ -80,7 +81,7 @@ class Pipeline:
                 strategy=self.index.strategy,
             )
 
-        query = clip_query(text, self.settings.max_query_chars)
+        query = clip_query(fold_stt_transcript(text), self.settings.max_query_chars)
 
         t0 = _now()
         if self.index.faiss_index is not None and self.encoder is not None:

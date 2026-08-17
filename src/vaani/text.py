@@ -109,3 +109,18 @@ def clip(text: str, n: int) -> str:
     if len(text) <= n:
         return text
     return text[:n].rstrip()
+
+
+# Measured: Saaras v3 on a Lekha clip of "भारत की राजधानी क्या है?"
+# returned "Bharat की राजधानी क्या है?". That one romanization breaks
+# Hindi lexical coverage. Fold only tokens we have actually seen.
+_STT_FOLD = (
+    (re.compile(r"\bBharat\b", re.IGNORECASE), "भारत"),
+)
+
+
+def fold_stt_transcript(text: str) -> str:
+    out = normalize(text)
+    for pat, repl in _STT_FOLD:
+        out = pat.sub(repl, out)
+    return out

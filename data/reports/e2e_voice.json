@@ -4,12 +4,20 @@
   "wav_bytes": 41646,
   "text_path": {
     "status": "grounded",
-    "rag_ms": 1857.6,
+    "rag_ms": 1092.67,
     "within_budget": false,
-    "answer": "एस कॉर्पोरेशन: एस कॉर्पोरेशन और सी कॉर्पोरेशन के बीच मुख्य अंतर कर संरचना है।"
+    "answer": "कॉर्पोरेशन का क्या अर्थ है?"
   },
   "stt": {
-    "ran": false,
-    "reason": "SARVAM_API_KEY is empty — not faking a transcript"
+    "ran": true,
+    "provider": "sarvam",
+    "transcript": "कॉर्पोरेशन क्या है?",
+    "language": "hi-IN",
+    "stt_ms": 1468.0934159987373,
+    "status": "grounded",
+    "rag_ms": 111.35,
+    "within_budget": true,
+    "reason": "",
+    "answer": "कॉर्पोरेशन का क्या अर्थ है?"
   }
 }

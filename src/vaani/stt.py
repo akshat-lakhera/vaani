@@ -38,7 +38,13 @@ class SarvamSTT:
     def transcribe(self, audio: bytes, filename: str = "audio.wav", mime: str = "audio/wav") -> Transcript:
         headers = {"api-subscription-key": self.settings.sarvam_api_key}
         files = {"file": (filename, audio, mime)}
-        data = {"model": "saaras:v3", "mode": "transcribe"}
+        data = {
+            "model": "saaras:v3",
+            "mode": "transcribe",
+            # Corpus is Hindi. Without this, Saaras sometimes emits
+            # "Bharat" instead of "भारत", which then fails coverage.
+            "language_code": "hi-IN",
+        }
         try:
             with httpx.Client(timeout=self.settings.stt_timeout_s) as client:
                 resp = client.post(self.url, headers=headers, files=files, data=data)

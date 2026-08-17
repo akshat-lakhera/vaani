@@ -1,0 +1,43 @@
+{
+  "direct_stt": [
+    {
+      "phrase": "कॉर्पोरेशन क्या है?",
+      "transcript": "कॉर्पोरेशन क्या है?",
+      "language": "hi-IN",
+      "provider": "sarvam",
+      "stt_ms": 721.6,
+      "exact": true
+    },
+    {
+      "phrase": "भारत की राजधानी क्या है?",
+      "transcript": "Bharat की राजधानी क्या है?",
+      "language": "hi-IN",
+      "provider": "sarvam",
+      "stt_ms": 826.8,
+      "exact": false
+    }
+  ],
+  "http_corporation": {
+    "http": 200,
+    "wall_ms": 1589.2,
+    "status": "grounded",
+    "transcript": "कॉर्पोरेशन क्या है?",
+    "stt_ms": 876.8965000053868,
+    "rag_ms": 637.9469170060474,
+    "within_budget": false,
+    "answer": "कॉर्पोरेशन का क्या अर्थ है?"
+  },
+  "http_capital": {
+    "http": 200,
+    "wall_ms": 1099.8,
+    "status": "abstain",
+    "transcript": "Bharat की राजधानी क्या है?",
+    "stt_ms": 725.7435420033289,
+    "rag_ms": 368.11424999905284,
+    "within_budget": false,
+    "answer": "कॉर्पस में इस सवाल का भरोसेमंद जवाब नहीं मिला, इसलिए मैं कुछ नहीं कहूँगा।",
+    "mentions_delhi": false,
+    "mentions_mumbai": false
+  },
+  "note": "STT is Sarvam saaras:v3. RAG window excludes STT. Full audio→answer wall includes STT."
+}
