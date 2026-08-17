@@ -1,0 +1,38 @@
+{
+  "tested_at": "2026-08-17T23:25+05:30",
+  "public_url": "https://f6dc-2409-40c1-310b-abe4-60db-3f81-fa87-6534.ngrok-free.app",
+  "what_this_url_is": "ngrok free tunnel to the FastAPI process on this laptop. Not a durable host. Dies if the machine sleeps or ngrok exits.",
+  "stt_configured": false,
+  "sarvam_ran": false,
+  "index_chunks": 57331,
+  "public_http_tests": {
+    "GET /api/health": {"http": 200, "chunks": 57331, "dense": true, "stt_configured": false},
+    "GET /": {"http": 200, "bytes": 2028, "contains_mic_ui": true},
+    "POST /api/ask text कॉर्पोरेशन क्या है? (1st)": {"status": "grounded", "rag_ms": 403.1, "within_budget": false},
+    "POST /api/ask text कॉर्पोरेशन क्या है? (2nd)": {"status": "grounded", "rag_ms": 263.6, "embed_ms": 203.9, "retrieve_ms": 57.1, "within_budget": false},
+    "POST /api/ask text भारत की राजधानी क्या है?": {
+      "status": "grounded",
+      "rag_ms": 137.8,
+      "answer_preview": "मुंबई ... भारत के महाराष्ट्र राज्य की राजधानी है।",
+      "note": "Answered, but the extract is Mumbai as capital of Maharashtra, not Delhi as capital of India. Coverage passed because भारत+राजधानी both occur."
+    },
+    "POST /api/ask text password": {"status": "refuse", "reason": "unsafe intent"},
+    "POST /api/ask audio synthesized Hindi wav": {"status": "refuse", "reason": "SARVAM_API_KEY is not set"},
+    "GET /api/benchmark?n=15": {"n": 14, "p50_ms": 56.8, "p70_ms": 59.54, "p100_ms": 88.72, "under_200ms": 14}
+  },
+  "in_process_bench_200q": {
+    "file": "data/reports/bench.json",
+    "chunks": 57331,
+    "p50_ms": 46.94,
+    "p70_ms": 56.69,
+    "p100_ms": 128.76,
+    "under_200ms": 200,
+    "recall_at_k": 0.707,
+    "window": "transcript → extractive AskResponse. No STT. No HTTP."
+  },
+  "two_hundred_ms_verdict": {
+    "in_process_RAG_after_transcript": "MET on 200 sequential queries (P100 128.76ms).",
+    "HTTP_RAG_on_public_URL": "NOT reliably met. Two real public POSTs were 403ms and 264ms, both over 200. /api/benchmark over the tunnel (server-side timing only) was P100 88.72ms.",
+    "full_audio_STT_RAG": "NOT TESTED. No SARVAM_API_KEY. A synthesized wav was posted to the public URL and the server refused before Sarvam. Even with a key, Saaras is a network STT call typically well above 200ms, so audio→answer cannot honestly be claimed inside the budget."
+  }
+}

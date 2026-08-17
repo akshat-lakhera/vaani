@@ -1,0 +1,23 @@
+{
+  "dataset": "ai4bharat/MSMARCO-XI",
+  "measured_on": "local validation/hinval.parquet",
+  "hi_validation": {
+    "examples": 97941,
+    "rows_with_selected": 53895,
+    "selected_passages": 57463,
+    "unique_selected_texts": 57331
+  },
+  "shipped_before": {
+    "passages": 12000,
+    "fraction_of_hi_val_unique_selected": 0.2093
+  },
+  "shipped_now": {
+    "passages": 57331,
+    "fraction_of_hi_val_unique_selected": 1.0,
+    "languages_indexed": ["hi"],
+    "splits_indexed": ["validation"],
+    "not_indexed": "Hindi train (~3.7GB / ~808k queries), Marathi, and the other 12 languages. Full dump is 55.6GB / 11.4M rows."
+  },
+  "verdict": "12k was not acceptable: only 21% of unique selected Hindi-val passages, so in-index recall hid coverage holes (e.g. भारत की राजधानी abstained because the gold passage was not in the slice). The shipped index is now every unique selected Hindi-val passage (57,331). That is still not the whole 14-language 55GB dump — train and the other languages are not on disk and are not claimed.",
+  "note": "The brief names the dataset, not a required row count. Indexing 55GB is a download, not a system."
+}

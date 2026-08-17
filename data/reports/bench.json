@@ -2,30 +2,30 @@
   "summary": {
     "n": 200,
     "warmup": 15,
-    "index": "/Users/rishijat/Projects/vaani/data/indexes/shipped",
+    "index": "data/indexes/shipped",
     "strategy": "whole",
-    "chunks": 12000,
-    "p50_ms": 17.68,
-    "p70_ms": 19.28,
-    "p90_ms": 23.02,
-    "p99_ms": 32.59,
-    "p100_ms": 47.45,
-    "mean_ms": 17.85,
+    "chunks": 57331,
+    "p50_ms": 46.94,
+    "p70_ms": 56.69,
+    "p90_ms": 73.62,
+    "p99_ms": 117.7,
+    "p100_ms": 128.76,
+    "mean_ms": 48.71,
     "under_200ms": 200,
     "budget_ms": 200.0,
-    "recall_at_k": 0.8326,
+    "recall_at_k": 0.707,
     "judged": 215,
     "status_counts": {
-      "grounded": 114,
-      "abstain": 86,
+      "grounded": 137,
+      "abstain": 63,
       "refuse": 0
     },
     "stages_p50": {
       "guard_in_ms": 0.01,
-      "embed_ms": 9.1,
-      "retrieve_ms": 5.67,
-      "extract_ms": 0.93,
-      "guard_out_ms": 0.85
+      "embed_ms": 12.94,
+      "retrieve_ms": 33.25,
+      "extract_ms": 1.07,
+      "guard_out_ms": 0.96
     },
     "note": "Window is transcript \u2192 extractive AskResponse. STT/LLM not included."
   },
@@ -40,14 +40,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.9059169969987124,
-        "embed_ms": 228.0781669978751,
-        "retrieve_ms": 27.28845798992552,
-        "extract_ms": 1.2265419936738908,
-        "guard_out_ms": 1.1557920079212636,
+        "guard_in_ms": 4.456458002096042,
+        "embed_ms": 806.96887501108,
+        "retrieve_ms": 420.1135829935083,
+        "extract_ms": 1.2796250084647909,
+        "guard_out_ms": 1.2529170053312555,
         "generate_ms": null,
-        "total_rag_ms": 258.6548759863945,
-        "total_ms": 258.6548759863945
+        "total_rag_ms": 1234.0714580204803,
+        "total_ms": 1234.0714580204803
       },
       "within_budget": false
     },
@@ -61,14 +61,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.024499997380189598,
-        "embed_ms": 19.738625007448718,
-        "retrieve_ms": 12.325249990681186,
+        "guard_in_ms": 0.031249990570358932,
+        "embed_ms": 23.185457990621217,
+        "retrieve_ms": 69.80829199892469,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 32.49058399524074,
-        "total_ms": 32.49058399524074
+        "total_rag_ms": 93.31941600248683,
+        "total_ms": 93.31941600248683
       },
       "within_budget": true
     },
@@ -82,14 +82,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.019333005184307694,
-        "embed_ms": 21.931333001703024,
-        "retrieve_ms": 5.967832999886014,
-        "extract_ms": 0.7592500041937456,
-        "guard_out_ms": 0.7070419960655272,
+        "guard_in_ms": 0.01662501017563045,
+        "embed_ms": 26.0885409952607,
+        "retrieve_ms": 37.639250003849156,
+        "extract_ms": 1.304790988797322,
+        "guard_out_ms": 0.8686669898452237,
         "generate_ms": null,
-        "total_rag_ms": 29.384791007032618,
-        "total_ms": 29.384791007032618
+        "total_rag_ms": 65.91787398792803,
+        "total_ms": 65.91787398792803
       },
       "within_budget": true
     },
@@ -103,14 +103,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016624995623715222,
-        "embed_ms": 19.441541997366585,
-        "retrieve_ms": 7.328624997171573,
+        "guard_in_ms": 0.02025000867433846,
+        "embed_ms": 21.220540991635062,
+        "retrieve_ms": 42.19087499950547,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 27.051459008362144,
-        "total_ms": 27.051459008362144
+        "total_rag_ms": 63.72508300410118,
+        "total_ms": 63.72508300410118
       },
       "within_budget": true
     },
@@ -119,19 +119,19 @@
       "warmup": true,
       "query_id": 233826,
       "lang": "hi",
-      "status": "grounded",
-      "support": 1.0,
-      "hit_gold_in_topk": false,
+      "status": "abstain",
+      "support": 0.871940553188324,
+      "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01850000990089029,
-        "embed_ms": 12.93637500202749,
-        "retrieve_ms": 7.900666998466477,
-        "extract_ms": 1.6186660068342462,
-        "guard_out_ms": 1.109792006900534,
+        "guard_in_ms": 0.01999999221879989,
+        "embed_ms": 13.233833000413142,
+        "retrieve_ms": 47.72608299390413,
+        "extract_ms": 0.0,
+        "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 23.584000024129637,
-        "total_ms": 23.584000024129637
+        "total_rag_ms": 61.264666001079604,
+        "total_ms": 61.264666001079604
       },
       "within_budget": true
     },
@@ -145,14 +145,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010500007192604244,
-        "embed_ms": 13.973709006677382,
-        "retrieve_ms": 0.3939580055885017,
-        "extract_ms": 1.221999991685152,
-        "guard_out_ms": 0.9475409897277132,
+        "guard_in_ms": 0.013749988283962011,
+        "embed_ms": 12.92833399202209,
+        "retrieve_ms": 2.1249999990686774,
+        "extract_ms": 0.9857080003712326,
+        "guard_out_ms": 0.9140829934040084,
         "generate_ms": null,
-        "total_rag_ms": 16.547708000871353,
-        "total_ms": 16.547708000871353
+        "total_rag_ms": 16.96687497314997,
+        "total_ms": 16.96687497314997
       },
       "within_budget": true
     },
@@ -166,14 +166,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021500003640539944,
-        "embed_ms": 16.762416998972185,
-        "retrieve_ms": 9.63891699211672,
-        "extract_ms": 4.5219169987831265,
-        "guard_out_ms": 3.6897910031257197,
+        "guard_in_ms": 0.02316699828952551,
+        "embed_ms": 19.56904098915402,
+        "retrieve_ms": 57.546625001123175,
+        "extract_ms": 4.715415998362005,
+        "guard_out_ms": 4.040790998260491,
         "generate_ms": null,
-        "total_rag_ms": 34.63454199663829,
-        "total_ms": 34.63454199663829
+        "total_rag_ms": 85.89503998518921,
+        "total_ms": 85.89503998518921
       },
       "within_budget": true
     },
@@ -183,18 +183,18 @@
       "query_id": 260880,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.861713171005249,
+      "support": 0.9041652679443359,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.017333004507236183,
-        "embed_ms": 12.748166991514154,
-        "retrieve_ms": 7.701250011450611,
+        "guard_in_ms": 0.021624990040436387,
+        "embed_ms": 14.427166999666952,
+        "retrieve_ms": 50.35937498905696,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 20.701208006357774,
-        "total_ms": 20.701208006357774
+        "total_rag_ms": 65.17699999676552,
+        "total_ms": 65.17699999676552
       },
       "within_budget": true
     },
@@ -208,14 +208,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008666000212542713,
-        "embed_ms": 19.753041997319087,
-        "retrieve_ms": 5.033667010138743,
+        "guard_in_ms": 0.010957999620586634,
+        "embed_ms": 22.14549999916926,
+        "retrieve_ms": 30.179374996805564,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 24.945875004050322,
-        "total_ms": 24.945875004050322
+        "total_rag_ms": 52.75045899907127,
+        "total_ms": 52.75045899907127
       },
       "within_budget": true
     },
@@ -225,18 +225,18 @@
       "query_id": 1060361,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8377542495727539,
+      "support": 0.8440703749656677,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.022207997972145677,
-        "embed_ms": 19.936708005843684,
-        "retrieve_ms": 10.344790993258357,
+        "guard_in_ms": 0.02487500023562461,
+        "embed_ms": 22.397666005417705,
+        "retrieve_ms": 66.7516660032561,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 30.632333000539802,
-        "total_ms": 30.632333000539802
+        "total_rag_ms": 90.26524999353569,
+        "total_ms": 90.26524999353569
       },
       "within_budget": true
     },
@@ -250,14 +250,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01116600469686091,
-        "embed_ms": 18.30787499784492,
-        "retrieve_ms": 3.82720900233835,
-        "extract_ms": 0.9438749984838068,
-        "guard_out_ms": 0.9950419917004183,
+        "guard_in_ms": 0.011958007235080004,
+        "embed_ms": 20.463166991248727,
+        "retrieve_ms": 19.83870800177101,
+        "extract_ms": 1.2554169952636585,
+        "guard_out_ms": 1.2824160075979307,
         "generate_ms": null,
-        "total_rag_ms": 24.085166995064355,
-        "total_ms": 24.085166995064355
+        "total_rag_ms": 42.85166600311641,
+        "total_ms": 42.85166600311641
       },
       "within_budget": true
     },
@@ -271,14 +271,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01375000283587724,
-        "embed_ms": 8.93570898915641,
-        "retrieve_ms": 4.203207994578406,
-        "extract_ms": 0.9681660012574866,
-        "guard_out_ms": 1.0222920100204647,
+        "guard_in_ms": 0.01620799594093114,
+        "embed_ms": 12.91112499893643,
+        "retrieve_ms": 20.85241700115148,
+        "extract_ms": 1.159499995992519,
+        "guard_out_ms": 1.1193329992238432,
         "generate_ms": null,
-        "total_rag_ms": 15.143124997848645,
-        "total_ms": 15.143124997848645
+        "total_rag_ms": 36.0585829912452,
+        "total_ms": 36.0585829912452
       },
       "within_budget": true
     },
@@ -288,18 +288,18 @@
       "query_id": 126172,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8643815517425537,
+      "support": 0.871593713760376,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012290998711250722,
-        "embed_ms": 18.01283299573697,
-        "retrieve_ms": 3.8340410101227462,
+        "guard_in_ms": 0.014125005691312253,
+        "embed_ms": 25.85154199914541,
+        "retrieve_ms": 20.157334001851268,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 22.052750005968846,
-        "total_ms": 22.052750005968846
+        "total_rag_ms": 46.33633399498649,
+        "total_ms": 46.33633399498649
       },
       "within_budget": true
     },
@@ -309,18 +309,18 @@
       "query_id": 331047,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8485303521156311,
+      "support": 0.8603036999702454,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014457997167482972,
-        "embed_ms": 17.422457996872254,
-        "retrieve_ms": 4.278459004126489,
+        "guard_in_ms": 0.020457999198697507,
+        "embed_ms": 21.335334007744677,
+        "retrieve_ms": 23.672374998568557,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 21.900624997215346,
-        "total_ms": 21.900624997215346
+        "total_rag_ms": 45.338208990870044,
+        "total_ms": 45.338208990870044
       },
       "within_budget": true
     },
@@ -330,18 +330,18 @@
       "query_id": 1060359,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8416260480880737,
+      "support": 0.8668608665466309,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012958000297658145,
-        "embed_ms": 12.263333002920263,
-        "retrieve_ms": 8.201000004191883,
+        "guard_in_ms": 0.013499986380338669,
+        "embed_ms": 13.108875005855225,
+        "retrieve_ms": 46.80908299633302,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 20.65441699232906,
-        "total_ms": 20.65441699232906
+        "total_rag_ms": 60.2400409989059,
+        "total_ms": 60.2400409989059
       },
       "within_budget": true
     },
@@ -350,19 +350,19 @@
       "warmup": false,
       "query_id": 267380,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9308390617370605,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016291000065393746,
-        "embed_ms": 9.034832997713238,
-        "retrieve_ms": 2.561417000833899,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.018082995666190982,
+        "embed_ms": 14.14383300289046,
+        "retrieve_ms": 13.662708006449975,
+        "extract_ms": 1.258542004507035,
+        "guard_out_ms": 1.1386249971110374,
         "generate_ms": null,
-        "total_rag_ms": 11.840582999866456,
-        "total_ms": 11.840582999866456
+        "total_rag_ms": 30.2217910066247,
+        "total_ms": 30.2217910066247
       },
       "within_budget": true
     },
@@ -376,14 +376,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009125011274591088,
-        "embed_ms": 8.040999993681908,
-        "retrieve_ms": 5.544790998101234,
-        "extract_ms": 1.0104579996550456,
-        "guard_out_ms": 0.9489999938523397,
+        "guard_in_ms": 0.010415998985990882,
+        "embed_ms": 12.747874992783181,
+        "retrieve_ms": 33.18404100718908,
+        "extract_ms": 1.0570829908829182,
+        "guard_out_ms": 0.9483329922659323,
         "generate_ms": null,
-        "total_rag_ms": 15.554373996565118,
-        "total_ms": 15.554373996565118
+        "total_rag_ms": 47.9477479821071,
+        "total_ms": 47.9477479821071
       },
       "within_budget": true
     },
@@ -397,14 +397,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012584001524373889,
-        "embed_ms": 8.277041997644119,
-        "retrieve_ms": 3.6936669930582866,
+        "guard_in_ms": 0.01575000351294875,
+        "embed_ms": 13.289334005094133,
+        "retrieve_ms": 19.122625002637506,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.190666995593347,
-        "total_ms": 12.190666995593347
+        "total_rag_ms": 32.70175000943709,
+        "total_ms": 32.70175000943709
       },
       "within_budget": true
     },
@@ -413,19 +413,19 @@
       "warmup": false,
       "query_id": 317450,
       "lang": "hi",
-      "status": "grounded",
-      "support": 1.0,
-      "hit_gold_in_topk": true,
+      "status": "abstain",
+      "support": 0.8560992479324341,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014332996215671301,
-        "embed_ms": 20.055749992025085,
-        "retrieve_ms": 9.98208299279213,
-        "extract_ms": 1.009833998978138,
-        "guard_out_ms": 0.9324580023530871,
+        "guard_in_ms": 0.016125006368383765,
+        "embed_ms": 20.63600000110455,
+        "retrieve_ms": 61.2588749936549,
+        "extract_ms": 0.0,
+        "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 31.99445798236411,
-        "total_ms": 31.99445798236411
+        "total_rag_ms": 82.16841700777877,
+        "total_ms": 82.16841700777877
       },
       "within_budget": true
     },
@@ -439,14 +439,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014125005691312253,
-        "embed_ms": 9.159666005871259,
-        "retrieve_ms": 3.672209000797011,
-        "extract_ms": 1.7663340113358572,
-        "guard_out_ms": 1.493584000854753,
+        "guard_in_ms": 0.016833990230225027,
+        "embed_ms": 12.336833009612747,
+        "retrieve_ms": 22.415625004214235,
+        "extract_ms": 1.9437089940765873,
+        "guard_out_ms": 1.9074590090895072,
         "generate_ms": null,
-        "total_rag_ms": 16.105918024550192,
-        "total_ms": 16.105918024550192
+        "total_rag_ms": 38.6204600072233,
+        "total_ms": 38.6204600072233
       },
       "within_budget": true
     },
@@ -456,18 +456,18 @@
       "query_id": 116095,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8640449047088623,
-      "hit_gold_in_topk": true,
+      "support": 0.8562405109405518,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011707990779541433,
-        "embed_ms": 12.96491599350702,
-        "retrieve_ms": 3.8695420080330223,
+        "guard_in_ms": 0.013041993952356279,
+        "embed_ms": 13.87974999670405,
+        "retrieve_ms": 21.186500001931563,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 17.051083006663248,
-        "total_ms": 17.051083006663248
+        "total_rag_ms": 35.46620799170341,
+        "total_ms": 35.46620799170341
       },
       "within_budget": true
     },
@@ -481,14 +481,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016792007954791188,
-        "embed_ms": 12.410374998580664,
-        "retrieve_ms": 11.446499993326142,
-        "extract_ms": 1.679249995504506,
-        "guard_out_ms": 1.3038750039413571,
+        "guard_in_ms": 0.02012499317061156,
+        "embed_ms": 22.355124994646758,
+        "retrieve_ms": 91.71049999713432,
+        "extract_ms": 2.001874992856756,
+        "guard_out_ms": 1.5562909975415096,
         "generate_ms": null,
-        "total_rag_ms": 26.85679199930746,
-        "total_ms": 26.85679199930746
+        "total_rag_ms": 117.64391597534996,
+        "total_ms": 117.64391597534996
       },
       "within_budget": true
     },
@@ -502,14 +502,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008417002391070127,
-        "embed_ms": 18.7389580096351,
-        "retrieve_ms": 4.943459003698081,
-        "extract_ms": 0.9151249978458509,
-        "guard_out_ms": 0.8957089885370806,
+        "guard_in_ms": 0.013417011359706521,
+        "embed_ms": 23.409874993376434,
+        "retrieve_ms": 34.13962500053458,
+        "extract_ms": 0.9297919896198437,
+        "guard_out_ms": 0.8492080087307841,
         "generate_ms": null,
-        "total_rag_ms": 25.50166800210718,
-        "total_ms": 25.50166800210718
+        "total_rag_ms": 59.34191700362135,
+        "total_ms": 59.34191700362135
       },
       "within_budget": true
     },
@@ -523,14 +523,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01908399281091988,
-        "embed_ms": 9.254749995307066,
-        "retrieve_ms": 6.173750007292256,
-        "extract_ms": 1.5517080028075725,
-        "guard_out_ms": 1.3044999941485003,
+        "guard_in_ms": 0.020374995074234903,
+        "embed_ms": 14.085791990510188,
+        "retrieve_ms": 34.359375000349246,
+        "extract_ms": 1.4762089995201677,
+        "guard_out_ms": 1.1778329935623333,
         "generate_ms": null,
-        "total_rag_ms": 18.303791992366314,
-        "total_ms": 18.303791992366314
+        "total_rag_ms": 51.11958397901617,
+        "total_ms": 51.11958397901617
       },
       "within_budget": true
     },
@@ -539,19 +539,19 @@
       "warmup": false,
       "query_id": 330463,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8785608410835266,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012207994586788118,
-        "embed_ms": 8.908584000892006,
-        "retrieve_ms": 7.1774170064600185,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.01375000283587724,
+        "embed_ms": 13.25824999366887,
+        "retrieve_ms": 41.768291004700586,
+        "extract_ms": 1.4663750043837354,
+        "guard_out_ms": 1.18937500519678,
         "generate_ms": null,
-        "total_rag_ms": 16.24966699455399,
-        "total_ms": 16.24966699455399
+        "total_rag_ms": 57.69604101078585,
+        "total_ms": 57.69604101078585
       },
       "within_budget": true
     },
@@ -565,14 +565,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.028292008209973574,
-        "embed_ms": 8.854750005411915,
-        "retrieve_ms": 7.642750002560206,
+        "guard_in_ms": 0.02662499900907278,
+        "embed_ms": 13.73745800810866,
+        "retrieve_ms": 43.31070800253656,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 16.73283400305081,
-        "total_ms": 16.73283400305081
+        "total_rag_ms": 57.3326659941813,
+        "total_ms": 57.3326659941813
       },
       "within_budget": true
     },
@@ -583,17 +583,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015624988009221852,
-        "embed_ms": 9.051540997461416,
-        "retrieve_ms": 5.66012499621138,
-        "extract_ms": 1.2877920089522377,
-        "guard_out_ms": 1.174749995698221,
+        "guard_in_ms": 0.016833990230225027,
+        "embed_ms": 14.159416998154484,
+        "retrieve_ms": 34.99741699488368,
+        "extract_ms": 1.1378750059520826,
+        "guard_out_ms": 1.009792002150789,
         "generate_ms": null,
-        "total_rag_ms": 17.189832986332476,
-        "total_ms": 17.189832986332476
+        "total_rag_ms": 51.32133499137126,
+        "total_ms": 51.32133499137126
       },
       "within_budget": true
     },
@@ -607,14 +607,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01316699490416795,
-        "embed_ms": 19.26624999032356,
-        "retrieve_ms": 7.204042005469091,
-        "extract_ms": 1.0343749891035259,
-        "guard_out_ms": 1.0702919971663505,
+        "guard_in_ms": 0.01462499494664371,
+        "embed_ms": 21.0575829987647,
+        "retrieve_ms": 38.57004099700134,
+        "extract_ms": 1.1613340029725805,
+        "guard_out_ms": 1.0369170049671084,
         "generate_ms": null,
-        "total_rag_ms": 28.588125976966694,
-        "total_ms": 28.588125976966694
+        "total_rag_ms": 61.840499998652376,
+        "total_ms": 61.840499998652376
       },
       "within_budget": true
     },
@@ -628,14 +628,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01966700074262917,
-        "embed_ms": 13.827332993969321,
-        "retrieve_ms": 15.473666004254483,
+        "guard_in_ms": 0.020916006178595126,
+        "embed_ms": 19.448207996902056,
+        "retrieve_ms": 85.53820800443646,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 29.54324999882374,
-        "total_ms": 29.54324999882374
+        "total_rag_ms": 105.37854200811125,
+        "total_ms": 105.37854200811125
       },
       "within_budget": true
     },
@@ -649,14 +649,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012042000889778137,
-        "embed_ms": 11.958707997109741,
-        "retrieve_ms": 4.211167004541494,
-        "extract_ms": 1.1428750003688037,
-        "guard_out_ms": 0.9752920013852417,
+        "guard_in_ms": 0.011790994904004037,
+        "embed_ms": 13.181125003029592,
+        "retrieve_ms": 19.86616700014565,
+        "extract_ms": 0.9913329995470122,
+        "guard_out_ms": 3.384415991604328,
         "generate_ms": null,
-        "total_rag_ms": 18.30008400429506,
-        "total_ms": 18.30008400429506
+        "total_rag_ms": 37.43483198923059,
+        "total_ms": 37.43483198923059
       },
       "within_budget": true
     },
@@ -665,19 +665,19 @@
       "warmup": false,
       "query_id": 264507,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9012445211410522,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014334000297822058,
-        "embed_ms": 9.12041700212285,
-        "retrieve_ms": 7.981625007232651,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.015375000657513738,
+        "embed_ms": 12.763167003868148,
+        "retrieve_ms": 44.80324999894947,
+        "extract_ms": 1.2060419976478443,
+        "guard_out_ms": 0.9712080063764006,
         "generate_ms": null,
-        "total_rag_ms": 17.358707991661504,
-        "total_ms": 17.358707991661504
+        "total_rag_ms": 59.759042007499374,
+        "total_ms": 59.759042007499374
       },
       "within_budget": true
     },
@@ -691,14 +691,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012999997125007212,
-        "embed_ms": 9.30262501060497,
-        "retrieve_ms": 3.5712090029846877,
-        "extract_ms": 1.112250000005588,
-        "guard_out_ms": 0.9954580018529668,
+        "guard_in_ms": 0.013791999663226306,
+        "embed_ms": 13.221665998571552,
+        "retrieve_ms": 18.635166008607484,
+        "extract_ms": 1.033624997944571,
+        "guard_out_ms": 0.9210839925799519,
         "generate_ms": null,
-        "total_rag_ms": 14.99454201257322,
-        "total_ms": 14.99454201257322
+        "total_rag_ms": 33.825332997366786,
+        "total_ms": 33.825332997366786
       },
       "within_budget": true
     },
@@ -712,14 +712,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008417002391070127,
-        "embed_ms": 11.599416990065947,
-        "retrieve_ms": 0.6339169922284782,
-        "extract_ms": 0.8443749975413084,
-        "guard_out_ms": 0.9236250043613836,
+        "guard_in_ms": 0.009540992323309183,
+        "embed_ms": 12.19654199667275,
+        "retrieve_ms": 1.9814580009551719,
+        "extract_ms": 1.0518329945625737,
+        "guard_out_ms": 0.9644999954616651,
         "generate_ms": null,
-        "total_rag_ms": 14.009750986588188,
-        "total_ms": 14.009750986588188
+        "total_rag_ms": 16.20387397997547,
+        "total_ms": 16.20387397997547
       },
       "within_budget": true
     },
@@ -733,14 +733,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014791992725804448,
-        "embed_ms": 9.93816601112485,
-        "retrieve_ms": 6.9657500134781,
+        "guard_in_ms": 0.01479100319556892,
+        "embed_ms": 11.075624992372468,
+        "retrieve_ms": 38.97037499700673,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 17.07491600245703,
-        "total_ms": 17.07491600245703
+        "total_rag_ms": 50.377499996102415,
+        "total_ms": 50.377499996102415
       },
       "within_budget": true
     },
@@ -750,18 +750,18 @@
       "query_id": 328321,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8706976175308228,
+      "support": 0.8736390471458435,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021041007130406797,
-        "embed_ms": 9.08112499746494,
-        "retrieve_ms": 10.938040999462828,
+        "guard_in_ms": 0.021750005544163287,
+        "embed_ms": 13.015374992392026,
+        "retrieve_ms": 64.51891599863302,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 20.27870900928974,
-        "total_ms": 20.27870900928974
+        "total_rag_ms": 77.83029199345037,
+        "total_ms": 77.83029199345037
       },
       "within_budget": true
     },
@@ -775,14 +775,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013249999028630555,
-        "embed_ms": 9.254333999706432,
-        "retrieve_ms": 6.80258400097955,
-        "extract_ms": 0.9474580001551658,
-        "guard_out_ms": 0.8887080039130524,
+        "guard_in_ms": 0.014874996850267053,
+        "embed_ms": 14.017374996910803,
+        "retrieve_ms": 39.01187499286607,
+        "extract_ms": 0.9832080104388297,
+        "guard_out_ms": 0.8084579894784838,
         "generate_ms": null,
-        "total_rag_ms": 17.90633400378283,
-        "total_ms": 17.90633400378283
+        "total_rag_ms": 54.83579098654445,
+        "total_ms": 54.83579098654445
       },
       "within_budget": true
     },
@@ -791,19 +791,19 @@
       "warmup": false,
       "query_id": 1060342,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.890178382396698,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010250005288980901,
-        "embed_ms": 12.292458006413653,
-        "retrieve_ms": 7.207333997939713,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.010667004971764982,
+        "embed_ms": 12.898167013190687,
+        "retrieve_ms": 39.115749998018146,
+        "extract_ms": 1.3201660040067509,
+        "guard_out_ms": 1.3045840023551136,
         "generate_ms": null,
-        "total_rag_ms": 19.715458009159192,
-        "total_ms": 19.715458009159192
+        "total_rag_ms": 54.64933402254246,
+        "total_ms": 54.64933402254246
       },
       "within_budget": true
     },
@@ -817,14 +817,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.02508299075998366,
-        "embed_ms": 17.221917005372234,
-        "retrieve_ms": 8.336292012245394,
-        "extract_ms": 2.2504999942611903,
-        "guard_out_ms": 1.3788749929517508,
+        "guard_in_ms": 0.025165994884446263,
+        "embed_ms": 21.013207995565608,
+        "retrieve_ms": 50.437500001862645,
+        "extract_ms": 2.6435419858898968,
+        "guard_out_ms": 1.4427920104935765,
         "generate_ms": null,
-        "total_rag_ms": 29.212666995590553,
-        "total_ms": 29.212666995590553
+        "total_rag_ms": 75.56220798869617,
+        "total_ms": 75.56220798869617
       },
       "within_budget": true
     },
@@ -838,14 +838,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008417002391070127,
-        "embed_ms": 8.46858300792519,
-        "retrieve_ms": 0.3528340021148324,
-        "extract_ms": 1.2229169951751828,
-        "guard_out_ms": 1.1089170002378523,
+        "guard_in_ms": 0.010292002116329968,
+        "embed_ms": 12.156459008110687,
+        "retrieve_ms": 0.9250829898519441,
+        "extract_ms": 1.2084999907528982,
+        "guard_out_ms": 1.136333987233229,
         "generate_ms": null,
-        "total_rag_ms": 11.161668007844128,
-        "total_ms": 11.161668007844128
+        "total_rag_ms": 15.436667978065088,
+        "total_ms": 15.436667978065088
       },
       "within_budget": true
     },
@@ -856,17 +856,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009499999578110874,
-        "embed_ms": 8.687791996635497,
-        "retrieve_ms": 0.8297500025946647,
-        "extract_ms": 0.7057500042719766,
-        "guard_out_ms": 0.7034580048639327,
+        "guard_in_ms": 0.010332994861528277,
+        "embed_ms": 14.11745800578501,
+        "retrieve_ms": 3.9177500002551824,
+        "extract_ms": 0.9892920061247423,
+        "guard_out_ms": 0.9167500102194026,
         "generate_ms": null,
-        "total_rag_ms": 10.936250007944182,
-        "total_ms": 10.936250007944182
+        "total_rag_ms": 19.951583017245866,
+        "total_ms": 19.951583017245866
       },
       "within_budget": true
     },
@@ -880,14 +880,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014417004422284663,
-        "embed_ms": 11.952415996347554,
-        "retrieve_ms": 3.969124998548068,
-        "extract_ms": 1.3511249999282882,
-        "guard_out_ms": 1.128832998801954,
+        "guard_in_ms": 0.015457990230061114,
+        "embed_ms": 10.916416009422392,
+        "retrieve_ms": 18.86700000613928,
+        "extract_ms": 1.3577920035459101,
+        "guard_out_ms": 1.0269170015817508,
         "generate_ms": null,
-        "total_rag_ms": 18.41591599804815,
-        "total_ms": 18.41591599804815
+        "total_rag_ms": 32.18358301091939,
+        "total_ms": 32.18358301091939
       },
       "within_budget": true
     },
@@ -901,14 +901,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.00883299799170345,
-        "embed_ms": 8.674084005178884,
-        "retrieve_ms": 0.56245899759233,
-        "extract_ms": 0.788916993769817,
-        "guard_out_ms": 0.8938329992815852,
+        "guard_in_ms": 0.009583003702573478,
+        "embed_ms": 12.351333003607579,
+        "retrieve_ms": 1.759333987138234,
+        "extract_ms": 0.8314580045407638,
+        "guard_out_ms": 0.7853749993955716,
         "generate_ms": null,
-        "total_rag_ms": 10.92812599381432,
-        "total_ms": 10.92812599381432
+        "total_rag_ms": 15.737082998384722,
+        "total_ms": 15.737082998384722
       },
       "within_budget": true
     },
@@ -919,17 +919,17 @@
       "lang": "hi",
       "status": "abstain",
       "support": 0.8749397397041321,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011416006600484252,
-        "embed_ms": 8.239583010436036,
-        "retrieve_ms": 4.237375003867783,
+        "guard_in_ms": 0.011833995813503861,
+        "embed_ms": 11.481207999167964,
+        "retrieve_ms": 21.167083003092557,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.645625000004657,
-        "total_ms": 12.645625000004657
+        "total_rag_ms": 32.848332994035445,
+        "total_ms": 32.848332994035445
       },
       "within_budget": true
     },
@@ -939,18 +939,18 @@
       "query_id": 229215,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8581830263137817,
-      "hit_gold_in_topk": true,
+      "support": 0.8768811821937561,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012083008186891675,
-        "embed_ms": 8.424915999057703,
-        "retrieve_ms": 4.947583001921885,
+        "guard_in_ms": 0.014374993043020368,
+        "embed_ms": 8.98637498903554,
+        "retrieve_ms": 27.669292001519352,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 13.577499994426034,
-        "total_ms": 13.577499994426034
+        "total_rag_ms": 36.95608300040476,
+        "total_ms": 36.95608300040476
       },
       "within_budget": true
     },
@@ -964,14 +964,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021750005544163287,
-        "embed_ms": 21.459582989336923,
-        "retrieve_ms": 8.232291991589591,
-        "extract_ms": 1.5354589995695278,
-        "guard_out_ms": 1.2377090024529025,
+        "guard_in_ms": 0.023707994841970503,
+        "embed_ms": 20.15966598992236,
+        "retrieve_ms": 50.54391700832639,
+        "extract_ms": 1.4890410093357787,
+        "guard_out_ms": 1.237042000866495,
         "generate_ms": null,
-        "total_rag_ms": 32.48679298849311,
-        "total_ms": 32.48679298849311
+        "total_rag_ms": 73.45337400329299,
+        "total_ms": 73.45337400329299
       },
       "within_budget": true
     },
@@ -985,14 +985,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014749995898455381,
-        "embed_ms": 11.129332997370511,
-        "retrieve_ms": 2.7165000064997002,
-        "extract_ms": 1.4386670081876218,
-        "guard_out_ms": 1.1977079993812367,
+        "guard_in_ms": 0.015541008906438947,
+        "embed_ms": 12.267624988453463,
+        "retrieve_ms": 14.648541997303255,
+        "extract_ms": 1.3163330004317686,
+        "guard_out_ms": 1.1580420105019584,
         "generate_ms": null,
-        "total_rag_ms": 16.496958007337525,
-        "total_ms": 16.496958007337525
+        "total_rag_ms": 29.406083005596884,
+        "total_ms": 29.406083005596884
       },
       "within_budget": true
     },
@@ -1006,14 +1006,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01129100564867258,
-        "embed_ms": 11.433457999373786,
-        "retrieve_ms": 4.189959014183842,
-        "extract_ms": 1.0922920046141371,
-        "guard_out_ms": 1.159334002295509,
+        "guard_in_ms": 0.01233299553859979,
+        "embed_ms": 11.886082997079939,
+        "retrieve_ms": 30.0725830020383,
+        "extract_ms": 0.9142500057350844,
+        "guard_out_ms": 1.002333010546863,
         "generate_ms": null,
-        "total_rag_ms": 17.886334026115946,
-        "total_ms": 17.886334026115946
+        "total_rag_ms": 43.887582010938786,
+        "total_ms": 43.887582010938786
       },
       "within_budget": true
     },
@@ -1027,14 +1027,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.007166992872953415,
-        "embed_ms": 9.386624995386228,
-        "retrieve_ms": 4.8046660085674375,
-        "extract_ms": 0.7681669958401471,
-        "guard_out_ms": 0.5136660038260743,
+        "guard_in_ms": 0.00841599830891937,
+        "embed_ms": 12.43225000507664,
+        "retrieve_ms": 28.24416701332666,
+        "extract_ms": 0.9607079991837963,
+        "guard_out_ms": 0.982375000603497,
         "generate_ms": null,
-        "total_rag_ms": 15.48029099649284,
-        "total_ms": 15.48029099649284
+        "total_rag_ms": 42.62791601649951,
+        "total_ms": 42.62791601649951
       },
       "within_budget": true
     },
@@ -1043,19 +1043,19 @@
       "warmup": false,
       "query_id": 126636,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8590760231018066,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
         "guard_in_ms": 0.01358399458695203,
-        "embed_ms": 8.532791005563922,
-        "retrieve_ms": 3.6358749930514023,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "embed_ms": 13.363666002987884,
+        "retrieve_ms": 18.706416987697594,
+        "extract_ms": 1.00545899476856,
+        "guard_out_ms": 0.7756670092931017,
         "generate_ms": null,
-        "total_rag_ms": 12.343875001533888,
-        "total_ms": 12.343875001533888
+        "total_rag_ms": 33.86479298933409,
+        "total_ms": 33.86479298933409
       },
       "within_budget": true
     },
@@ -1064,19 +1064,19 @@
       "warmup": false,
       "query_id": 53335,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8725675344467163,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016792007954791188,
-        "embed_ms": 9.233749995473772,
-        "retrieve_ms": 4.448459003469907,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.015958998119458556,
+        "embed_ms": 9.082749995286576,
+        "retrieve_ms": 22.732208992238156,
+        "extract_ms": 1.5262919914675876,
+        "guard_out_ms": 1.0687920002965257,
         "generate_ms": null,
-        "total_rag_ms": 13.874208001652732,
-        "total_ms": 13.874208001652732
+        "total_rag_ms": 34.426001977408305,
+        "total_ms": 34.426001977408305
       },
       "within_budget": true
     },
@@ -1090,14 +1090,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01666598836891353,
-        "embed_ms": 8.437999989837408,
-        "retrieve_ms": 4.12420800421387,
-        "extract_ms": 1.3492500002030283,
-        "guard_out_ms": 1.2292920000618324,
+        "guard_in_ms": 0.018125007045455277,
+        "embed_ms": 13.2978329929756,
+        "retrieve_ms": 22.838917007902637,
+        "extract_ms": 1.1992079962510616,
+        "guard_out_ms": 1.0765829938463867,
         "generate_ms": null,
-        "total_rag_ms": 15.157415982685052,
-        "total_ms": 15.157415982685052
+        "total_rag_ms": 38.43066599802114,
+        "total_ms": 38.43066599802114
       },
       "within_budget": true
     },
@@ -1108,17 +1108,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009708994184620678,
-        "embed_ms": 8.19437499740161,
-        "retrieve_ms": 4.249999998137355,
-        "extract_ms": 2.5865000061457977,
-        "guard_out_ms": 2.825540999765508,
+        "guard_in_ms": 0.010333998943679035,
+        "embed_ms": 12.073874997440726,
+        "retrieve_ms": 22.699459004797973,
+        "extract_ms": 1.2760829995386302,
+        "guard_out_ms": 1.0710420028772205,
         "generate_ms": null,
-        "total_rag_ms": 17.86612499563489,
-        "total_ms": 17.86612499563489
+        "total_rag_ms": 37.13079300359823,
+        "total_ms": 37.13079300359823
       },
       "within_budget": true
     },
@@ -1132,14 +1132,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014541990822181106,
-        "embed_ms": 8.700667007360607,
-        "retrieve_ms": 3.630291990702972,
-        "extract_ms": 1.5577919984934852,
-        "guard_out_ms": 1.392083999235183,
+        "guard_in_ms": 0.015084006008692086,
+        "embed_ms": 12.792292007361539,
+        "retrieve_ms": 18.392750003840774,
+        "extract_ms": 1.2048750068061054,
+        "guard_out_ms": 0.9941250027623028,
         "generate_ms": null,
-        "total_rag_ms": 15.295376986614428,
-        "total_ms": 15.295376986614428
+        "total_rag_ms": 33.39912602677941,
+        "total_ms": 33.39912602677941
       },
       "within_budget": true
     },
@@ -1153,14 +1153,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011916999937966466,
-        "embed_ms": 11.97666599182412,
-        "retrieve_ms": 3.2897909986786544,
-        "extract_ms": 1.126208997447975,
-        "guard_out_ms": 1.0845000069821253,
+        "guard_in_ms": 0.012625008821487427,
+        "embed_ms": 12.432999996235594,
+        "retrieve_ms": 17.06374999776017,
+        "extract_ms": 1.0381669999333099,
+        "guard_out_ms": 0.9772079938556999,
         "generate_ms": null,
-        "total_rag_ms": 17.48908299487084,
-        "total_ms": 17.48908299487084
+        "total_rag_ms": 31.52474999660626,
+        "total_ms": 31.52474999660626
       },
       "within_budget": true
     },
@@ -1174,14 +1174,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01995800994336605,
-        "embed_ms": 12.74383299460169,
-        "retrieve_ms": 8.112583993352018,
+        "guard_in_ms": 0.02029100141953677,
+        "embed_ms": 12.975125006050803,
+        "retrieve_ms": 47.06329198961612,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 21.086334003484808,
-        "total_ms": 21.086334003484808
+        "total_rag_ms": 60.366667006746866,
+        "total_ms": 60.366667006746866
       },
       "within_budget": true
     },
@@ -1192,17 +1192,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.018708989955484867,
-        "embed_ms": 8.798625000054017,
-        "retrieve_ms": 9.65258400538005,
-        "extract_ms": 0.932041002670303,
-        "guard_out_ms": 0.5252919945633039,
+        "guard_in_ms": 0.02029100141953677,
+        "embed_ms": 12.879333007731475,
+        "retrieve_ms": 59.97204199957196,
+        "extract_ms": 1.2110000097891316,
+        "guard_out_ms": 1.0348340001655743,
         "generate_ms": null,
-        "total_rag_ms": 19.927250992623158,
-        "total_ms": 19.927250992623158
+        "total_rag_ms": 75.11750001867767,
+        "total_ms": 75.11750001867767
       },
       "within_budget": true
     },
@@ -1216,14 +1216,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016541991499252617,
-        "embed_ms": 8.778082992648706,
-        "retrieve_ms": 7.05920800101012,
-        "extract_ms": 1.0322080051992089,
-        "guard_out_ms": 0.981459001195617,
+        "guard_in_ms": 0.016707999748177826,
+        "embed_ms": 12.883791991043836,
+        "retrieve_ms": 43.95241700694896,
+        "extract_ms": 1.7177079862449318,
+        "guard_out_ms": 1.2334579951129854,
         "generate_ms": null,
-        "total_rag_ms": 17.867499991552904,
-        "total_ms": 17.867499991552904
+        "total_rag_ms": 59.804082979098894,
+        "total_ms": 59.804082979098894
       },
       "within_budget": true
     },
@@ -1233,18 +1233,18 @@
       "query_id": 137339,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.9114955067634583,
+      "support": 0.913873553276062,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.023542001144960523,
-        "embed_ms": 9.010417008539662,
-        "retrieve_ms": 4.471542008104734,
+        "guard_in_ms": 0.022458989406004548,
+        "embed_ms": 13.49729199137073,
+        "retrieve_ms": 22.2477500064997,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 13.66404200962279,
-        "total_ms": 13.66404200962279
+        "total_rag_ms": 35.966042007203214,
+        "total_ms": 35.966042007203214
       },
       "within_budget": true
     },
@@ -1258,14 +1258,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011666998034343123,
-        "embed_ms": 8.708625013241544,
-        "retrieve_ms": 3.409917000681162,
+        "guard_in_ms": 0.013167009456083179,
+        "embed_ms": 11.875541997142136,
+        "retrieve_ms": 18.489250011043623,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.357125000562519,
-        "total_ms": 12.357125000562519
+        "total_rag_ms": 30.69820799282752,
+        "total_ms": 30.69820799282752
       },
       "within_budget": true
     },
@@ -1275,18 +1275,18 @@
       "query_id": 1060323,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8251920938491821,
+      "support": 0.8892121315002441,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009875002433545887,
-        "embed_ms": 12.39483400422614,
-        "retrieve_ms": 5.068375001428649,
+        "guard_in_ms": 0.011084004654549062,
+        "embed_ms": 13.433458007057197,
+        "retrieve_ms": 26.063082987093367,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 17.678042000625283,
-        "total_ms": 17.678042000625283
+        "total_rag_ms": 39.69333300483413,
+        "total_ms": 39.69333300483413
       },
       "within_budget": true
     },
@@ -1300,14 +1300,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008125003660097718,
-        "embed_ms": 8.212625005398877,
-        "retrieve_ms": 0.6570420082425699,
-        "extract_ms": 1.0179590026382357,
-        "guard_out_ms": 1.0112500021932647,
+        "guard_in_ms": 0.008542003342881799,
+        "embed_ms": 12.743749990477227,
+        "retrieve_ms": 2.645792003022507,
+        "extract_ms": 1.1039160017389804,
+        "guard_out_ms": 1.0079580097226426,
         "generate_ms": null,
-        "total_rag_ms": 10.907001022133045,
-        "total_ms": 10.907001022133045
+        "total_rag_ms": 17.50995800830424,
+        "total_ms": 17.50995800830424
       },
       "within_budget": true
     },
@@ -1321,14 +1321,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015541998436674476,
-        "embed_ms": 8.631832999526523,
-        "retrieve_ms": 7.824290994904004,
-        "extract_ms": 1.1870419984916225,
-        "guard_out_ms": 1.065666991053149,
+        "guard_in_ms": 0.015833007637411356,
+        "embed_ms": 8.888832991942763,
+        "retrieve_ms": 45.251415998791344,
+        "extract_ms": 1.4214590046321973,
+        "guard_out_ms": 1.273000001674518,
         "generate_ms": null,
-        "total_rag_ms": 18.724374982411973,
-        "total_ms": 18.724374982411973
+        "total_rag_ms": 56.850541004678234,
+        "total_ms": 56.850541004678234
       },
       "within_budget": true
     },
@@ -1339,17 +1339,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.020332998246885836,
-        "embed_ms": 8.990292000817135,
-        "retrieve_ms": 12.159625010099262,
-        "extract_ms": 1.6854579880600795,
-        "guard_out_ms": 1.4363330119522288,
+        "guard_in_ms": 0.020499996026046574,
+        "embed_ms": 12.802208002540283,
+        "retrieve_ms": 69.21204199898057,
+        "extract_ms": 1.6696249949745834,
+        "guard_out_ms": 1.3704999873880297,
         "generate_ms": null,
-        "total_rag_ms": 24.29204100917559,
-        "total_ms": 24.29204100917559
+        "total_rag_ms": 85.07487497990951,
+        "total_ms": 85.07487497990951
       },
       "within_budget": true
     },
@@ -1358,19 +1358,19 @@
       "warmup": false,
       "query_id": 14449,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8702353239059448,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01012500433716923,
-        "embed_ms": 12.11725000757724,
-        "retrieve_ms": 3.5676660045282915,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.010749994544312358,
+        "embed_ms": 13.181499991333112,
+        "retrieve_ms": 18.64466699771583,
+        "extract_ms": 1.5036249969853088,
+        "guard_out_ms": 1.4117079990683123,
         "generate_ms": null,
-        "total_rag_ms": 15.960082993842661,
-        "total_ms": 15.960082993842661
+        "total_rag_ms": 34.75224997964688,
+        "total_ms": 34.75224997964688
       },
       "within_budget": true
     },
@@ -1380,18 +1380,18 @@
       "query_id": 194890,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8428452014923096,
-      "hit_gold_in_topk": true,
+      "support": 0.8597157001495361,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013500000932253897,
-        "embed_ms": 10.123208005097695,
-        "retrieve_ms": 4.710999986855313,
+        "guard_in_ms": 0.014625009498558939,
+        "embed_ms": 14.801957993768156,
+        "retrieve_ms": 24.87483299046289,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 14.980166000896133,
-        "total_ms": 14.980166000896133
+        "total_rag_ms": 39.910416991915554,
+        "total_ms": 39.910416991915554
       },
       "within_budget": true
     },
@@ -1401,18 +1401,18 @@
       "query_id": 66881,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8793281316757202,
-      "hit_gold_in_topk": true,
+      "support": 0.8991950750350952,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.025582994567230344,
-        "embed_ms": 9.193333011353388,
-        "retrieve_ms": 11.856291996082291,
+        "guard_in_ms": 0.027292000595480204,
+        "embed_ms": 12.755749994539656,
+        "retrieve_ms": 73.61541700083762,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 21.303708010236733,
-        "total_ms": 21.303708010236733
+        "total_rag_ms": 86.71283299918287,
+        "total_ms": 86.71283299918287
       },
       "within_budget": true
     },
@@ -1426,14 +1426,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01233299553859979,
-        "embed_ms": 9.15233300474938,
-        "retrieve_ms": 7.618250005180016,
-        "extract_ms": 1.4066669973544776,
-        "guard_out_ms": 1.2069589865859598,
+        "guard_in_ms": 0.014292003470472991,
+        "embed_ms": 14.009916005306877,
+        "retrieve_ms": 47.159291003481485,
+        "extract_ms": 1.4721670013386756,
+        "guard_out_ms": 1.3080000062473118,
         "generate_ms": null,
-        "total_rag_ms": 19.396541989408433,
-        "total_ms": 19.396541989408433
+        "total_rag_ms": 63.96366601984482,
+        "total_ms": 63.96366601984482
       },
       "within_budget": true
     },
@@ -1442,19 +1442,19 @@
       "warmup": false,
       "query_id": 291248,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9239674806594849,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012167001841589808,
-        "embed_ms": 8.902916000806727,
-        "retrieve_ms": 9.565999993355945,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.014332996215671301,
+        "embed_ms": 12.198166994494386,
+        "retrieve_ms": 62.472290999721736,
+        "extract_ms": 1.1185829935129732,
+        "guard_out_ms": 0.972250010818243,
         "generate_ms": null,
-        "total_rag_ms": 18.58916699711699,
-        "total_ms": 18.58916699711699
+        "total_rag_ms": 76.77562399476301,
+        "total_ms": 76.77562399476301
       },
       "within_budget": true
     },
@@ -1468,14 +1468,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009875002433545887,
-        "embed_ms": 11.634416994638741,
-        "retrieve_ms": 0.7395410066237673,
-        "extract_ms": 0.7530000002589077,
-        "guard_out_ms": 0.73533300019335,
+        "guard_in_ms": 0.010709001799114048,
+        "embed_ms": 12.512499990407377,
+        "retrieve_ms": 4.098165998584591,
+        "extract_ms": 0.9353749919682741,
+        "guard_out_ms": 0.8565410098526627,
         "generate_ms": null,
-        "total_rag_ms": 13.872166004148312,
-        "total_ms": 13.872166004148312
+        "total_rag_ms": 18.41329099261202,
+        "total_ms": 18.41329099261202
       },
       "within_budget": true
     },
@@ -1489,14 +1489,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021541010937653482,
-        "embed_ms": 12.113749995478429,
-        "retrieve_ms": 5.742042005294934,
+        "guard_in_ms": 0.022957989131100476,
+        "embed_ms": 13.322749990038574,
+        "retrieve_ms": 31.524833000730723,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 18.05424998747185,
-        "total_ms": 18.05424998747185
+        "total_rag_ms": 45.10312499769498,
+        "total_ms": 45.10312499769498
       },
       "within_budget": true
     },
@@ -1507,17 +1507,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": false,
+      "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.017583995941095054,
-        "embed_ms": 8.917500003008172,
-        "retrieve_ms": 7.932082997285761,
-        "extract_ms": 1.2603749928530306,
-        "guard_out_ms": 1.133166006184183,
+        "guard_in_ms": 0.01649999467190355,
+        "embed_ms": 12.725624997983687,
+        "retrieve_ms": 46.72516700520646,
+        "extract_ms": 1.342167000984773,
+        "guard_out_ms": 1.0856660082936287,
         "generate_ms": null,
-        "total_rag_ms": 19.26070799527224,
-        "total_ms": 19.26070799527224
+        "total_rag_ms": 61.89512500714045,
+        "total_ms": 61.89512500714045
       },
       "within_budget": true
     },
@@ -1531,14 +1531,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013291995855979621,
-        "embed_ms": 8.982874991488643,
-        "retrieve_ms": 5.801750012324192,
+        "guard_in_ms": 0.015833007637411356,
+        "embed_ms": 12.69579200015869,
+        "retrieve_ms": 33.60329198767431,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 14.94029100285843,
-        "total_ms": 14.94029100285843
+        "total_rag_ms": 46.61824999493547,
+        "total_ms": 46.61824999493547
       },
       "within_budget": true
     },
@@ -1547,19 +1547,19 @@
       "warmup": false,
       "query_id": 298113,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8665168285369873,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012916003470309079,
-        "embed_ms": 11.768624986871146,
-        "retrieve_ms": 6.558958993991837,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.013707991456612945,
+        "embed_ms": 12.89337499474641,
+        "retrieve_ms": 41.15112499857787,
+        "extract_ms": 1.3368749932851642,
+        "guard_out_ms": 1.221750004333444,
         "generate_ms": null,
-        "total_rag_ms": 18.478957994375378,
-        "total_ms": 18.478957994375378
+        "total_rag_ms": 56.6168329823995,
+        "total_ms": 56.6168329823995
       },
       "within_budget": true
     },
@@ -1573,14 +1573,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014125005691312253,
-        "embed_ms": 11.93049999710638,
-        "retrieve_ms": 4.153875008341856,
-        "extract_ms": 0.957417010795325,
-        "guard_out_ms": 0.8492920023854822,
+        "guard_in_ms": 0.014792007277719676,
+        "embed_ms": 12.756167008774355,
+        "retrieve_ms": 23.564832998090424,
+        "extract_ms": 1.2271250016056001,
+        "guard_out_ms": 1.0022909991675988,
         "generate_ms": null,
-        "total_rag_ms": 17.905209024320357,
-        "total_ms": 17.905209024320357
+        "total_rag_ms": 38.5652080149157,
+        "total_ms": 38.5652080149157
       },
       "within_budget": true
     },
@@ -1594,14 +1594,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012416989193297923,
-        "embed_ms": 8.721584003069438,
-        "retrieve_ms": 6.992374997935258,
-        "extract_ms": 1.144459005445242,
-        "guard_out_ms": 1.1297500022919849,
+        "guard_in_ms": 0.013708995538763702,
+        "embed_ms": 12.896375003037974,
+        "retrieve_ms": 38.627500005532056,
+        "extract_ms": 1.0037920001195744,
+        "guard_out_ms": 0.913208001293242,
         "generate_ms": null,
-        "total_rag_ms": 18.00058499793522,
-        "total_ms": 18.00058499793522
+        "total_rag_ms": 53.45458400552161,
+        "total_ms": 53.45458400552161
       },
       "within_budget": true
     },
@@ -1615,14 +1615,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.020374995074234903,
-        "embed_ms": 8.872000005794689,
-        "retrieve_ms": 8.720833997358568,
-        "extract_ms": 1.5810420009074733,
-        "guard_out_ms": 1.3978750066598877,
+        "guard_in_ms": 0.021207990357652307,
+        "embed_ms": 12.948540999786928,
+        "retrieve_ms": 54.455707999295555,
+        "extract_ms": 1.4401670050574467,
+        "guard_out_ms": 1.2235419999342412,
         "generate_ms": null,
-        "total_rag_ms": 20.592126005794853,
-        "total_ms": 20.592126005794853
+        "total_rag_ms": 70.08916599443182,
+        "total_ms": 70.08916599443182
       },
       "within_budget": true
     },
@@ -1636,14 +1636,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011833006283268332,
-        "embed_ms": 8.389208000153303,
-        "retrieve_ms": 7.0787919976282865,
-        "extract_ms": 0.9296670032199472,
-        "guard_out_ms": 0.8959170081652701,
+        "guard_in_ms": 0.02508299075998366,
+        "embed_ms": 12.28320799418725,
+        "retrieve_ms": 39.08791700087022,
+        "extract_ms": 0.8866670104907826,
+        "guard_out_ms": 0.86691600154154,
         "generate_ms": null,
-        "total_rag_ms": 17.305417015450075,
-        "total_ms": 17.305417015450075
+        "total_rag_ms": 53.14979099784978,
+        "total_ms": 53.14979099784978
       },
       "within_budget": true
     },
@@ -1657,14 +1657,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010292002116329968,
-        "embed_ms": 10.47629200911615,
-        "retrieve_ms": 5.978832996333949,
-        "extract_ms": 1.0335419938201085,
-        "guard_out_ms": 0.9134169958997518,
+        "guard_in_ms": 0.011332987924106419,
+        "embed_ms": 13.733167012105696,
+        "retrieve_ms": 31.240708005498163,
+        "extract_ms": 1.1379170027794316,
+        "guard_out_ms": 1.068459008820355,
         "generate_ms": null,
-        "total_rag_ms": 18.41237599728629,
-        "total_ms": 18.41237599728629
+        "total_rag_ms": 47.19158401712775,
+        "total_ms": 47.19158401712775
       },
       "within_budget": true
     },
@@ -1678,14 +1678,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011791998986154795,
-        "embed_ms": 12.079042004188523,
-        "retrieve_ms": 6.693250004900619,
-        "extract_ms": 1.2529170053312555,
-        "guard_out_ms": 1.196666999021545,
+        "guard_in_ms": 0.013083001249469817,
+        "embed_ms": 12.375082995276898,
+        "retrieve_ms": 36.02595800475683,
+        "extract_ms": 1.298917006351985,
+        "guard_out_ms": 1.0095409961650148,
         "generate_ms": null,
-        "total_rag_ms": 21.233668012428097,
-        "total_ms": 21.233668012428097
+        "total_rag_ms": 50.7225820038002,
+        "total_ms": 50.7225820038002
       },
       "within_budget": true
     },
@@ -1699,14 +1699,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013209006283432245,
-        "embed_ms": 8.81829101126641,
-        "retrieve_ms": 7.1305409946944565,
-        "extract_ms": 1.4130420022411272,
-        "guard_out_ms": 1.1066250008298084,
+        "guard_in_ms": 0.0145840022014454,
+        "embed_ms": 13.195167004596442,
+        "retrieve_ms": 37.86945799947716,
+        "extract_ms": 1.1272499978076667,
+        "guard_out_ms": 0.8697500015841797,
         "generate_ms": null,
-        "total_rag_ms": 18.481708015315235,
-        "total_ms": 18.481708015315235
+        "total_rag_ms": 53.0762090056669,
+        "total_ms": 53.0762090056669
       },
       "within_budget": true
     },
@@ -1720,14 +1720,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008916002116166055,
-        "embed_ms": 8.442499994998798,
-        "retrieve_ms": 3.81520799419377,
+        "guard_in_ms": 0.009625000529922545,
+        "embed_ms": 13.674540998181328,
+        "retrieve_ms": 19.450250008958392,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.44754200160969,
-        "total_ms": 12.44754200160969
+        "total_rag_ms": 33.343667004373856,
+        "total_ms": 33.343667004373856
       },
       "within_budget": true
     },
@@ -1737,18 +1737,18 @@
       "query_id": 222240,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.874327540397644,
+      "support": 0.8743283748626709,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015541008906438947,
-        "embed_ms": 11.96133300254587,
-        "retrieve_ms": 6.197667011292651,
+        "guard_in_ms": 0.01695800165180117,
+        "embed_ms": 13.804875008645467,
+        "retrieve_ms": 35.2008749905508,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 18.464541994035244,
-        "total_ms": 18.464541994035244
+        "total_rag_ms": 49.28887500136625,
+        "total_ms": 49.28887500136625
       },
       "within_budget": true
     },
@@ -1762,14 +1762,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010042000212706625,
-        "embed_ms": 8.436457996140234,
-        "retrieve_ms": 4.6719999954802915,
-        "extract_ms": 1.1361670040059835,
-        "guard_out_ms": 1.020291994791478,
+        "guard_in_ms": 0.011458003427833319,
+        "embed_ms": 12.367417002678849,
+        "retrieve_ms": 24.98875001037959,
+        "extract_ms": 1.3177079963497818,
+        "guard_out_ms": 1.0912500001722947,
         "generate_ms": null,
-        "total_rag_ms": 15.274958990630694,
-        "total_ms": 15.274958990630694
+        "total_rag_ms": 39.77658301300835,
+        "total_ms": 39.77658301300835
       },
       "within_budget": true
     },
@@ -1779,18 +1779,18 @@
       "query_id": 1060251,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8251692652702332,
+      "support": 0.8468334674835205,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008540999260731041,
-        "embed_ms": 8.14183299371507,
-        "retrieve_ms": 4.93058399297297,
+        "guard_in_ms": 0.009374998626299202,
+        "embed_ms": 13.234124999144115,
+        "retrieve_ms": 27.622708992566913,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 13.231374992756173,
-        "total_ms": 13.231374992756173
+        "total_rag_ms": 41.120541995042004,
+        "total_ms": 41.120541995042004
       },
       "within_budget": true
     },
@@ -1804,14 +1804,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.017041005776263773,
-        "embed_ms": 12.13916699634865,
-        "retrieve_ms": 5.057582995505072,
-        "extract_ms": 1.391874990076758,
-        "guard_out_ms": 1.256250005098991,
+        "guard_in_ms": 0.01979200169444084,
+        "embed_ms": 13.548624992836267,
+        "retrieve_ms": 34.12587501225062,
+        "extract_ms": 1.2742499966407195,
+        "guard_out_ms": 1.1407080019125715,
         "generate_ms": null,
-        "total_rag_ms": 19.861915992805734,
-        "total_ms": 19.861915992805734
+        "total_rag_ms": 50.109250005334616,
+        "total_ms": 50.109250005334616
       },
       "within_budget": true
     },
@@ -1825,14 +1825,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01233299553859979,
-        "embed_ms": 8.420250000199303,
-        "retrieve_ms": 1.4247079961933196,
+        "guard_in_ms": 0.015249999705702066,
+        "embed_ms": 13.44325000536628,
+        "retrieve_ms": 8.306082992930897,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 10.034874998382293,
-        "total_ms": 10.034874998382293
+        "total_rag_ms": 22.02687499811873,
+        "total_ms": 22.02687499811873
       },
       "within_budget": true
     },
@@ -1846,14 +1846,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010375006240792572,
-        "embed_ms": 8.252415995229967,
-        "retrieve_ms": 3.658625006210059,
-        "extract_ms": 0.698000003467314,
-        "guard_out_ms": 0.7014169968897477,
+        "guard_in_ms": 0.01766700006555766,
+        "embed_ms": 13.891000009607524,
+        "retrieve_ms": 19.76495800772682,
+        "extract_ms": 1.0705830063670874,
+        "guard_out_ms": 1.0215000074822456,
         "generate_ms": null,
-        "total_rag_ms": 13.32083300803788,
-        "total_ms": 13.32083300803788
+        "total_rag_ms": 35.76570803124923,
+        "total_ms": 35.76570803124923
       },
       "within_budget": true
     },
@@ -1867,14 +1867,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.019790997612290084,
-        "embed_ms": 8.857041000737809,
-        "retrieve_ms": 12.10866600740701,
-        "extract_ms": 1.3533340097637847,
-        "guard_out_ms": 1.2355840008240193,
+        "guard_in_ms": 0.02245799987576902,
+        "embed_ms": 12.992167001357302,
+        "retrieve_ms": 74.12175000354182,
+        "extract_ms": 1.384624993079342,
+        "guard_out_ms": 1.0855000000447035,
         "generate_ms": null,
-        "total_rag_ms": 23.574416016344912,
-        "total_ms": 23.574416016344912
+        "total_rag_ms": 89.60649999789894,
+        "total_ms": 89.60649999789894
       },
       "within_budget": true
     },
@@ -1888,14 +1888,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008791990694589913,
-        "embed_ms": 11.623707992839627,
-        "retrieve_ms": 6.345834000967443,
-        "extract_ms": 0.9367500024382025,
-        "guard_out_ms": 0.8383749955100939,
+        "guard_in_ms": 0.01054200401995331,
+        "embed_ms": 12.383958004647866,
+        "retrieve_ms": 41.29954100062605,
+        "extract_ms": 1.4943330024834722,
+        "guard_out_ms": 1.2378749961499125,
         "generate_ms": null,
-        "total_rag_ms": 19.753458982449956,
-        "total_ms": 19.753458982449956
+        "total_rag_ms": 56.426249007927254,
+        "total_ms": 56.426249007927254
       },
       "within_budget": true
     },
@@ -1909,14 +1909,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010792005923576653,
-        "embed_ms": 8.673250005813316,
-        "retrieve_ms": 6.355375007842667,
+        "guard_in_ms": 0.011625001206994057,
+        "embed_ms": 13.80533300107345,
+        "retrieve_ms": 40.32166699471418,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 15.217834006762132,
-        "total_ms": 15.217834006762132
+        "total_rag_ms": 54.74862499977462,
+        "total_ms": 54.74862499977462
       },
       "within_budget": true
     },
@@ -1930,14 +1930,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012874996173195541,
-        "embed_ms": 13.108208004268818,
-        "retrieve_ms": 5.379875001381151,
-        "extract_ms": 1.2032079976052046,
-        "guard_out_ms": 1.0314160026609898,
+        "guard_in_ms": 0.014833000022917986,
+        "embed_ms": 13.942792007583193,
+        "retrieve_ms": 29.564249998657033,
+        "extract_ms": 0.8450840105069801,
+        "guard_out_ms": 0.7931250002002344,
         "generate_ms": null,
-        "total_rag_ms": 20.73558200208936,
-        "total_ms": 20.73558200208936
+        "total_rag_ms": 45.16008401697036,
+        "total_ms": 45.16008401697036
       },
       "within_budget": true
     },
@@ -1951,14 +1951,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012832999345846474,
-        "embed_ms": 9.23999999940861,
-        "retrieve_ms": 7.816124998498708,
-        "extract_ms": 1.2052499951096252,
-        "guard_out_ms": 1.0332500096410513,
+        "guard_in_ms": 0.013291006325744092,
+        "embed_ms": 12.936917002662085,
+        "retrieve_ms": 42.833207990042865,
+        "extract_ms": 1.1424580006860197,
+        "guard_out_ms": 0.9845830063568428,
         "generate_ms": null,
-        "total_rag_ms": 19.30745800200384,
-        "total_ms": 19.30745800200384
+        "total_rag_ms": 57.91045700607356,
+        "total_ms": 57.91045700607356
       },
       "within_budget": true
     },
@@ -1972,14 +1972,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010458999895490706,
-        "embed_ms": 8.81624998874031,
-        "retrieve_ms": 0.42804100667126477,
-        "extract_ms": 1.4208750071702525,
-        "guard_out_ms": 1.0929999989457428,
+        "guard_in_ms": 0.010625008144415915,
+        "embed_ms": 12.707417001365684,
+        "retrieve_ms": 1.2847920006606728,
+        "extract_ms": 1.0585830023046583,
+        "guard_out_ms": 0.983083009487018,
         "generate_ms": null,
-        "total_rag_ms": 11.768625001423061,
-        "total_ms": 11.768625001423061
+        "total_rag_ms": 16.04450002196245,
+        "total_ms": 16.04450002196245
       },
       "within_budget": true
     },
@@ -1988,19 +1988,19 @@
       "warmup": false,
       "query_id": 279525,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9209070205688477,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015332989278249443,
-        "embed_ms": 8.876790991052985,
-        "retrieve_ms": 6.736458002706058,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.015416997484862804,
+        "embed_ms": 13.132583000697196,
+        "retrieve_ms": 38.59266699873842,
+        "extract_ms": 1.162917003966868,
+        "guard_out_ms": 0.9281660022679716,
         "generate_ms": null,
-        "total_rag_ms": 15.885083994362503,
-        "total_ms": 15.885083994362503
+        "total_rag_ms": 53.83175000315532,
+        "total_ms": 53.83175000315532
       },
       "within_budget": true
     },
@@ -2014,14 +2014,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010333998943679035,
-        "embed_ms": 8.64000000001397,
-        "retrieve_ms": 3.2635829993523657,
-        "extract_ms": 6.391667004209012,
-        "guard_out_ms": 4.409792003571056,
+        "guard_in_ms": 0.010458999895490706,
+        "embed_ms": 12.988832997507416,
+        "retrieve_ms": 19.353124996996485,
+        "extract_ms": 2.7979169972240925,
+        "guard_out_ms": 3.2230000069830567,
         "generate_ms": null,
-        "total_rag_ms": 22.715376006090082,
-        "total_ms": 22.715376006090082
+        "total_rag_ms": 38.37333399860654,
+        "total_ms": 38.37333399860654
       },
       "within_budget": true
     },
@@ -2031,18 +2031,18 @@
       "query_id": 335367,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8515661954879761,
+      "support": 0.8647706508636475,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012082993634976447,
-        "embed_ms": 12.861750001320615,
-        "retrieve_ms": 6.2075830064713955,
+        "guard_in_ms": 0.023290995159186423,
+        "embed_ms": 12.8311250009574,
+        "retrieve_ms": 33.319084002869204,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 19.25666599709075,
-        "total_ms": 19.25666599709075
+        "total_rag_ms": 46.439084006124176,
+        "total_ms": 46.439084006124176
       },
       "within_budget": true
     },
@@ -2056,14 +2056,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012333010090515018,
-        "embed_ms": 10.48154199088458,
-        "retrieve_ms": 6.758749994332902,
-        "extract_ms": 0.9160420013358817,
-        "guard_out_ms": 0.8274590072687715,
+        "guard_in_ms": 0.012499993317760527,
+        "embed_ms": 12.914708990138024,
+        "retrieve_ms": 40.792416999465786,
+        "extract_ms": 1.3202920090407133,
+        "guard_out_ms": 1.1780420027207583,
         "generate_ms": null,
-        "total_rag_ms": 18.99612600391265,
-        "total_ms": 18.99612600391265
+        "total_rag_ms": 56.21795999468304,
+        "total_ms": 56.21795999468304
       },
       "within_budget": true
     },
@@ -2077,14 +2077,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.019915998564101756,
-        "embed_ms": 11.7901250050636,
-        "retrieve_ms": 7.8247920027934015,
-        "extract_ms": 1.6655419894959778,
-        "guard_out_ms": 1.2879580026492476,
+        "guard_in_ms": 0.0212500017369166,
+        "embed_ms": 13.10100000409875,
+        "retrieve_ms": 43.21304200857412,
+        "extract_ms": 1.382665999699384,
+        "guard_out_ms": 1.1298750032437965,
         "generate_ms": null,
-        "total_rag_ms": 22.58833299856633,
-        "total_ms": 22.58833299856633
+        "total_rag_ms": 58.84783301735297,
+        "total_ms": 58.84783301735297
       },
       "within_budget": true
     },
@@ -2093,19 +2093,19 @@
       "warmup": false,
       "query_id": 1090337,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8524900078773499,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01058299676515162,
-        "embed_ms": 8.518375005223788,
-        "retrieve_ms": 7.091791994753294,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.011958007235080004,
+        "embed_ms": 12.621416986803524,
+        "retrieve_ms": 40.43429200828541,
+        "extract_ms": 1.1951670021517202,
+        "guard_out_ms": 0.939500008826144,
         "generate_ms": null,
-        "total_rag_ms": 15.804249997017905,
-        "total_ms": 15.804249997017905
+        "total_rag_ms": 55.20233401330188,
+        "total_ms": 55.20233401330188
       },
       "within_budget": true
     },
@@ -2119,14 +2119,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01058299676515162,
-        "embed_ms": 8.44649999635294,
-        "retrieve_ms": 3.998250002041459,
-        "extract_ms": 0.9247090056305751,
-        "guard_out_ms": 0.8509159961249679,
+        "guard_in_ms": 0.01083400275092572,
+        "embed_ms": 12.150583002949134,
+        "retrieve_ms": 19.962958001997322,
+        "extract_ms": 0.8153749949997291,
+        "guard_out_ms": 0.7955410110298544,
         "generate_ms": null,
-        "total_rag_ms": 14.230957996915095,
-        "total_ms": 14.230957996915095
+        "total_rag_ms": 33.735291013726965,
+        "total_ms": 33.735291013726965
       },
       "within_budget": true
     },
@@ -2137,17 +2137,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.0184159871423617,
-        "embed_ms": 11.209083007997833,
-        "retrieve_ms": 6.923792010638863,
-        "extract_ms": 1.6117500053951517,
-        "guard_out_ms": 1.3909999979659915,
+        "guard_in_ms": 0.019417013390921056,
+        "embed_ms": 12.429084003088064,
+        "retrieve_ms": 40.09720799513161,
+        "extract_ms": 1.3588750007329509,
+        "guard_out_ms": 1.2395840021781623,
         "generate_ms": null,
-        "total_rag_ms": 21.1540410091402,
-        "total_ms": 21.1540410091402
+        "total_rag_ms": 55.14416801452171,
+        "total_ms": 55.14416801452171
       },
       "within_budget": true
     },
@@ -2161,14 +2161,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012791992048732936,
-        "embed_ms": 8.718375000171363,
-        "retrieve_ms": 0.25070800620596856,
-        "extract_ms": 1.3096250040689483,
-        "guard_out_ms": 1.0744590108515695,
+        "guard_in_ms": 0.014874996850267053,
+        "embed_ms": 14.326207994599827,
+        "retrieve_ms": 0.8514170040143654,
+        "extract_ms": 0.9384579898323864,
+        "guard_out_ms": 0.7897500036051497,
         "generate_ms": null,
-        "total_rag_ms": 11.365959013346583,
-        "total_ms": 11.365959013346583
+        "total_rag_ms": 16.920707988901995,
+        "total_ms": 16.920707988901995
       },
       "within_budget": true
     },
@@ -2182,14 +2182,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009625000529922545,
-        "embed_ms": 8.255833992734551,
-        "retrieve_ms": 3.5752089897869155,
-        "extract_ms": 0.7549169968115166,
-        "guard_out_ms": 0.8019579981919378,
+        "guard_in_ms": 0.009958996088244021,
+        "embed_ms": 12.061457993695512,
+        "retrieve_ms": 19.151708998833783,
+        "extract_ms": 1.0256670066155493,
+        "guard_out_ms": 0.9616659954190254,
         "generate_ms": null,
-        "total_rag_ms": 13.397542978054844,
-        "total_ms": 13.397542978054844
+        "total_rag_ms": 33.210458990652114,
+        "total_ms": 33.210458990652114
       },
       "within_budget": true
     },
@@ -2198,19 +2198,19 @@
       "warmup": false,
       "query_id": 100250,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8487238883972168,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015458004781976342,
-        "embed_ms": 8.611875004135072,
-        "retrieve_ms": 5.180416992516257,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.01666699245106429,
+        "embed_ms": 9.295708005083725,
+        "retrieve_ms": 26.736667001387104,
+        "extract_ms": 1.6484160005347803,
+        "guard_out_ms": 1.449749994208105,
         "generate_ms": null,
-        "total_rag_ms": 13.99170799413696,
-        "total_ms": 13.99170799413696
+        "total_rag_ms": 39.14720799366478,
+        "total_ms": 39.14720799366478
       },
       "within_budget": true
     },
@@ -2224,14 +2224,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011750002158805728,
-        "embed_ms": 8.484207995934412,
-        "retrieve_ms": 7.941750009194948,
-        "extract_ms": 1.1206249910173938,
-        "guard_out_ms": 1.0125830012839288,
+        "guard_in_ms": 0.011582989827729762,
+        "embed_ms": 12.567957994178869,
+        "retrieve_ms": 43.719999986933544,
+        "extract_ms": 1.4832089946139604,
+        "guard_out_ms": 1.2484580074669793,
         "generate_ms": null,
-        "total_rag_ms": 18.570915999589488,
-        "total_ms": 18.570915999589488
+        "total_rag_ms": 59.03120797302108,
+        "total_ms": 59.03120797302108
       },
       "within_budget": true
     },
@@ -2245,14 +2245,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01245799649041146,
-        "embed_ms": 12.87408301141113,
-        "retrieve_ms": 5.343208002159372,
-        "extract_ms": 1.2338750093476847,
-        "guard_out_ms": 1.1729999969247729,
+        "guard_in_ms": 0.013374999980442226,
+        "embed_ms": 13.243124994914979,
+        "retrieve_ms": 31.04195800551679,
+        "extract_ms": 1.1290840047877282,
+        "guard_out_ms": 1.0082499939016998,
         "generate_ms": null,
-        "total_rag_ms": 20.63662401633337,
-        "total_ms": 20.63662401633337
+        "total_rag_ms": 46.43579199910164,
+        "total_ms": 46.43579199910164
       },
       "within_budget": true
     },
@@ -2266,14 +2266,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01604200224392116,
-        "embed_ms": 9.443874994758517,
-        "retrieve_ms": 7.36016700102482,
-        "extract_ms": 1.2560829927679151,
-        "guard_out_ms": 1.172082993434742,
+        "guard_in_ms": 0.016582998796366155,
+        "embed_ms": 11.846042005345225,
+        "retrieve_ms": 40.07633299625013,
+        "extract_ms": 1.2957089929841459,
+        "guard_out_ms": 1.1814159952336922,
         "generate_ms": null,
-        "total_rag_ms": 19.248249984229915,
-        "total_ms": 19.248249984229915
+        "total_rag_ms": 54.41608298860956,
+        "total_ms": 54.41608298860956
       },
       "within_budget": true
     },
@@ -2287,14 +2287,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.0118750031106174,
-        "embed_ms": 8.661457992275245,
-        "retrieve_ms": 4.974875002517365,
-        "extract_ms": 1.119916996685788,
-        "guard_out_ms": 1.0667089954949915,
+        "guard_in_ms": 0.012791992048732936,
+        "embed_ms": 12.763207996613346,
+        "retrieve_ms": 28.16645900020376,
+        "extract_ms": 1.2635000020964071,
+        "guard_out_ms": 1.274916998227127,
         "generate_ms": null,
-        "total_rag_ms": 15.834833990084007,
-        "total_ms": 15.834833990084007
+        "total_rag_ms": 43.48087598918937,
+        "total_ms": 43.48087598918937
       },
       "within_budget": true
     },
@@ -2308,14 +2308,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011042007827199996,
-        "embed_ms": 12.497749994508922,
-        "retrieve_ms": 7.867541993618943,
-        "extract_ms": 1.5443750016856939,
-        "guard_out_ms": 1.2509999942267314,
+        "guard_in_ms": 0.011375013855285943,
+        "embed_ms": 12.57912500295788,
+        "retrieve_ms": 44.71766699862201,
+        "extract_ms": 1.6752920055296272,
+        "guard_out_ms": 1.440000007278286,
         "generate_ms": null,
-        "total_rag_ms": 23.17170899186749,
-        "total_ms": 23.17170899186749
+        "total_rag_ms": 60.42345902824309,
+        "total_ms": 60.42345902824309
       },
       "within_budget": true
     },
@@ -2329,14 +2329,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016709003830328584,
-        "embed_ms": 11.682333002681844,
-        "retrieve_ms": 7.425624993629754,
+        "guard_in_ms": 0.018292004824616015,
+        "embed_ms": 14.01225000154227,
+        "retrieve_ms": 40.410583998891525,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 19.32654199481476,
-        "total_ms": 19.32654199481476
+        "total_rag_ms": 54.71275000309106,
+        "total_ms": 54.71275000309106
       },
       "within_budget": true
     },
@@ -2350,14 +2350,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 1.035334003972821,
-        "embed_ms": 20.926457989844494,
-        "retrieve_ms": 11.155041996971704,
-        "extract_ms": 7.769834002829157,
-        "guard_out_ms": 6.56350000645034,
+        "guard_in_ms": 1.0605830029817298,
+        "embed_ms": 35.73208299349062,
+        "retrieve_ms": 60.8742919866927,
+        "extract_ms": 22.164291993249208,
+        "guard_out_ms": 8.924833993660286,
         "generate_ms": null,
-        "total_rag_ms": 47.450168000068516,
-        "total_ms": 47.450168000068516
+        "total_rag_ms": 128.75608397007454,
+        "total_ms": 128.75608397007454
       },
       "within_budget": true
     },
@@ -2367,18 +2367,18 @@
       "query_id": 297555,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8339337110519409,
+      "support": 0.8418196439743042,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014165998436510563,
-        "embed_ms": 13.200916000641882,
-        "retrieve_ms": 7.0008330076234415,
+        "guard_in_ms": 0.014500008546747267,
+        "embed_ms": 12.79745899955742,
+        "retrieve_ms": 37.59325000282843,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 20.358792011393234,
-        "total_ms": 20.358792011393234
+        "total_rag_ms": 50.90225000458304,
+        "total_ms": 50.90225000458304
       },
       "within_budget": true
     },
@@ -2387,19 +2387,19 @@
       "warmup": false,
       "query_id": 297440,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8999770879745483,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01416700251866132,
-        "embed_ms": 12.261291994946077,
-        "retrieve_ms": 3.166499998769723,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.01679100387264043,
+        "embed_ms": 12.835375004215166,
+        "retrieve_ms": 17.405457998393103,
+        "extract_ms": 1.6933750011958182,
+        "guard_out_ms": 1.3767919881502166,
         "generate_ms": null,
-        "total_rag_ms": 15.70016700134147,
-        "total_ms": 15.70016700134147
+        "total_rag_ms": 33.327790995826945,
+        "total_ms": 33.327790995826945
       },
       "within_budget": true
     },
@@ -2413,14 +2413,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01820900070015341,
-        "embed_ms": 12.168250003014691,
-        "retrieve_ms": 6.466750011895783,
+        "guard_in_ms": 0.019458995666354895,
+        "embed_ms": 13.593749987194315,
+        "retrieve_ms": 34.268916002474725,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 18.895000001066364,
-        "total_ms": 18.895000001066364
+        "total_rag_ms": 48.15716700977646,
+        "total_ms": 48.15716700977646
       },
       "within_budget": true
     },
@@ -2434,14 +2434,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.007708003977313638,
-        "embed_ms": 8.152624999638647,
-        "retrieve_ms": 5.526791996089742,
-        "extract_ms": 1.1575000098673627,
-        "guard_out_ms": 1.1623750033322722,
+        "guard_in_ms": 0.008834002073854208,
+        "embed_ms": 12.036082989652641,
+        "retrieve_ms": 31.00545800407417,
+        "extract_ms": 0.9526250069029629,
+        "guard_out_ms": 0.9647909901104867,
         "generate_ms": null,
-        "total_rag_ms": 16.007000012905337,
-        "total_ms": 16.007000012905337
+        "total_rag_ms": 44.967790992814116,
+        "total_ms": 44.967790992814116
       },
       "within_budget": true
     },
@@ -2450,19 +2450,19 @@
       "warmup": false,
       "query_id": 260883,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9236939549446106,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01649999467190355,
-        "embed_ms": 8.805833000224084,
-        "retrieve_ms": 9.35962499352172,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.016833000699989498,
+        "embed_ms": 12.504916987381876,
+        "retrieve_ms": 56.373083003563806,
+        "extract_ms": 1.1578749981708825,
+        "guard_out_ms": 0.9639579948270693,
         "generate_ms": null,
-        "total_rag_ms": 18.397666004602797,
-        "total_ms": 18.397666004602797
+        "total_rag_ms": 71.01666598464362,
+        "total_ms": 71.01666598464362
       },
       "within_budget": true
     },
@@ -2476,14 +2476,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021750005544163287,
-        "embed_ms": 8.866207994287834,
-        "retrieve_ms": 1.8374579958617687,
+        "guard_in_ms": 0.022791995434090495,
+        "embed_ms": 12.867958008428104,
+        "retrieve_ms": 8.229541999753565,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 10.978833000990562,
-        "total_ms": 10.978833000990562
+        "total_rag_ms": 21.417833006125875,
+        "total_ms": 21.417833006125875
       },
       "within_budget": true
     },
@@ -2497,14 +2497,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.006749993190169334,
-        "embed_ms": 8.025499992072582,
-        "retrieve_ms": 0.5799999926239252,
+        "guard_in_ms": 0.007791008101776242,
+        "embed_ms": 11.479042004793882,
+        "retrieve_ms": 1.6150000010384247,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 8.767624996835366,
-        "total_ms": 8.767624996835366
+        "total_rag_ms": 13.234625002951361,
+        "total_ms": 13.234625002951361
       },
       "within_budget": true
     },
@@ -2518,14 +2518,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010707997716963291,
-        "embed_ms": 8.151040994562209,
-        "retrieve_ms": 3.9722499932395294,
-        "extract_ms": 1.014917012071237,
-        "guard_out_ms": 1.011083004414104,
+        "guard_in_ms": 0.01012500433716923,
+        "embed_ms": 9.755833001690917,
+        "retrieve_ms": 19.849709002301097,
+        "extract_ms": 0.9664170065661892,
+        "guard_out_ms": 1.0128750000149012,
         "generate_ms": null,
-        "total_rag_ms": 14.159999002004042,
-        "total_ms": 14.159999002004042
+        "total_rag_ms": 31.594959014910273,
+        "total_ms": 31.594959014910273
       },
       "within_budget": true
     },
@@ -2536,17 +2536,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011541997082531452,
-        "embed_ms": 8.676917001139373,
-        "retrieve_ms": 7.170332988607697,
-        "extract_ms": 1.0117080091731623,
-        "guard_out_ms": 1.0250830091536045,
+        "guard_in_ms": 0.012750009773299098,
+        "embed_ms": 13.541000007535331,
+        "retrieve_ms": 41.59487500146497,
+        "extract_ms": 1.106333002098836,
+        "guard_out_ms": 0.9069579973584041,
         "generate_ms": null,
-        "total_rag_ms": 17.895583005156368,
-        "total_ms": 17.895583005156368
+        "total_rag_ms": 57.16191601823084,
+        "total_ms": 57.16191601823084
       },
       "within_budget": true
     },
@@ -2560,14 +2560,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015583005733788013,
-        "embed_ms": 8.74729199858848,
-        "retrieve_ms": 7.304750004550442,
-        "extract_ms": 1.218500008690171,
-        "guard_out_ms": 1.1382920056348667,
+        "guard_in_ms": 0.016250007320195436,
+        "embed_ms": 14.044874988030642,
+        "retrieve_ms": 43.417749999207444,
+        "extract_ms": 1.3606660068035126,
+        "guard_out_ms": 1.1775000020861626,
         "generate_ms": null,
-        "total_rag_ms": 18.424417023197748,
-        "total_ms": 18.424417023197748
+        "total_rag_ms": 60.01704100344796,
+        "total_ms": 60.01704100344796
       },
       "within_budget": true
     },
@@ -2577,18 +2577,18 @@
       "query_id": 1060174,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.9253251552581787,
-      "hit_gold_in_topk": true,
+      "support": 0.892130970954895,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015375000657513738,
-        "embed_ms": 13.201207999372855,
-        "retrieve_ms": 5.717833002563566,
+        "guard_in_ms": 0.01558400981593877,
+        "embed_ms": 15.310125003452413,
+        "retrieve_ms": 33.58462500909809,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 19.263124995632097,
-        "total_ms": 19.263124995632097
+        "total_rag_ms": 49.21837500296533,
+        "total_ms": 49.21837500296533
       },
       "within_budget": true
     },
@@ -2602,14 +2602,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010540999937802553,
-        "embed_ms": 8.606874995166436,
-        "retrieve_ms": 3.8835419982206076,
+        "guard_in_ms": 0.012291988241486251,
+        "embed_ms": 12.999083002796397,
+        "retrieve_ms": 19.300665997434407,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.700582999968901,
-        "total_ms": 12.700582999968901
+        "total_rag_ms": 32.546292000915855,
+        "total_ms": 32.546292000915855
       },
       "within_budget": true
     },
@@ -2623,14 +2623,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015541998436674476,
-        "embed_ms": 8.694457996170968,
-        "retrieve_ms": 10.185749997617677,
-        "extract_ms": 1.909332990180701,
-        "guard_out_ms": 1.497707999078557,
+        "guard_in_ms": 0.016749996575526893,
+        "embed_ms": 11.998916990705766,
+        "retrieve_ms": 57.79733399685938,
+        "extract_ms": 1.4117499958956614,
+        "guard_out_ms": 1.1735409934772179,
         "generate_ms": null,
-        "total_rag_ms": 22.302790981484577,
-        "total_ms": 22.302790981484577
+        "total_rag_ms": 72.39829197351355,
+        "total_ms": 72.39829197351355
       },
       "within_budget": true
     },
@@ -2644,14 +2644,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021333995391614735,
-        "embed_ms": 8.8657919986872,
-        "retrieve_ms": 4.664249994675629,
-        "extract_ms": 1.9865420035785064,
-        "guard_out_ms": 1.3440420007100329,
+        "guard_in_ms": 0.021042011212557554,
+        "embed_ms": 13.021457998547703,
+        "retrieve_ms": 25.855833999230526,
+        "extract_ms": 1.8239579949295148,
+        "guard_out_ms": 1.2178330071037635,
         "generate_ms": null,
-        "total_rag_ms": 16.881959993042983,
-        "total_ms": 16.881959993042983
+        "total_rag_ms": 41.940125011024065,
+        "total_ms": 41.940125011024065
       },
       "within_budget": true
     },
@@ -2661,18 +2661,18 @@
       "query_id": 175499,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8290863037109375,
-      "hit_gold_in_topk": true,
+      "support": 0.835003137588501,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011124997399747372,
-        "embed_ms": 12.1765000076266,
-        "retrieve_ms": 0.31666699214838445,
+        "guard_in_ms": 0.013042008504271507,
+        "embed_ms": 12.836207999498583,
+        "retrieve_ms": 0.4682080034399405,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.753125003655441,
-        "total_ms": 12.753125003655441
+        "total_rag_ms": 13.499499997124076,
+        "total_ms": 13.499499997124076
       },
       "within_budget": true
     },
@@ -2686,14 +2686,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015249999705702066,
-        "embed_ms": 11.86566699470859,
-        "retrieve_ms": 9.343917001388036,
-        "extract_ms": 1.7447089921915904,
-        "guard_out_ms": 1.388207994750701,
+        "guard_in_ms": 0.014374993043020368,
+        "embed_ms": 12.485083003412,
+        "retrieve_ms": 51.52900000393856,
+        "extract_ms": 0.9677089983597398,
+        "guard_out_ms": 0.6959579914109781,
         "generate_ms": null,
-        "total_rag_ms": 24.35775098274462,
-        "total_ms": 24.35775098274462
+        "total_rag_ms": 65.6921249901643,
+        "total_ms": 65.6921249901643
       },
       "within_budget": true
     },
@@ -2707,14 +2707,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01883300137706101,
-        "embed_ms": 8.949750001193024,
-        "retrieve_ms": 9.208874995238148,
-        "extract_ms": 1.1804579989984632,
-        "guard_out_ms": 1.1239579907851294,
+        "guard_in_ms": 0.015249999705702066,
+        "embed_ms": 12.94683400192298,
+        "retrieve_ms": 44.67704200942535,
+        "extract_ms": 1.1367499973857775,
+        "guard_out_ms": 0.9827079920796677,
         "generate_ms": null,
-        "total_rag_ms": 20.481873987591825,
-        "total_ms": 20.481873987591825
+        "total_rag_ms": 59.75858400051948,
+        "total_ms": 59.75858400051948
       },
       "within_budget": true
     },
@@ -2728,14 +2728,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009333001798950136,
-        "embed_ms": 8.825500000966713,
-        "retrieve_ms": 0.3064170014113188,
+        "guard_in_ms": 0.008499991963617504,
+        "embed_ms": 11.969541999860667,
+        "retrieve_ms": 0.4599170060828328,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 9.260708000510931,
-        "total_ms": 9.260708000510931
+        "total_rag_ms": 12.573208994581364,
+        "total_ms": 12.573208994581364
       },
       "within_budget": true
     },
@@ -2749,14 +2749,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013875003787688911,
-        "embed_ms": 8.746499996050261,
-        "retrieve_ms": 5.096291992231272,
-        "extract_ms": 1.2505830090958625,
-        "guard_out_ms": 0.7899579941295087,
+        "guard_in_ms": 0.012582997442223132,
+        "embed_ms": 13.847207999788225,
+        "retrieve_ms": 24.550458998419344,
+        "extract_ms": 1.2335420033195987,
+        "guard_out_ms": 1.2161249906057492,
         "generate_ms": null,
-        "total_rag_ms": 15.897207995294593,
-        "total_ms": 15.897207995294593
+        "total_rag_ms": 40.85991698957514,
+        "total_ms": 40.85991698957514
       },
       "within_budget": true
     },
@@ -2766,18 +2766,18 @@
       "query_id": 50810,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8846136331558228,
+      "support": 0.9062367081642151,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011915995855815709,
-        "embed_ms": 11.85595900460612,
-        "retrieve_ms": 5.684125004336238,
+        "guard_in_ms": 0.009041992598213255,
+        "embed_ms": 12.161874998128042,
+        "retrieve_ms": 25.22795800177846,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 17.74091699917335,
-        "total_ms": 17.74091699917335
+        "total_rag_ms": 37.63191599864513,
+        "total_ms": 37.63191599864513
       },
       "within_budget": true
     },
@@ -2791,14 +2791,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.030708994017913938,
-        "embed_ms": 9.227000002283603,
-        "retrieve_ms": 12.342707996140234,
-        "extract_ms": 1.5287080022972077,
-        "guard_out_ms": 1.1401249939808622,
+        "guard_in_ms": 0.029292001272551715,
+        "embed_ms": 12.564333010232076,
+        "retrieve_ms": 66.15487499220762,
+        "extract_ms": 1.5062500024214387,
+        "guard_out_ms": 1.048457997967489,
         "generate_ms": null,
-        "total_rag_ms": 24.26924998871982,
-        "total_ms": 24.26924998871982
+        "total_rag_ms": 81.30320800410118,
+        "total_ms": 81.30320800410118
       },
       "within_budget": true
     },
@@ -2807,19 +2807,19 @@
       "warmup": false,
       "query_id": 1060165,
       "lang": "hi",
-      "status": "grounded",
-      "support": 1.0,
-      "hit_gold_in_topk": true,
+      "status": "abstain",
+      "support": 0.8577451705932617,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015709010767750442,
-        "embed_ms": 9.184583992464468,
-        "retrieve_ms": 7.76520800718572,
-        "extract_ms": 1.6069580015027896,
-        "guard_out_ms": 1.392417005263269,
+        "guard_in_ms": 0.015084006008692086,
+        "embed_ms": 14.341750007588416,
+        "retrieve_ms": 41.27212500316091,
+        "extract_ms": 0.0,
+        "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 19.964876017183997,
-        "total_ms": 19.964876017183997
+        "total_rag_ms": 55.92462500499096,
+        "total_ms": 55.92462500499096
       },
       "within_budget": true
     },
@@ -2833,14 +2833,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010457995813339949,
-        "embed_ms": 12.08812500408385,
-        "retrieve_ms": 4.222500007017516,
-        "extract_ms": 1.1045419960282743,
-        "guard_out_ms": 1.0542920063016936,
+        "guard_in_ms": 0.011416996130719781,
+        "embed_ms": 13.036999996984378,
+        "retrieve_ms": 19.659958008560352,
+        "extract_ms": 0.8199169969884679,
+        "guard_out_ms": 0.5041249969508499,
         "generate_ms": null,
-        "total_rag_ms": 18.479917009244673,
-        "total_ms": 18.479917009244673
+        "total_rag_ms": 34.03241699561477,
+        "total_ms": 34.03241699561477
       },
       "within_budget": true
     },
@@ -2849,19 +2849,19 @@
       "warmup": false,
       "query_id": 325643,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9240680932998657,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.0118750031106174,
-        "embed_ms": 8.51479200355243,
-        "retrieve_ms": 5.282625003019348,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.011333002476021647,
+        "embed_ms": 12.491458997828886,
+        "retrieve_ms": 26.827959009096958,
+        "extract_ms": 1.083124996512197,
+        "guard_out_ms": 1.0506249964237213,
         "generate_ms": null,
-        "total_rag_ms": 14.027665994944982,
-        "total_ms": 14.027665994944982
+        "total_rag_ms": 41.464501002337784,
+        "total_ms": 41.464501002337784
       },
       "within_budget": true
     },
@@ -2875,14 +2875,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009750001481734216,
-        "embed_ms": 9.159207998891361,
-        "retrieve_ms": 0.471791994641535,
-        "extract_ms": 4.20329200278502,
-        "guard_out_ms": 3.845500003080815,
+        "guard_in_ms": 0.010000003385357559,
+        "embed_ms": 13.274791010189801,
+        "retrieve_ms": 0.4899580089841038,
+        "extract_ms": 1.3222919951658696,
+        "guard_out_ms": 1.2320829991949722,
         "generate_ms": null,
-        "total_rag_ms": 17.689542000880465,
-        "total_ms": 17.689542000880465
+        "total_rag_ms": 16.329124016920105,
+        "total_ms": 16.329124016920105
       },
       "within_budget": true
     },
@@ -2892,18 +2892,18 @@
       "query_id": 1060160,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8590248227119446,
+      "support": 0.8631564378738403,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013374999980442226,
-        "embed_ms": 12.361917004454881,
-        "retrieve_ms": 5.520209000678733,
+        "guard_in_ms": 0.00912499672267586,
+        "embed_ms": 12.74004099832382,
+        "retrieve_ms": 26.493917001062073,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 18.09549999597948,
-        "total_ms": 18.09549999597948
+        "total_rag_ms": 39.580875003593974,
+        "total_ms": 39.580875003593974
       },
       "within_budget": true
     },
@@ -2917,14 +2917,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.02099999983329326,
-        "embed_ms": 9.022124999319203,
-        "retrieve_ms": 13.155707987607457,
-        "extract_ms": 1.5313750045606866,
-        "guard_out_ms": 1.2909579963888973,
+        "guard_in_ms": 0.02200000744778663,
+        "embed_ms": 13.555666999309324,
+        "retrieve_ms": 68.2734169968171,
+        "extract_ms": 1.524999999674037,
+        "guard_out_ms": 1.236583004356362,
         "generate_ms": null,
-        "total_rag_ms": 25.021165987709537,
-        "total_ms": 25.021165987709537
+        "total_rag_ms": 84.61266700760461,
+        "total_ms": 84.61266700760461
       },
       "within_budget": true
     },
@@ -2933,19 +2933,19 @@
       "warmup": false,
       "query_id": 10945,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8483072519302368,
-      "hit_gold_in_topk": false,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013833006960339844,
-        "embed_ms": 14.391500008059666,
-        "retrieve_ms": 4.219583002850413,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.021750005544163287,
+        "embed_ms": 14.69037499919068,
+        "retrieve_ms": 22.75845799886156,
+        "extract_ms": 1.2106250069336966,
+        "guard_out_ms": 0.9951659885700792,
         "generate_ms": null,
-        "total_rag_ms": 18.80787500704173,
-        "total_ms": 18.80787500704173
+        "total_rag_ms": 39.67637399910018,
+        "total_ms": 39.67637399910018
       },
       "within_budget": true
     },
@@ -2959,14 +2959,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.017874990589916706,
-        "embed_ms": 9.159584005828947,
-        "retrieve_ms": 4.426125000463799,
+        "guard_in_ms": 0.016792007954791188,
+        "embed_ms": 12.570165999932215,
+        "retrieve_ms": 23.711874993750826,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 13.778417007415555,
-        "total_ms": 13.778417007415555
+        "total_rag_ms": 36.488540994469076,
+        "total_ms": 36.488540994469076
       },
       "within_budget": true
     },
@@ -2980,14 +2980,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.024125009076669812,
-        "embed_ms": 8.977332996437326,
-        "retrieve_ms": 15.460750000784174,
+        "guard_in_ms": 0.02416600182186812,
+        "embed_ms": 12.899540990474634,
+        "retrieve_ms": 88.30758401018102,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 24.673041989444755,
-        "total_ms": 24.673041989444755
+        "total_rag_ms": 101.48625000147149,
+        "total_ms": 101.48625000147149
       },
       "within_budget": true
     },
@@ -3001,14 +3001,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011791998986154795,
-        "embed_ms": 8.63250000111293,
-        "retrieve_ms": 6.793790991650894,
-        "extract_ms": 1.1157500121043995,
-        "guard_out_ms": 1.044208009261638,
+        "guard_in_ms": 0.012999997125007212,
+        "embed_ms": 12.74587499210611,
+        "retrieve_ms": 39.649292011745274,
+        "extract_ms": 1.2318329972913489,
+        "guard_out_ms": 1.1435830092523247,
         "generate_ms": null,
-        "total_rag_ms": 17.598041013116017,
-        "total_ms": 17.598041013116017
+        "total_rag_ms": 54.783583007520065,
+        "total_ms": 54.783583007520065
       },
       "within_budget": true
     },
@@ -3022,14 +3022,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01316699490416795,
-        "embed_ms": 11.245166999287903,
-        "retrieve_ms": 5.484916997374967,
-        "extract_ms": 1.0740840079961345,
-        "guard_out_ms": 1.0253749933326617,
+        "guard_in_ms": 0.013249999028630555,
+        "embed_ms": 12.102083011996001,
+        "retrieve_ms": 28.268624999327585,
+        "extract_ms": 0.8116250101011246,
+        "guard_out_ms": 0.8007079886738211,
         "generate_ms": null,
-        "total_rag_ms": 18.842709992895834,
-        "total_ms": 18.842709992895834
+        "total_rag_ms": 41.99629100912716,
+        "total_ms": 41.99629100912716
       },
       "within_budget": true
     },
@@ -3039,18 +3039,18 @@
       "query_id": 95014,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8599622249603271,
+      "support": 0.8617842197418213,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.024666995159350336,
-        "embed_ms": 11.457125001470558,
-        "retrieve_ms": 6.604458001675084,
+        "guard_in_ms": 0.02416699135210365,
+        "embed_ms": 13.05037499696482,
+        "retrieve_ms": 35.25283400085755,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 18.376583990175277,
-        "total_ms": 18.376583990175277
+        "total_rag_ms": 48.66445899824612,
+        "total_ms": 48.66445899824612
       },
       "within_budget": true
     },
@@ -3064,14 +3064,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011625001206994057,
-        "embed_ms": 8.448833003058098,
-        "retrieve_ms": 4.692249989602715,
-        "extract_ms": 0.9138750028796494,
-        "guard_out_ms": 0.8051670010900125,
+        "guard_in_ms": 0.01229200279340148,
+        "embed_ms": 13.391374988714233,
+        "retrieve_ms": 24.160959001164883,
+        "extract_ms": 0.8899999957066029,
+        "guard_out_ms": 0.7702500006416813,
         "generate_ms": null,
-        "total_rag_ms": 14.871749997837469,
-        "total_ms": 14.871749997837469
+        "total_rag_ms": 39.2248759890208,
+        "total_ms": 39.2248759890208
       },
       "within_budget": true
     },
@@ -3085,14 +3085,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013791999663226306,
-        "embed_ms": 8.503499993821606,
-        "retrieve_ms": 9.356583002954721,
-        "extract_ms": 1.040667004417628,
-        "guard_out_ms": 0.8572079968871549,
+        "guard_in_ms": 0.014542005374096334,
+        "embed_ms": 13.035000010859221,
+        "retrieve_ms": 54.11654099589214,
+        "extract_ms": 1.0049160046037287,
+        "guard_out_ms": 0.7752500096103176,
         "generate_ms": null,
-        "total_rag_ms": 19.771749997744337,
-        "total_ms": 19.771749997744337
+        "total_rag_ms": 68.9462490263395,
+        "total_ms": 68.9462490263395
       },
       "within_budget": true
     },
@@ -3102,18 +3102,18 @@
       "query_id": 57119,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8617430925369263,
+      "support": 0.893715500831604,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.006832997314631939,
-        "embed_ms": 8.16729199141264,
-        "retrieve_ms": 0.5545829917537048,
+        "guard_in_ms": 0.007374997949227691,
+        "embed_ms": 11.809291012468748,
+        "retrieve_ms": 1.709542004391551,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 8.870083998772316,
-        "total_ms": 8.870083998772316
+        "total_rag_ms": 13.734541003941558,
+        "total_ms": 13.734541003941558
       },
       "within_budget": true
     },
@@ -3122,19 +3122,19 @@
       "warmup": false,
       "query_id": 1090328,
       "lang": "hi",
-      "status": "grounded",
-      "support": 1.0,
+      "status": "abstain",
+      "support": 0.8364361524581909,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011332987924106419,
-        "embed_ms": 40.52695899736136,
-        "retrieve_ms": 0.3648749989224598,
-        "extract_ms": 0.9852079965639859,
-        "guard_out_ms": 1.061417002347298,
+        "guard_in_ms": 0.008333998266607523,
+        "embed_ms": 50.61879099230282,
+        "retrieve_ms": 0.6295420025708154,
+        "extract_ms": 0.0,
+        "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 42.94979198311921,
-        "total_ms": 42.94979198311921
+        "total_rag_ms": 51.429625003947876,
+        "total_ms": 51.429625003947876
       },
       "within_budget": true
     },
@@ -3148,14 +3148,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.007790993549861014,
-        "embed_ms": 11.947708000661805,
-        "retrieve_ms": 5.27041700843256,
-        "extract_ms": 1.1593750095926225,
-        "guard_out_ms": 1.175665995106101,
+        "guard_in_ms": 0.00837500556372106,
+        "embed_ms": 11.674833003780805,
+        "retrieve_ms": 27.307666998240165,
+        "extract_ms": 1.2168329994892702,
+        "guard_out_ms": 1.1531250056577846,
         "generate_ms": null,
-        "total_rag_ms": 19.56095700734295,
-        "total_ms": 19.56095700734295
+        "total_rag_ms": 41.360833012731746,
+        "total_ms": 41.360833012731746
       },
       "within_budget": true
     },
@@ -3164,19 +3164,19 @@
       "warmup": false,
       "query_id": 21872,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8200238347053528,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.0109999964479357,
-        "embed_ms": 8.523041993612424,
-        "retrieve_ms": 3.6124590114923194,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.011333992006257176,
+        "embed_ms": 13.096082999254577,
+        "retrieve_ms": 17.82537500548642,
+        "extract_ms": 1.1642090103123337,
+        "guard_out_ms": 1.1247090005781502,
         "generate_ms": null,
-        "total_rag_ms": 12.306874996284023,
-        "total_ms": 12.306874996284023
+        "total_rag_ms": 33.22171000763774,
+        "total_ms": 33.22171000763774
       },
       "within_budget": true
     },
@@ -3187,17 +3187,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016582998796366155,
-        "embed_ms": 11.693500011460856,
-        "retrieve_ms": 0.7368329970631748,
-        "extract_ms": 1.2605000083567575,
-        "guard_out_ms": 1.2222499935887754,
+        "guard_in_ms": 0.017999991541728377,
+        "embed_ms": 13.805708003928885,
+        "retrieve_ms": 3.327250000438653,
+        "extract_ms": 1.3042500067967921,
+        "guard_out_ms": 1.1289590038359165,
         "generate_ms": null,
-        "total_rag_ms": 14.92966600926593,
-        "total_ms": 14.92966600926593
+        "total_rag_ms": 19.584167006541975,
+        "total_ms": 19.584167006541975
       },
       "within_budget": true
     },
@@ -3211,14 +3211,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012249991414137185,
-        "embed_ms": 9.771500001079403,
-        "retrieve_ms": 9.683457989012823,
-        "extract_ms": 1.4622500020777807,
-        "guard_out_ms": 0.9816669917199761,
+        "guard_in_ms": 0.01274999522138387,
+        "embed_ms": 13.016500000958331,
+        "retrieve_ms": 51.4960830041673,
+        "extract_ms": 1.2828750041080639,
+        "guard_out_ms": 0.5830829904880375,
         "generate_ms": null,
-        "total_rag_ms": 21.91112497530412,
-        "total_ms": 21.91112497530412
+        "total_rag_ms": 66.39129099494312,
+        "total_ms": 66.39129099494312
       },
       "within_budget": true
     },
@@ -3232,14 +3232,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011750002158805728,
-        "embed_ms": 9.136583001236431,
-        "retrieve_ms": 4.531457991106436,
-        "extract_ms": 1.0047919931821525,
-        "guard_out_ms": 0.8089170005405322,
+        "guard_in_ms": 0.011249998351559043,
+        "embed_ms": 13.690541993128136,
+        "retrieve_ms": 24.18541601218749,
+        "extract_ms": 1.1302079947199672,
+        "guard_out_ms": 0.9613330039428547,
         "generate_ms": null,
-        "total_rag_ms": 15.493499988224357,
-        "total_ms": 15.493499988224357
+        "total_rag_ms": 39.978749002330005,
+        "total_ms": 39.978749002330005
       },
       "within_budget": true
     },
@@ -3248,19 +3248,19 @@
       "warmup": false,
       "query_id": 180887,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8630891442298889,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.00841599830891937,
-        "embed_ms": 12.489125001593493,
-        "retrieve_ms": 0.32954099879134446,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.008917006198316813,
+        "embed_ms": 13.776833002339117,
+        "retrieve_ms": 0.8866249991115183,
+        "extract_ms": 1.0126670094905421,
+        "guard_out_ms": 1.1319159966660663,
         "generate_ms": null,
-        "total_rag_ms": 13.026000000536442,
-        "total_ms": 13.026000000536442
+        "total_rag_ms": 16.81695801380556,
+        "total_ms": 16.81695801380556
       },
       "within_budget": true
     },
@@ -3274,14 +3274,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013500000932253897,
-        "embed_ms": 9.37645799422171,
-        "retrieve_ms": 2.690207998966798,
-        "extract_ms": 1.1540419945959002,
-        "guard_out_ms": 1.1206249910173938,
+        "guard_in_ms": 0.013874989235773683,
+        "embed_ms": 10.799583003972657,
+        "retrieve_ms": 13.240290994872339,
+        "extract_ms": 1.7459999944549054,
+        "guard_out_ms": 1.5297500067390501,
         "generate_ms": null,
-        "total_rag_ms": 14.354832979734056,
-        "total_ms": 14.354832979734056
+        "total_rag_ms": 27.329498989274725,
+        "total_ms": 27.329498989274725
       },
       "within_budget": true
     },
@@ -3291,18 +3291,18 @@
       "query_id": 1101285,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8881288170814514,
+      "support": 0.8454472422599792,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015209006960503757,
-        "embed_ms": 9.993542000302114,
-        "retrieve_ms": 7.186749993707053,
+        "guard_in_ms": 0.015290992450900376,
+        "embed_ms": 8.644540997920558,
+        "retrieve_ms": 40.457625000271946,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 17.39087500027381,
-        "total_ms": 17.39087500027381
+        "total_rag_ms": 49.353000009432435,
+        "total_ms": 49.353000009432435
       },
       "within_budget": true
     },
@@ -3316,14 +3316,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01812499249354005,
-        "embed_ms": 8.79629199334886,
-        "retrieve_ms": 8.124917003442533,
-        "extract_ms": 1.1798749910667539,
-        "guard_out_ms": 1.027125006658025,
+        "guard_in_ms": 0.019625003915280104,
+        "embed_ms": 13.516291000996716,
+        "retrieve_ms": 45.44854200503323,
+        "extract_ms": 1.468792004743591,
+        "guard_out_ms": 1.2454170064302161,
         "generate_ms": null,
-        "total_rag_ms": 19.14633398700971,
-        "total_ms": 19.14633398700971
+        "total_rag_ms": 61.698667021119036,
+        "total_ms": 61.698667021119036
       },
       "within_budget": true
     },
@@ -3334,17 +3334,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01620801049284637,
-        "embed_ms": 12.04058299481403,
-        "retrieve_ms": 7.057666007312946,
-        "extract_ms": 1.3261249987408519,
-        "guard_out_ms": 1.1920419929083437,
+        "guard_in_ms": 0.01766700006555766,
+        "embed_ms": 13.394625013461336,
+        "retrieve_ms": 42.90879199106712,
+        "extract_ms": 0.9748339944053441,
+        "guard_out_ms": 0.9571250120643526,
         "generate_ms": null,
-        "total_rag_ms": 21.63262400426902,
-        "total_ms": 21.63262400426902
+        "total_rag_ms": 58.25304301106371,
+        "total_ms": 58.25304301106371
       },
       "within_budget": true
     },
@@ -3358,14 +3358,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009958006558008492,
-        "embed_ms": 8.192374996724539,
-        "retrieve_ms": 5.485375004354864,
-        "extract_ms": 1.345540993497707,
-        "guard_out_ms": 1.309792001848109,
+        "guard_in_ms": 0.012791002518497407,
+        "embed_ms": 12.542458993266337,
+        "retrieve_ms": 29.348749987548217,
+        "extract_ms": 0.9643749945098534,
+        "guard_out_ms": 1.0094170138472691,
         "generate_ms": null,
-        "total_rag_ms": 16.343041002983227,
-        "total_ms": 16.343041002983227
+        "total_rag_ms": 43.877791991690174,
+        "total_ms": 43.877791991690174
       },
       "within_budget": true
     },
@@ -3375,18 +3375,18 @@
       "query_id": 109718,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8641040921211243,
+      "support": 0.8757381439208984,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014874996850267053,
-        "embed_ms": 8.803500008070841,
-        "retrieve_ms": 7.789208000758663,
+        "guard_in_ms": 0.016332996892742813,
+        "embed_ms": 13.11524999618996,
+        "retrieve_ms": 42.31220899964683,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 16.850208994583227,
-        "total_ms": 16.850208994583227
+        "total_rag_ms": 55.65900000510737,
+        "total_ms": 55.65900000510737
       },
       "within_budget": true
     },
@@ -3395,19 +3395,19 @@
       "warmup": false,
       "query_id": 1100332,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8775418996810913,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010749994544312358,
-        "embed_ms": 8.82429099874571,
-        "retrieve_ms": 2.9660410073120147,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.011333992006257176,
+        "embed_ms": 13.715875000343658,
+        "retrieve_ms": 15.743416995974258,
+        "extract_ms": 1.0127920104423538,
+        "guard_out_ms": 1.0760839941212907,
         "generate_ms": null,
-        "total_rag_ms": 11.939959003939293,
-        "total_ms": 11.939959003939293
+        "total_rag_ms": 31.559501992887817,
+        "total_ms": 31.559501992887817
       },
       "within_budget": true
     },
@@ -3418,17 +3418,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014707999071106315,
-        "embed_ms": 12.888083001598716,
-        "retrieve_ms": 4.280125009245239,
-        "extract_ms": 1.4928329910617322,
-        "guard_out_ms": 1.4050829922780395,
+        "guard_in_ms": 0.015083991456776857,
+        "embed_ms": 9.10633300372865,
+        "retrieve_ms": 23.222415999043733,
+        "extract_ms": 1.706499999272637,
+        "guard_out_ms": 1.4267920050770044,
         "generate_ms": null,
-        "total_rag_ms": 20.080831993254833,
-        "total_ms": 20.080831993254833
+        "total_rag_ms": 35.4771249985788,
+        "total_ms": 35.4771249985788
       },
       "within_budget": true
     },
@@ -3437,19 +3437,19 @@
       "warmup": false,
       "query_id": 190227,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9085080623626709,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012333999620750546,
-        "embed_ms": 8.08800000231713,
-        "retrieve_ms": 6.647709000390023,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.011957992683164775,
+        "embed_ms": 9.853666997514665,
+        "retrieve_ms": 36.839084001258016,
+        "extract_ms": 1.4542080025421456,
+        "guard_out_ms": 1.3366250059334561,
         "generate_ms": null,
-        "total_rag_ms": 14.93041698995512,
-        "total_ms": 14.93041698995512
+        "total_rag_ms": 49.49554199993145,
+        "total_ms": 49.49554199993145
       },
       "within_budget": true
     },
@@ -3459,18 +3459,18 @@
       "query_id": 127147,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8782929182052612,
+      "support": 0.8870813846588135,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012666001566685736,
-        "embed_ms": 8.775209003943019,
-        "retrieve_ms": 3.594665991840884,
+        "guard_in_ms": 0.01316699490416795,
+        "embed_ms": 10.797291994094849,
+        "retrieve_ms": 18.339750007726252,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 12.581540999235585,
-        "total_ms": 12.581540999235585
+        "total_rag_ms": 29.435874996124767,
+        "total_ms": 29.435874996124767
       },
       "within_budget": true
     },
@@ -3480,18 +3480,18 @@
       "query_id": 329233,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8962960243225098,
+      "support": 0.9128872752189636,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.017583995941095054,
-        "embed_ms": 8.615792001364753,
-        "retrieve_ms": 9.306874999310821,
+        "guard_in_ms": 0.01808301021810621,
+        "embed_ms": 12.427082998328842,
+        "retrieve_ms": 52.821083998424,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 18.262833007611334,
-        "total_ms": 18.262833007611334
+        "total_rag_ms": 65.54570900334511,
+        "total_ms": 65.54570900334511
       },
       "within_budget": true
     },
@@ -3505,14 +3505,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.018709004507400095,
-        "embed_ms": 13.114207991748117,
-        "retrieve_ms": 7.596292009111494,
-        "extract_ms": 1.8137500010197982,
-        "guard_out_ms": 1.3032090064371005,
+        "guard_in_ms": 0.019208004232496023,
+        "embed_ms": 12.911500001791865,
+        "retrieve_ms": 42.39524999866262,
+        "extract_ms": 1.215500000398606,
+        "guard_out_ms": 0.9952079999493435,
         "generate_ms": null,
-        "total_rag_ms": 23.84616801282391,
-        "total_ms": 23.84616801282391
+        "total_rag_ms": 57.53666600503493,
+        "total_ms": 57.53666600503493
       },
       "within_budget": true
     },
@@ -3522,18 +3522,18 @@
       "query_id": 240944,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.865105390548706,
-      "hit_gold_in_topk": true,
+      "support": 0.8889375925064087,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016624995623715222,
-        "embed_ms": 12.231041007908061,
-        "retrieve_ms": 8.135959011269733,
+        "guard_in_ms": 0.026709007215686142,
+        "embed_ms": 14.602625000406988,
+        "retrieve_ms": 47.895916999550536,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 20.605375000741333,
-        "total_ms": 20.605375000741333
+        "total_rag_ms": 62.787833987385966,
+        "total_ms": 62.787833987385966
       },
       "within_budget": true
     },
@@ -3547,14 +3547,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.0322499981848523,
-        "embed_ms": 8.85625000228174,
-        "retrieve_ms": 13.016625001910143,
-        "extract_ms": 1.3548749993788078,
-        "guard_out_ms": 1.0520419891690835,
+        "guard_in_ms": 0.026374997105449438,
+        "embed_ms": 13.026125001488253,
+        "retrieve_ms": 77.29429099708796,
+        "extract_ms": 1.6342089948011562,
+        "guard_out_ms": 1.0894160077441484,
         "generate_ms": null,
-        "total_rag_ms": 24.312041990924627,
-        "total_ms": 24.312041990924627
+        "total_rag_ms": 93.07041599822696,
+        "total_ms": 93.07041599822696
       },
       "within_budget": true
     },
@@ -3568,14 +3568,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.0154590088641271,
-        "embed_ms": 9.491959004662931,
-        "retrieve_ms": 5.727583993575536,
-        "extract_ms": 1.2417910038493574,
-        "guard_out_ms": 1.0977089987136424,
+        "guard_in_ms": 0.01608299498911947,
+        "embed_ms": 13.514000005670823,
+        "retrieve_ms": 33.85295800399035,
+        "extract_ms": 1.07758300146088,
+        "guard_out_ms": 1.0435829899506643,
         "generate_ms": null,
-        "total_rag_ms": 17.574502009665594,
-        "total_ms": 17.574502009665594
+        "total_rag_ms": 49.50420699606184,
+        "total_ms": 49.50420699606184
       },
       "within_budget": true
     },
@@ -3589,14 +3589,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01304100442212075,
-        "embed_ms": 12.803916994016618,
-        "retrieve_ms": 4.756832990096882,
-        "extract_ms": 1.0636670049279928,
-        "guard_out_ms": 1.017041999148205,
+        "guard_in_ms": 0.013665994629263878,
+        "embed_ms": 13.849125010892749,
+        "retrieve_ms": 25.341916989418678,
+        "extract_ms": 0.9529590024612844,
+        "guard_out_ms": 0.5252499977359548,
         "generate_ms": null,
-        "total_rag_ms": 19.654499992611818,
-        "total_ms": 19.654499992611818
+        "total_rag_ms": 40.68291699513793,
+        "total_ms": 40.68291699513793
       },
       "within_budget": true
     },
@@ -3610,14 +3610,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.017707992810755968,
-        "embed_ms": 9.707000004709698,
-        "retrieve_ms": 10.125250002602115,
-        "extract_ms": 1.5619170007994398,
-        "guard_out_ms": 1.2722909887088463,
+        "guard_in_ms": 0.01937500201165676,
+        "embed_ms": 12.959792002220638,
+        "retrieve_ms": 61.532833002274856,
+        "extract_ms": 1.6655829967930913,
+        "guard_out_ms": 1.0818330047186464,
         "generate_ms": null,
-        "total_rag_ms": 22.684165989630856,
-        "total_ms": 22.684165989630856
+        "total_rag_ms": 77.25941600801889,
+        "total_ms": 77.25941600801889
       },
       "within_budget": true
     },
@@ -3631,14 +3631,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008709001122042537,
-        "embed_ms": 8.01545800641179,
-        "retrieve_ms": 0.5355000030249357,
+        "guard_in_ms": 0.009916999260894954,
+        "embed_ms": 12.91333299013786,
+        "retrieve_ms": 2.202667004894465,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 8.700624995981343,
-        "total_ms": 8.700624995981343
+        "total_rag_ms": 15.991958003723994,
+        "total_ms": 15.991958003723994
       },
       "within_budget": true
     },
@@ -3652,14 +3652,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015875004464760423,
-        "embed_ms": 13.07037498918362,
-        "retrieve_ms": 6.7125000059604645,
+        "guard_in_ms": 0.018499995348975062,
+        "embed_ms": 15.72012499673292,
+        "retrieve_ms": 39.33291700377595,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 19.94974999979604,
-        "total_ms": 19.94974999979604
+        "total_rag_ms": 55.285084003116935,
+        "total_ms": 55.285084003116935
       },
       "within_budget": true
     },
@@ -3673,14 +3673,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.020874998881481588,
-        "embed_ms": 8.708666005986743,
-        "retrieve_ms": 8.992957998998463,
-        "extract_ms": 1.9290829950477928,
-        "guard_out_ms": 1.3990419975016266,
+        "guard_in_ms": 0.022416003048419952,
+        "embed_ms": 15.501083005801775,
+        "retrieve_ms": 51.09174999233801,
+        "extract_ms": 1.2749170127790421,
+        "guard_out_ms": 0.8465419959975407,
         "generate_ms": null,
-        "total_rag_ms": 21.050623996416107,
-        "total_ms": 21.050623996416107
+        "total_rag_ms": 68.73670800996479,
+        "total_ms": 68.73670800996479
       },
       "within_budget": true
     },
@@ -3689,19 +3689,19 @@
       "warmup": false,
       "query_id": 1090323,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9396696090698242,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010333998943679035,
-        "embed_ms": 8.555749998777173,
-        "retrieve_ms": 6.530541009851731,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.01129100564867258,
+        "embed_ms": 12.35466699290555,
+        "retrieve_ms": 41.17795900674537,
+        "extract_ms": 0.8694999996805564,
+        "guard_out_ms": 0.8523750002495944,
         "generate_ms": null,
-        "total_rag_ms": 15.264457993907854,
-        "total_ms": 15.264457993907854
+        "total_rag_ms": 55.26579200522974,
+        "total_ms": 55.26579200522974
       },
       "within_budget": true
     },
@@ -3710,19 +3710,19 @@
       "warmup": false,
       "query_id": 70250,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8958478569984436,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.03066699719056487,
-        "embed_ms": 12.808333995053545,
-        "retrieve_ms": 8.020708002732135,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.024042004952207208,
+        "embed_ms": 12.810458996682428,
+        "retrieve_ms": 46.76129099971149,
+        "extract_ms": 2.1846669988008216,
+        "guard_out_ms": 1.1319580080453306,
         "generate_ms": null,
-        "total_rag_ms": 21.094292009365745,
-        "total_ms": 21.094292009365745
+        "total_rag_ms": 62.91241700819228,
+        "total_ms": 62.91241700819228
       },
       "within_budget": true
     },
@@ -3736,14 +3736,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01245799649041146,
-        "embed_ms": 12.753040995448828,
-        "retrieve_ms": 0.5662079929606989,
+        "guard_in_ms": 0.013291995855979621,
+        "embed_ms": 15.958916003000923,
+        "retrieve_ms": 2.56695800635498,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 13.480042005539872,
-        "total_ms": 13.480042005539872
+        "total_rag_ms": 18.778833997203037,
+        "total_ms": 18.778833997203037
       },
       "within_budget": true
     },
@@ -3757,14 +3757,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014124991139397025,
-        "embed_ms": 10.459292010637,
-        "retrieve_ms": 6.592666002688929,
-        "extract_ms": 1.0990000009769574,
-        "guard_out_ms": 1.008250008453615,
+        "guard_in_ms": 0.015292011084966362,
+        "embed_ms": 12.435791999450885,
+        "retrieve_ms": 36.36716600158252,
+        "extract_ms": 1.0845829965546727,
+        "guard_out_ms": 0.9572499984642491,
         "generate_ms": null,
-        "total_rag_ms": 19.1733330138959,
-        "total_ms": 19.1733330138959
+        "total_rag_ms": 50.86008300713729,
+        "total_ms": 50.86008300713729
       },
       "within_budget": true
     },
@@ -3775,17 +3775,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015707992133684456,
-        "embed_ms": 8.751291999942623,
-        "retrieve_ms": 7.4798749992623925,
-        "extract_ms": 1.1733330029528588,
-        "guard_out_ms": 1.0035829909611493,
+        "guard_in_ms": 0.016125006368383765,
+        "embed_ms": 13.10887499130331,
+        "retrieve_ms": 42.15104199829511,
+        "extract_ms": 1.305540994508192,
+        "guard_out_ms": 1.0673749929992482,
         "generate_ms": null,
-        "total_rag_ms": 18.423790985252708,
-        "total_ms": 18.423790985252708
+        "total_rag_ms": 57.64895798347425,
+        "total_ms": 57.64895798347425
       },
       "within_budget": true
     },
@@ -3799,14 +3799,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.022374995751306415,
-        "embed_ms": 16.678999993018806,
-        "retrieve_ms": 9.471166995353997,
+        "guard_in_ms": 0.02229100209660828,
+        "embed_ms": 19.529833007254638,
+        "retrieve_ms": 53.229916011332534,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 26.35645799455233,
-        "total_ms": 26.35645799455233
+        "total_rag_ms": 72.98208400607109,
+        "total_ms": 72.98208400607109
       },
       "within_budget": true
     },
@@ -3817,17 +3817,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011584008461795747,
-        "embed_ms": 12.565749988425523,
-        "retrieve_ms": 6.70783399255015,
-        "extract_ms": 1.1978330003330484,
-        "guard_out_ms": 1.113582999096252,
+        "guard_in_ms": 0.0118750031106174,
+        "embed_ms": 12.777665993780829,
+        "retrieve_ms": 38.629583999863826,
+        "extract_ms": 1.2235419999342412,
+        "guard_out_ms": 1.0720830032369122,
         "generate_ms": null,
-        "total_rag_ms": 21.59658398886677,
-        "total_ms": 21.59658398886677
+        "total_rag_ms": 53.714749999926426,
+        "total_ms": 53.714749999926426
       },
       "within_budget": true
     },
@@ -3837,18 +3837,18 @@
       "query_id": 1090322,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8193873167037964,
+      "support": 0.8217918276786804,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.02254200808238238,
-        "embed_ms": 12.33558300009463,
-        "retrieve_ms": 6.753083987860009,
+        "guard_in_ms": 0.022334003006108105,
+        "embed_ms": 12.929500007885508,
+        "retrieve_ms": 38.257583990343846,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 19.265333001385443,
-        "total_ms": 19.265333001385443
+        "total_rag_ms": 51.46208299265709,
+        "total_ms": 51.46208299265709
       },
       "within_budget": true
     },
@@ -3859,17 +3859,17 @@
       "lang": "hi",
       "status": "abstain",
       "support": 0.889694333076477,
-      "hit_gold_in_topk": false,
+      "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014000004739500582,
-        "embed_ms": 8.910083008231595,
-        "retrieve_ms": 7.823541003745049,
+        "guard_in_ms": 0.01462499494664371,
+        "embed_ms": 13.387333994614892,
+        "retrieve_ms": 46.3797499978682,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 16.957833009655587,
-        "total_ms": 16.957833009655587
+        "total_rag_ms": 60.00612500065472,
+        "total_ms": 60.00612500065472
       },
       "within_budget": true
     },
@@ -3883,14 +3883,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010917006875388324,
-        "embed_ms": 8.347583003342152,
-        "retrieve_ms": 4.623665998224169,
-        "extract_ms": 1.2850409984821454,
-        "guard_out_ms": 1.0765420011011884,
+        "guard_in_ms": 0.011625001206994057,
+        "embed_ms": 13.791000004857779,
+        "retrieve_ms": 25.23829200072214,
+        "extract_ms": 1.2502500030677766,
+        "guard_out_ms": 1.0756249976111576,
         "generate_ms": null,
-        "total_rag_ms": 15.343749008025043,
-        "total_ms": 15.343749008025043
+        "total_rag_ms": 41.36679200746585,
+        "total_ms": 41.36679200746585
       },
       "within_budget": true
     },
@@ -3904,14 +3904,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01333298860117793,
-        "embed_ms": 8.873082988429815,
-        "retrieve_ms": 9.32558299973607,
-        "extract_ms": 1.105957999243401,
-        "guard_out_ms": 0.9279579971916974,
+        "guard_in_ms": 0.013540993677452207,
+        "embed_ms": 12.65449999482371,
+        "retrieve_ms": 55.632957999478094,
+        "extract_ms": 1.5446660108864307,
+        "guard_out_ms": 1.291334003326483,
         "generate_ms": null,
-        "total_rag_ms": 20.24591497320216,
-        "total_ms": 20.24591497320216
+        "total_rag_ms": 71.13699900219217,
+        "total_ms": 71.13699900219217
       },
       "within_budget": true
     },
@@ -3925,14 +3925,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011790994904004037,
-        "embed_ms": 12.304207994020544,
-        "retrieve_ms": 3.81483300589025,
-        "extract_ms": 1.4629999932367355,
-        "guard_out_ms": 1.2757500080624595,
+        "guard_in_ms": 0.01274999522138387,
+        "embed_ms": 12.80570800008718,
+        "retrieve_ms": 20.10599999630358,
+        "extract_ms": 1.4972500066505745,
+        "guard_out_ms": 1.3597499928437173,
         "generate_ms": null,
-        "total_rag_ms": 18.869581996113993,
-        "total_ms": 18.869581996113993
+        "total_rag_ms": 35.781457991106436,
+        "total_ms": 35.781457991106436
       },
       "within_budget": true
     },
@@ -3946,14 +3946,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010000003385357559,
-        "embed_ms": 12.77575000131037,
-        "retrieve_ms": 4.134916001930833,
-        "extract_ms": 1.4709999959450215,
-        "guard_out_ms": 1.283166988287121,
+        "guard_in_ms": 0.011000010999850929,
+        "embed_ms": 14.069917000597343,
+        "retrieve_ms": 20.433249999769032,
+        "extract_ms": 1.06733400025405,
+        "guard_out_ms": 0.9522499894956127,
         "generate_ms": null,
-        "total_rag_ms": 19.674832990858704,
-        "total_ms": 19.674832990858704
+        "total_rag_ms": 36.53375100111589,
+        "total_ms": 36.53375100111589
       },
       "within_budget": true
     },
@@ -3963,18 +3963,18 @@
       "query_id": 171906,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8394412994384766,
+      "support": 0.85440993309021,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015541998436674476,
-        "embed_ms": 8.852041995851323,
-        "retrieve_ms": 7.290333000128157,
+        "guard_in_ms": 0.015832993085496128,
+        "embed_ms": 12.503958001616411,
+        "retrieve_ms": 41.341749994899146,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 16.422166998381726,
-        "total_ms": 16.422166998381726
+        "total_rag_ms": 54.139625004609115,
+        "total_ms": 54.139625004609115
       },
       "within_budget": true
     },
@@ -3983,19 +3983,19 @@
       "warmup": false,
       "query_id": 338016,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8508957028388977,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.013708006008528173,
-        "embed_ms": 9.212749995640479,
-        "retrieve_ms": 4.396791991894133,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.013958997442387044,
+        "embed_ms": 13.418667003861628,
+        "retrieve_ms": 25.318583007901907,
+        "extract_ms": 1.0371250100433826,
+        "guard_out_ms": 0.9676670015323907,
         "generate_ms": null,
-        "total_rag_ms": 13.843124994309619,
-        "total_ms": 13.843124994309619
+        "total_rag_ms": 40.756001020781696,
+        "total_ms": 40.756001020781696
       },
       "within_budget": true
     },
@@ -4009,14 +4009,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008334012818522751,
-        "embed_ms": 8.122541999910027,
-        "retrieve_ms": 3.226500004529953,
-        "extract_ms": 0.8161670120898634,
-        "guard_out_ms": 0.8855000050971285,
+        "guard_in_ms": 0.008792005246505141,
+        "embed_ms": 12.63299999118317,
+        "retrieve_ms": 16.314500011503696,
+        "extract_ms": 1.1687919904943556,
+        "guard_out_ms": 0.9980419999919832,
         "generate_ms": null,
-        "total_rag_ms": 13.059043034445494,
-        "total_ms": 13.059043034445494
+        "total_rag_ms": 31.12312599841971,
+        "total_ms": 31.12312599841971
       },
       "within_budget": true
     },
@@ -4030,14 +4030,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016124991816468537,
-        "embed_ms": 8.375208999495953,
-        "retrieve_ms": 5.0037500041071326,
-        "extract_ms": 1.2962079927092418,
-        "guard_out_ms": 1.02750000951346,
+        "guard_in_ms": 0.017292011762037873,
+        "embed_ms": 9.129500002018176,
+        "retrieve_ms": 25.773166998988017,
+        "extract_ms": 1.3275829987833276,
+        "guard_out_ms": 1.0460409976076335,
         "generate_ms": null,
-        "total_rag_ms": 15.718791997642256,
-        "total_ms": 15.718791997642256
+        "total_rag_ms": 37.29358300915919,
+        "total_ms": 37.29358300915919
       },
       "within_budget": true
     },
@@ -4047,18 +4047,18 @@
       "query_id": 183727,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8896224498748779,
+      "support": 0.8867968916893005,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016250007320195436,
-        "embed_ms": 11.47741699242033,
-        "retrieve_ms": 4.105042011360638,
+        "guard_in_ms": 0.01666600292082876,
+        "embed_ms": 12.615833999007009,
+        "retrieve_ms": 24.70687500317581,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 15.860333005548455,
-        "total_ms": 15.860333005548455
+        "total_rag_ms": 37.64566699101124,
+        "total_ms": 37.64566699101124
       },
       "within_budget": true
     },
@@ -4072,14 +4072,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01979200169444084,
-        "embed_ms": 8.786291989963502,
-        "retrieve_ms": 5.102667011669837,
+        "guard_in_ms": 0.020666993805207312,
+        "embed_ms": 12.868584002717398,
+        "retrieve_ms": 27.762333003920503,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 14.14145898888819,
-        "total_ms": 14.14145898888819
+        "total_rag_ms": 40.95187499478925,
+        "total_ms": 40.95187499478925
       },
       "within_budget": true
     },
@@ -4093,14 +4093,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.022541993530467153,
-        "embed_ms": 9.510457995929755,
-        "retrieve_ms": 14.376749997609295,
-        "extract_ms": 1.7866669950308278,
-        "guard_out_ms": 1.3554580073105171,
+        "guard_in_ms": 0.023584012524224818,
+        "embed_ms": 13.043540995568037,
+        "retrieve_ms": 105.46099999919534,
+        "extract_ms": 3.1378330022562295,
+        "guard_out_ms": 2.050084003712982,
         "generate_ms": null,
-        "total_rag_ms": 27.051874989410862,
-        "total_ms": 27.051874989410862
+        "total_rag_ms": 123.71604201325681,
+        "total_ms": 123.71604201325681
       },
       "within_budget": true
     },
@@ -4114,14 +4114,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.015542012988589704,
-        "embed_ms": 12.517374998424202,
-        "retrieve_ms": 1.3728330086451024,
-        "extract_ms": 1.3129169965395704,
-        "guard_out_ms": 1.104041002690792,
+        "guard_in_ms": 0.01837499439716339,
+        "embed_ms": 14.68179099902045,
+        "retrieve_ms": 7.700541988015175,
+        "extract_ms": 1.5165000077104196,
+        "guard_out_ms": 1.205583001137711,
         "generate_ms": null,
-        "total_rag_ms": 16.322708019288257,
-        "total_ms": 16.322708019288257
+        "total_rag_ms": 25.12279099028092,
+        "total_ms": 25.12279099028092
       },
       "within_budget": true
     },
@@ -4131,18 +4131,18 @@
       "query_id": 125498,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8673168420791626,
+      "support": 0.8673169612884521,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012999997125007212,
-        "embed_ms": 11.936459006392397,
-        "retrieve_ms": 3.6542079906212166,
+        "guard_in_ms": 0.015124998753890395,
+        "embed_ms": 13.634957998874597,
+        "retrieve_ms": 19.357750003109686,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 15.833249999559484,
-        "total_ms": 15.833249999559484
+        "total_rag_ms": 33.251375003601424,
+        "total_ms": 33.251375003601424
       },
       "within_budget": true
     },
@@ -4151,19 +4151,19 @@
       "warmup": false,
       "query_id": 1090319,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8541511297225952,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010957999620586634,
-        "embed_ms": 8.064375011599623,
-        "retrieve_ms": 1.6662919952068478,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.01375000283587724,
+        "embed_ms": 8.898833009880036,
+        "retrieve_ms": 8.348292001755908,
+        "extract_ms": 0.898041995242238,
+        "guard_out_ms": 0.8780000061960891,
         "generate_ms": null,
-        "total_rag_ms": 9.831167000811547,
-        "total_ms": 9.831167000811547
+        "total_rag_ms": 19.03691701591015,
+        "total_ms": 19.03691701591015
       },
       "within_budget": true
     },
@@ -4177,14 +4177,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.007167007424868643,
-        "embed_ms": 8.007874988834374,
-        "retrieve_ms": 4.996333009330556,
-        "extract_ms": 0.6712080066790804,
-        "guard_out_ms": 0.7134999905247241,
+        "guard_in_ms": 0.007541995728388429,
+        "embed_ms": 11.63204200565815,
+        "retrieve_ms": 26.713833009125665,
+        "extract_ms": 1.0106659901794046,
+        "guard_out_ms": 0.9606660023564473,
         "generate_ms": null,
-        "total_rag_ms": 14.396083002793603,
-        "total_ms": 14.396083002793603
+        "total_rag_ms": 40.324749003048055,
+        "total_ms": 40.324749003048055
       },
       "within_budget": true
     },
@@ -4198,14 +4198,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.020166000467725098,
-        "embed_ms": 8.90895799966529,
-        "retrieve_ms": 7.833208001102321,
+        "guard_in_ms": 0.02070800110232085,
+        "embed_ms": 12.674750003498048,
+        "retrieve_ms": 46.53204100031871,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 17.03425000596326,
-        "total_ms": 17.03425000596326
+        "total_rag_ms": 59.49733300076332,
+        "total_ms": 59.49733300076332
       },
       "within_budget": true
     },
@@ -4214,19 +4214,19 @@
       "warmup": false,
       "query_id": 263891,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.9167965650558472,
-      "hit_gold_in_topk": true,
+      "status": "grounded",
+      "support": 1.0,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.020374995074234903,
-        "embed_ms": 9.234791999915615,
-        "retrieve_ms": 10.381792002590373,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.021624990040436387,
+        "embed_ms": 13.918166994699277,
+        "retrieve_ms": 64.63049999729265,
+        "extract_ms": 1.8993749981746078,
+        "guard_out_ms": 1.6258340037893504,
         "generate_ms": null,
-        "total_rag_ms": 19.862040993757546,
-        "total_ms": 19.862040993757546
+        "total_rag_ms": 82.09550098399632,
+        "total_ms": 82.09550098399632
       },
       "within_budget": true
     },
@@ -4240,14 +4240,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014874996850267053,
-        "embed_ms": 8.320166991325095,
-        "retrieve_ms": 0.6455410039052367,
-        "extract_ms": 1.2255839974386618,
-        "guard_out_ms": 1.1527919996296987,
+        "guard_in_ms": 0.017040991224348545,
+        "embed_ms": 12.296542001422495,
+        "retrieve_ms": 3.6010420008096844,
+        "extract_ms": 1.149249990703538,
+        "guard_out_ms": 1.1219579901080579,
         "generate_ms": null,
-        "total_rag_ms": 11.35895898914896,
-        "total_ms": 11.35895898914896
+        "total_rag_ms": 18.185832974268124,
+        "total_ms": 18.185832974268124
       },
       "within_budget": true
     },
@@ -4261,14 +4261,14 @@
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.021375002688728273,
-        "embed_ms": 11.88133300456684,
-        "retrieve_ms": 8.374458004254848,
-        "extract_ms": 1.5734580083517358,
-        "guard_out_ms": 1.1515410005813465,
+        "guard_in_ms": 0.025416011339984834,
+        "embed_ms": 12.38383399322629,
+        "retrieve_ms": 49.44975000398699,
+        "extract_ms": 1.5154169959714636,
+        "guard_out_ms": 1.1441670067142695,
         "generate_ms": null,
-        "total_rag_ms": 23.0021650204435,
-        "total_ms": 23.0021650204435
+        "total_rag_ms": 64.518584011239,
+        "total_ms": 64.518584011239
       },
       "within_budget": true
     },
@@ -4282,14 +4282,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.010333998943679035,
-        "embed_ms": 8.698582998476923,
-        "retrieve_ms": 4.894957994110882,
-        "extract_ms": 1.1288749956293032,
-        "guard_out_ms": 1.100459005101584,
+        "guard_in_ms": 0.010875010048039258,
+        "embed_ms": 13.737000001128763,
+        "retrieve_ms": 26.439791996381246,
+        "extract_ms": 1.0800419986480847,
+        "guard_out_ms": 0.9053329995367676,
         "generate_ms": null,
-        "total_rag_ms": 15.83320899226237,
-        "total_ms": 15.83320899226237
+        "total_rag_ms": 42.1730420057429,
+        "total_ms": 42.1730420057429
       },
       "within_budget": true
     },
@@ -4299,18 +4299,18 @@
       "query_id": 99375,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8901737332344055,
+      "support": 0.8954097032546997,
       "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01737500133458525,
-        "embed_ms": 11.97204198979307,
-        "retrieve_ms": 8.879750006599352,
+        "guard_in_ms": 0.018000006093643606,
+        "embed_ms": 12.53516599535942,
+        "retrieve_ms": 54.12658301065676,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 21.02870898670517,
-        "total_ms": 21.02870898670517
+        "total_rag_ms": 67.08741700276732,
+        "total_ms": 67.08741700276732
       },
       "within_budget": true
     },
@@ -4324,14 +4324,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.029916001949459314,
-        "embed_ms": 8.940124986111186,
-        "retrieve_ms": 5.039208001107909,
+        "guard_in_ms": 0.023374988813884556,
+        "embed_ms": 13.141874995199032,
+        "retrieve_ms": 28.23129200260155,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 14.198332995874807,
-        "total_ms": 14.198332995874807
+        "total_rag_ms": 41.674541993415914,
+        "total_ms": 41.674541993415914
       },
       "within_budget": true
     },
@@ -4345,14 +4345,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016541991499252617,
-        "embed_ms": 8.667667003464885,
-        "retrieve_ms": 7.438417000230402,
+        "guard_in_ms": 0.01754099503159523,
+        "embed_ms": 14.632624996011145,
+        "retrieve_ms": 43.691167011274956,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 16.322084004059434,
-        "total_ms": 16.322084004059434
+        "total_rag_ms": 58.600666001439095,
+        "total_ms": 58.600666001439095
       },
       "within_budget": true
     },
@@ -4366,14 +4366,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.008040995453484356,
-        "embed_ms": 8.030208991840482,
-        "retrieve_ms": 3.708582997205667,
+        "guard_in_ms": 0.009875002433545887,
+        "embed_ms": 11.948250001296401,
+        "retrieve_ms": 18.9153340033954,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 11.85500000428874,
-        "total_ms": 11.85500000428874
+        "total_rag_ms": 31.0918750037672,
+        "total_ms": 31.0918750037672
       },
       "within_budget": true
     },
@@ -4383,18 +4383,18 @@
       "query_id": 235926,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8942314386367798,
+      "support": 0.894231379032135,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.01783299376256764,
-        "embed_ms": 8.795959001872689,
-        "retrieve_ms": 6.0969579935772344,
+        "guard_in_ms": 0.020167004549875855,
+        "embed_ms": 12.91750000382308,
+        "retrieve_ms": 33.45054099918343,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 15.094292000867426,
-        "total_ms": 15.094292000867426
+        "total_rag_ms": 46.68712499551475,
+        "total_ms": 46.68712499551475
       },
       "within_budget": true
     },
@@ -4408,14 +4408,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.011166994227096438,
-        "embed_ms": 12.342833011643961,
-        "retrieve_ms": 3.00062500173226,
-        "extract_ms": 1.0101250081788749,
-        "guard_out_ms": 0.6110829999670386,
+        "guard_in_ms": 0.012374992365948856,
+        "embed_ms": 13.886374988942407,
+        "retrieve_ms": 16.52583399845753,
+        "extract_ms": 1.2182499922346324,
+        "guard_out_ms": 1.249041990377009,
         "generate_ms": null,
-        "total_rag_ms": 16.97583301574923,
-        "total_ms": 16.97583301574923
+        "total_rag_ms": 32.891875962377526,
+        "total_ms": 32.891875962377526
       },
       "within_budget": true
     },
@@ -4426,17 +4426,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": false,
+      "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.009625000529922545,
-        "embed_ms": 8.169584005372599,
-        "retrieve_ms": 3.784417000133544,
-        "extract_ms": 1.291667009354569,
-        "guard_out_ms": 1.3408749946393073,
+        "guard_in_ms": 0.014083008863963187,
+        "embed_ms": 12.645249997149222,
+        "retrieve_ms": 24.44291699794121,
+        "extract_ms": 1.1327920074108988,
+        "guard_out_ms": 1.2100000021746382,
         "generate_ms": null,
-        "total_rag_ms": 14.596168010029942,
-        "total_ms": 14.596168010029942
+        "total_rag_ms": 39.44504201353993,
+        "total_ms": 39.44504201353993
       },
       "within_budget": true
     },
@@ -4445,19 +4445,19 @@
       "warmup": false,
       "query_id": 374799,
       "lang": "hi",
-      "status": "abstain",
-      "support": 0.8714851140975952,
+      "status": "grounded",
+      "support": 1.0,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.023250002413988113,
-        "embed_ms": 8.656624995637685,
-        "retrieve_ms": 9.658875002060086,
-        "extract_ms": 0.0,
-        "guard_out_ms": 0.0,
+        "guard_in_ms": 0.026666995836421847,
+        "embed_ms": 13.743082992732525,
+        "retrieve_ms": 65.77045799349435,
+        "extract_ms": 1.5705830010119826,
+        "guard_out_ms": 1.182332998723723,
         "generate_ms": null,
-        "total_rag_ms": 18.516666998039,
-        "total_ms": 18.516666998039
+        "total_rag_ms": 82.293123981799,
+        "total_ms": 82.293123981799
       },
       "within_budget": true
     },
@@ -4471,14 +4471,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.016249992768280208,
-        "embed_ms": 12.83875000081025,
-        "retrieve_ms": 9.788999988813885,
+        "guard_in_ms": 0.0219999928958714,
+        "embed_ms": 17.38070799910929,
+        "retrieve_ms": 69.42591599363368,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 22.885582991875708,
-        "total_ms": 22.885582991875708
+        "total_rag_ms": 87.26237500377465,
+        "total_ms": 87.26237500377465
       },
       "within_budget": true
     },
@@ -4489,17 +4489,17 @@
       "lang": "hi",
       "status": "grounded",
       "support": 1.0,
-      "hit_gold_in_topk": true,
+      "hit_gold_in_topk": false,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.019499988411553204,
-        "embed_ms": 8.623875008197501,
-        "retrieve_ms": 4.610500007402152,
-        "extract_ms": 1.6354160034097731,
-        "guard_out_ms": 1.3226250011939555,
+        "guard_in_ms": 0.020791994757018983,
+        "embed_ms": 15.109790998394601,
+        "retrieve_ms": 26.339707997976802,
+        "extract_ms": 1.068291996489279,
+        "guard_out_ms": 0.8457079966319725,
         "generate_ms": null,
-        "total_rag_ms": 16.211916008614935,
-        "total_ms": 16.211916008614935
+        "total_rag_ms": 43.384290984249674,
+        "total_ms": 43.384290984249674
       },
       "within_budget": true
     },
@@ -4513,14 +4513,14 @@
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.014582998119294643,
-        "embed_ms": 9.80708299903199,
-        "retrieve_ms": 7.589832996018231,
-        "extract_ms": 1.1997499968856573,
-        "guard_out_ms": 1.1184169998159632,
+        "guard_in_ms": 0.015833007637411356,
+        "embed_ms": 12.981082996702753,
+        "retrieve_ms": 45.69266700127628,
+        "extract_ms": 1.3263750006444752,
+        "guard_out_ms": 1.139875006629154,
         "generate_ms": null,
-        "total_rag_ms": 19.729665989871137,
-        "total_ms": 19.729665989871137
+        "total_rag_ms": 61.15583301289007,
+        "total_ms": 61.15583301289007
       },
       "within_budget": true
     },
@@ -4530,18 +4530,18 @@
       "query_id": 158925,
       "lang": "hi",
       "status": "abstain",
-      "support": 0.8855533003807068,
+      "support": 0.9045425057411194,
       "hit_gold_in_topk": true,
       "timings": {
         "stt_ms": null,
-        "guard_in_ms": 0.012499993317760527,
-        "embed_ms": 8.933207995141856,
-        "retrieve_ms": 7.138957997085527,
+        "guard_in_ms": 0.013583005056716502,
+        "embed_ms": 13.800582994008437,
+        "retrieve_ms": 40.77341599622741,
         "extract_ms": 0.0,
         "guard_out_ms": 0.0,
         "generate_ms": null,
-        "total_rag_ms": 16.347917000530288,
-        "total_ms": 16.347917000530288
+        "total_rag_ms": 54.8175000003539,
+        "total_ms": 54.8175000003539
       },
       "within_budget": true
     }

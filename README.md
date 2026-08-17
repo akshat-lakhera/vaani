@@ -35,7 +35,7 @@ The extractive answer **is** the final RAG output. It is a substring of retrieve
 | Answer | sentence-level extractive |
 | Polish | xAI Grok (`grok-4.5`) — optional |
 | API / UI | FastAPI + one static page |
-| Dataset | MSMARCO-XI Hindi val, 12k unique selected passages |
+| Dataset | MSMARCO-XI Hindi val, **all 57,331 unique selected passages** |
 
 Chunking is not one splitter. Six strategies live in `src/vaani/chunking.py`. `scripts/ablate.py` scores them on the same passage pool. We ship the winner and keep the rest in the repo.
 
@@ -59,7 +59,7 @@ python scripts/inspect_dataset.py --langs hi,mr --split validation --limit 400
 Build an index and a held-out eval set:
 
 ```bash
-python scripts/ingest.py --strategy whole --max-passages 12000 --eval-queries 400
+python scripts/ingest.py --strategy whole --max-passages 60000 --eval-queries 500
 ```
 
 Unit tests (no model, no network):
@@ -101,13 +101,15 @@ docker compose up --build
 
 `scripts/bench.py` writes `data/reports/bench.json` with raw per-query timings. Percentiles are computed from those rows.
 
-**Measured 2026-08-17 on this machine** (Apple Silicon, hybrid e5-small + BM25 + RRF, `whole` chunks, 12,000 unique Hindi selected passages, 200 held-out MSMARCO-XI val queries, one at a time, 15 warmup dropped):
+**In-process harness, 2026-08-17** (Apple Silicon, hybrid e5-small + BM25 + RRF, `whole`, **57,331** unique Hindi-val selected passages — every unique selected passage in `hinval.parquet` — 200 held-out val queries, one at a time, 15 warmup dropped):
 
 | | P50 | P70 | P99 | P100 | <200ms | Recall@k |
 |---|---:|---:|---:|---:|---:|---:|
-| transcript → extractive output | **17.7ms** | **19.3ms** | 32.6ms | **47.5ms** | **200 / 200** | **0.83** |
+| transcript → extractive output | **46.9ms** | **56.7ms** | 117.7ms | **128.8ms** | **200 / 200** | **0.71** |
 
-A colder first run of the same 200 had P100 **670ms** (one 17-character query spent 667ms in `embed` — not retrieval). After warmup that spike is gone. We keep both numbers in `data/reports/`. BM25-only on the same index was P50 6.3 / P100 17.4 / recall 0.70.
+That window is **not** audio→answer. STT was not run (no `SARVAM_API_KEY`). Two real HTTP POSTs through the public ngrok URL were **403ms** and **264ms**. See `data/reports/deploy_test.json` and `data/reports/corpus_coverage.json`.
+
+The earlier 12k-passage bench (P50 17.7 / recall 0.83) is superseded. 12k was only 21% of unique Hindi-val selected passages.
 
 Same 4,000-passage / 80-query BM25 ablation (`data/reports/ablation.json`):
 
@@ -123,7 +125,7 @@ Same 4,000-passage / 80-query BM25 ablation (`data/reports/ablation.json`):
 
 Splitting already-short MSMARCO passages **hurts** sparse retrieval. `whole` and `fixed_256` tie on recall; we ship `whole`. Hybrid e5+BM25 numbers are in the table above. STT and optional Grok polish are outside the 200ms window.
 
-On the 200-query hybrid bench the coverage gate abstained 86 times rather than answer from a weakly matching passage. Unsafe password prompts are refused in <0.1ms.
+On the 200-query / 57k-index bench the coverage gate abstained 63 times. Unsafe password prompts are refused before retrieval.
 
 **Voice:** the browser records WebM/Opus (or mp4); the server converts to 16 kHz mono WAV with `ffmpeg` and sends that to Sarvam. Chrome's native WebM is not a Sarvam-supported format — without this conversion the mic button is theatre. `SARVAM_API_KEY` must be set for the mic to work. Typed questions do not need it.
 
@@ -139,7 +141,7 @@ python scripts/e2e_voice.py   # synthesizes Hindi speech; calls Sarvam if keyed
 
 ## Dataset notes
 
-MSMARCO-XI is MS MARCO QnA translated into 14 Indic languages (IndicRAGSuite, arXiv:2506.01615). Full dump is 55.6 GB. The shipped index is **Hindi validation, unique selected passages** (12,000). Marathi is supported by the loader; it is not in the shipped index. Gold labels live in `eval.jsonl` next to the index.
+MSMARCO-XI is MS MARCO QnA translated into 14 Indic languages (IndicRAGSuite, arXiv:2506.01615). Full dump is 55.6 GB. The shipped index is **every unique selected passage in Hindi validation** (57,331 of 57,331). That is still not Hindi train, not Marathi, and not the other 12 languages. Gold labels live in `eval.jsonl` next to the index. See `data/reports/corpus_coverage.json`.
 
 Passages are already short (~50–80 words). If a chunker emits ~1.0 chunks/passage, that is a measurement, and it belongs in the ablation report.
 
