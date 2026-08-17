@@ -1,0 +1,120 @@
+{
+  "passages": 4000,
+  "queries": 80,
+  "winner": "whole",
+  "results": [
+    {
+      "strategy": "whole",
+      "chunks": 4000,
+      "chunk_stats": {
+        "n": 4000,
+        "chars_p50": 307,
+        "chars_max": 9292,
+        "tokens_mean": 65.61025,
+        "chunks_per_parent": 1.0
+      },
+      "recall_at_k": 0.7625,
+      "judged": 80,
+      "p50_ms": 2.82,
+      "p70_ms": 3.64,
+      "p100_ms": 16.96
+    },
+    {
+      "strategy": "metadata",
+      "chunks": 4000,
+      "chunk_stats": {
+        "n": 4000,
+        "chars_p50": 307,
+        "chars_max": 9292,
+        "tokens_mean": 65.61025,
+        "chunks_per_parent": 1.0
+      },
+      "recall_at_k": 0.7625,
+      "judged": 80,
+      "p50_ms": 2.84,
+      "p70_ms": 3.49,
+      "p100_ms": 11.95
+    },
+    {
+      "strategy": "fixed_256",
+      "chunks": 7833,
+      "chunk_stats": {
+        "n": 7833,
+        "chars_p50": 252,
+        "chars_max": 256,
+        "tokens_mean": 39.89084641899655,
+        "chunks_per_parent": 1.95825
+      },
+      "recall_at_k": 0.7625,
+      "judged": 80,
+      "p50_ms": 3.95,
+      "p70_ms": 5.1,
+      "p100_ms": 37.77
+    },
+    {
+      "strategy": "sentence",
+      "chunks": 12192,
+      "chunk_stats": {
+        "n": 12192,
+        "chars_p50": 96,
+        "chars_max": 9292,
+        "tokens_mean": 21.52567257217848,
+        "chunks_per_parent": 3.048
+      },
+      "recall_at_k": 0.6875,
+      "judged": 80,
+      "p50_ms": 4.35,
+      "p70_ms": 5.37,
+      "p100_ms": 15.05
+    },
+    {
+      "strategy": "window_2",
+      "chunks": 11104,
+      "chunk_stats": {
+        "n": 11104,
+        "chars_p50": 160,
+        "chars_max": 9292,
+        "tokens_mean": 32.98946325648415,
+        "chunks_per_parent": 2.776
+      },
+      "recall_at_k": 0.675,
+      "judged": 80,
+      "p50_ms": 4.41,
+      "p70_ms": 6.0,
+      "p100_ms": 15.83
+    },
+    {
+      "strategy": "semantic",
+      "chunks": 12897,
+      "chunk_stats": {
+        "n": 12897,
+        "chars_p50": 87,
+        "chars_max": 9292,
+        "tokens_mean": 20.348995890517173,
+        "chunks_per_parent": 3.22425
+      },
+      "recall_at_k": 0.6625,
+      "judged": 80,
+      "p50_ms": 4.03,
+      "p70_ms": 5.36,
+      "p100_ms": 15.32
+    },
+    {
+      "strategy": "parent_child",
+      "chunks": 14681,
+      "chunk_stats": {
+        "n": 14681,
+        "chars_p50": 79,
+        "chars_max": 9292,
+        "tokens_mean": 17.87623458892446,
+        "chunks_per_parent": 3.67025
+      },
+      "recall_at_k": 0.65,
+      "judged": 80,
+      "p50_ms": 4.28,
+      "p70_ms": 5.76,
+      "p100_ms": 22.4
+    }
+  ],
+  "note": "Same passage pool and query list for every strategy. metadata prefixes query_type from the owning MSMARCO query \u2014 part of any gain is a dataset property, not a chunking property."
+}

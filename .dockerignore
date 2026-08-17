@@ -1,0 +1,11 @@
+.venv
+.git
+__pycache__
+*.pyc
+.pytest_cache
+.env
+data/raw
+data/hf_cache
+data/models/models--*
+data/models/xet
+*.egg-info

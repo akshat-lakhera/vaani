@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaani — voice RAG for MSMARCO-XI</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <span class="mark">वाणी</span>
+        <div>
+          <h1>Vaani</h1>
+          <p class="sub">Speak a question. Get a grounded answer from MSMARCO-XI.</p>
+        </div>
+      </div>
+      <div class="meta" id="health">loading index…</div>
+    </header>
+
+    <main>
+      <section class="ask">
+        <button id="mic" type="button" aria-label="Tap to talk">
+          <span class="dot"></span>
+          <span class="label">tap to talk</span>
+        </button>
+        <p class="hint" id="stt-hint" hidden>Voice needs <code>SARVAM_API_KEY</code> in <code>.env</code>. Typed questions still work.</p>
+        <form id="form">
+          <input id="q" type="text" autocomplete="off" placeholder="या टाइप करें — हिन्दी / मराठी / English" />
+          <button type="submit">Ask</button>
+        </form>
+        <label class="polish"><input type="checkbox" id="polish" /> polish with Grok <em>(outside 200ms)</em></label>
+      </section>
+
+      <section class="result" id="result" hidden>
+        <div class="status-row">
+          <span class="pill" id="status">—</span>
+          <span class="pill quiet" id="budget">—</span>
+          <span class="pill quiet" id="support">—</span>
+        </div>
+        <p class="transcript" id="transcript"></p>
+        <h2 id="answer"></h2>
+        <p class="reason" id="reason"></p>
+        <div class="timings" id="timings"></div>
+        <ol class="cites" id="cites"></ol>
+      </section>
+    </main>
+
+    <footer>
+      HH Goa 2026 · Task 2 · extractive RAG path is the 200ms window · STT via Sarvam / ElevenLabs
+    </footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

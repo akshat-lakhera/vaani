@@ -1,0 +1,15 @@
+{
+  "phrase": "कॉर्पोरेशन क्या है?",
+  "voice": "Lekha",
+  "wav_bytes": 41646,
+  "text_path": {
+    "status": "grounded",
+    "rag_ms": 1857.6,
+    "within_budget": false,
+    "answer": "एस कॉर्पोरेशन: एस कॉर्पोरेशन और सी कॉर्पोरेशन के बीच मुख्य अंतर कर संरचना है।"
+  },
+  "stt": {
+    "ran": false,
+    "reason": "SARVAM_API_KEY is empty — not faking a transcript"
+  }
+}

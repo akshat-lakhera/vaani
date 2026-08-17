@@ -1,0 +1,46 @@
+[
+  {
+    "lang": "hi",
+    "split": "validation",
+    "n_examples": 300,
+    "n_passages": 2996,
+    "n_selected": 168,
+    "unique_selected": 168,
+    "empty_answers": 0,
+    "query_types": {
+      "DESCRIPTION": 186,
+      "NUMERIC": 95,
+      "ENTITY": 10,
+      "PERSON": 8,
+      "LOCATION": 1
+    },
+    "query_chars": {
+      "p50": 34.0,
+      "p90": 55.0,
+      "max": 7783
+    },
+    "passage_chars": {
+      "p50": 296.0,
+      "p90": 512.0,
+      "max": 7911,
+      "mean": 327.7993991989319
+    },
+    "passage_tokens": {
+      "p50": 58.0,
+      "p90": 100.0,
+      "mean": 64.48831775700934
+    },
+    "first_example": {
+      "query_id": 1102432,
+      "lang": "hi",
+      "query_type": "DESCRIPTION",
+      "query": "कॉर्पोरेशन क्या है?",
+      "eng_query": ". what is a corporation?",
+      "answer": "निगम एक कंपनी या लोगों का समूह होता है जो एक एकल इकाई के रूप में कार्य करने के लिए अधिकृत होता है और कानून में इस प्रकार से मान्यता प्राप्त होती है।",
+      "eng_answer": "A corporation is a company or group of people authorized to act as a single entity and recognized as such in law.",
+      "n_passages": 10,
+      "n_selected": 1,
+      "first_selected": "मैकडॉनल्ड कॉर्पोरेशन दुनिया के सबसे पहचानने योग्य निगमों में से एक है। एक निगम एक कंपनी या लोगों का समूह है जो एक एकल इकाई (कानूनी रूप से एक व्यक्ति) के रूप में कार्य करने के लिए अधिकृत है और कानून में इस तरह से मान्यता प्राप्त है। प्रारंभिक निगमित संस्थाएं चार्टर द्वारा स्थापित की गई थीं (अर्थात एक राजा द्वारा अनुदानित या संसद या विधायिका द्वारा पारित)।"
+    }
+  }
+]
