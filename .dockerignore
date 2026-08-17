@@ -4,8 +4,5 @@ __pycache__
 *.pyc
 .pytest_cache
 .env
-data/raw
-data/hf_cache
-data/models/models--*
-data/models/xet
+data
 *.egg-info

@@ -32,6 +32,10 @@ primary_region = "sin"
   cpu_kind = "shared"
   cpus = 2
 
+[mounts]
+  source = "vaani_data"
+  destination = "/app/data"
+
 [checks]
   [checks.health]
     port = 8080
