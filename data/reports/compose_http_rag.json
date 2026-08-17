@@ -1,0 +1,87 @@
+{
+  "http_rag_repeat": [
+    {
+      "i": 0,
+      "q": "भारत की राजधानी क्या है?",
+      "http": 200,
+      "wall_ms": 225.4,
+      "rag_ms": 198.0,
+      "within_budget": true,
+      "status": "grounded"
+    },
+    {
+      "i": 1,
+      "q": "कॉर्पोरेशन क्या है?",
+      "http": 200,
+      "wall_ms": 62.9,
+      "rag_ms": 60.4,
+      "within_budget": true,
+      "status": "grounded"
+    },
+    {
+      "i": 2,
+      "q": "What is a corporation?",
+      "http": 200,
+      "wall_ms": 68.6,
+      "rag_ms": 66.4,
+      "within_budget": true,
+      "status": "abstain"
+    },
+    {
+      "i": 3,
+      "q": "भारत की राजधानी क्या है?",
+      "http": 200,
+      "wall_ms": 97.7,
+      "rag_ms": 95.2,
+      "within_budget": true,
+      "status": "grounded"
+    },
+    {
+      "i": 4,
+      "q": "कॉर्पोरेशन क्या है?",
+      "http": 200,
+      "wall_ms": 58.9,
+      "rag_ms": 56.8,
+      "within_budget": true,
+      "status": "grounded"
+    },
+    {
+      "i": 5,
+      "q": "What is a corporation?",
+      "http": 200,
+      "wall_ms": 15.0,
+      "rag_ms": 13.4,
+      "within_budget": true,
+      "status": "abstain"
+    },
+    {
+      "i": 6,
+      "q": "भारत की राजधानी क्या है?",
+      "http": 200,
+      "wall_ms": 70.6,
+      "rag_ms": 68.7,
+      "within_budget": true,
+      "status": "grounded"
+    },
+    {
+      "i": 7,
+      "q": "कॉर्पोरेशन क्या है?",
+      "http": 200,
+      "wall_ms": 60.6,
+      "rag_ms": 58.2,
+      "within_budget": true,
+      "status": "grounded"
+    }
+  ],
+  "under_200": 8,
+  "rag_ms": [
+    198.0,
+    60.4,
+    66.4,
+    95.2,
+    56.8,
+    13.4,
+    68.7,
+    58.2
+  ]
+}
