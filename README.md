@@ -15,6 +15,25 @@ Two measured surfaces exist. Do not mix their numbers:
 
 Railway refused `memoryGB: 2` (`The maximum allowed memory for this service is 1 GB`). Loading FAISS + e5-small + the 219 MB sidecar OOMs there, so the public process is `VAANI_LOW_MEM=true`.
 
+## Submission (verified only)
+
+| Item | Value |
+|------|--------|
+| Live | https://vaani-production-d1eb.up.railway.app |
+| GitHub | https://github.com/rishi-jat/vaani |
+| Dataset | `ai4bharat/MSMARCO-XI` Hindi validation, 57,331 unique selected passages |
+| STT | Sarvam Saaras v3 (public audio POSTs succeeded) |
+| RAG P50 / P70 / P100 | **46.9 / 56.7 / 128.8 ms** — local hybrid, 200 val queries, transcript→extract only (`data/reports/bench.json`) |
+| Public audio wall | **~1.3–1.9 s** — STT 1156–1330 ms + RAG 78–111 ms. Not under 200 ms |
+| Form | https://forms.gle/MNvCjcv23Hn2Eeu58 |
+| Deadline | 22 Aug 2026, 23:59. No resubmissions |
+
+**Demo (Video 2):** open the Railway URL → allow mic → speak `कॉर्पोरेशन क्या है?` or `भारत की राजधानी क्या है?` → show Sarvam transcript + grounded extract. Then type a password question and show `refuse`. Public retrieval is BM25-only (`dense: false`). Local Compose is hybrid and is the source of the P50/P70/P100 table. Say both; do not mix them.
+
+**Video 1:** 90 s process, not the product. Post both videos on Instagram, X, and LinkedIn, every teammate, with `#RAGInGoa`.
+
+**Do not say:** full voice pipeline &lt; 200 ms; Railway is hybrid/vector; public capital answer contains दिल्ली; 14-language or train-split coverage.
+
 Design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
 ## Architecture (short)
