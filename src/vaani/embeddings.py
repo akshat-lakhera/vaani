@@ -21,15 +21,31 @@ class Encoder:
         os.environ.setdefault("HF_HOME", str(self.settings.model_cache))
         os.environ.setdefault("TRANSFORMERS_CACHE", str(self.settings.model_cache))
         os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+        os.environ.setdefault("OMP_NUM_THREADS", "1")
+        os.environ.setdefault("MKL_NUM_THREADS", "1")
         # Imported lazily so unit tests that don't need the model stay light.
+        import torch
         from sentence_transformers import SentenceTransformer
 
+        torch.set_num_threads(1)
         local = self.settings.local_model_dir or str(self.settings.model_cache / "e5-small")
         source = local if (Path(local) / "model.safetensors").exists() else self.settings.model_name
         self.model = SentenceTransformer(
             source,
             cache_folder=str(self.settings.model_cache),
         )
+        self.model.eval()
+        # Dynamic int8 on Linear layers ~4x smaller than fp32. Needed to
+        # boot the 57k index + encoder inside Railway's 1GB trial cap.
+        try:
+            transformer = self.model[0]
+            auto = getattr(transformer, "auto_model", None)
+            if auto is not None:
+                transformer.auto_model = torch.quantization.quantize_dynamic(
+                    auto, {torch.nn.Linear}, dtype=torch.qint8
+                )
+        except Exception:  # noqa: BLE001
+            pass
         dim_fn = getattr(self.model, "get_embedding_dimension", None) or self.model.get_sentence_embedding_dimension
         self.dim = int(dim_fn())
 

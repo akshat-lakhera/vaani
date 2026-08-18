@@ -36,11 +36,7 @@ async def lifespan(app: FastAPI):
         index = HybridIndex.load(index_dir, settings=settings)
         enc = Encoder(settings) if index.faiss_index is not None else None
         _pipeline = Pipeline(index=index, encoder=enc, settings=settings)
-        # First encode is 100–200ms on this box. Warm it so the first
-        # user is inside the budget.
-        if enc is not None:
-            for q in ("कॉर्पोरेशन क्या है?", "what is a corporation"):
-                _pipeline.ask_text(q)
+        # Skip startup warmup: it doubles peak RSS on a 1GB Railway trial box.
     else:
         _pipeline = None
     yield

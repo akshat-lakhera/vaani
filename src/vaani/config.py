@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     # If this directory contains a full snapshot, Encoder loads from disk
     # and never hits the Hub at query time.
     local_model_dir: str = Field(default="", alias="VAANI_LOCAL_MODEL")
+    # Skip FAISS + the e5 encoder; BM25-only. Needed to boot on Railway Trial 1GB.
+    low_mem: bool = Field(default=False, alias="VAANI_LOW_MEM")
     embed_dim: int = 384
     max_query_chars: int = 512
     top_k: int = 8

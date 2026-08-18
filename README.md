@@ -2,7 +2,18 @@
 
 Voice-enabled RAG over [ai4bharat/MSMARCO-XI](https://huggingface.co/datasets/ai4bharat/MSMARCO-XI) for **HH Goa 2026 Task 2**.
 
-Speak a question in Hindi, Marathi, or English. The system transcribes it (Sarvam Saaras v3, or ElevenLabs Scribe), retrieves from a hybrid dense+BM25 index, and returns a **grounded extractive answer with citations**. If the corpus does not support an answer, it abstains.
+**Live:** [https://vaani-production-d1eb.up.railway.app](https://vaani-production-d1eb.up.railway.app)
+
+Speak a question in Hindi, Marathi, or English. The system transcribes it (Sarvam Saaras v3, or ElevenLabs Scribe), retrieves from the MSMARCO-XI Hindi-val index, and returns a **grounded extractive answer with citations**. If the corpus does not support an answer, it abstains.
+
+Two measured surfaces exist. Do not mix their numbers:
+
+| Surface | Retrieval | RAM | What was measured |
+|---------|-----------|-----|-------------------|
+| Local Compose / in-process harness | hybrid e5-small + FAISS + BM25 + RRF | ~1–2 GB | bench P50/P70/P100, Delhi extract, Sarvam HTTP |
+| Public Railway (this URL) | BM25-only (`dense: false`) | Trial **1 GB cap** | live Sarvam audio, password refuse, restart persist |
+
+Railway refused `memoryGB: 2` (`The maximum allowed memory for this service is 1 GB`). Loading FAISS + e5-small + the 219 MB sidecar OOMs there, so the public process is `VAANI_LOW_MEM=true`.
 
 Design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
@@ -12,7 +23,8 @@ Design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 voice ──► Sarvam / ElevenLabs STT          (outside 200ms)
               │
               ▼
-     input guard → embed → FAISS + BM25 → RRF
+     input guard → [local: embed + FAISS + BM25 + RRF]
+                   [Railway public: BM25 only]
               │
               ▼
      extractive span → grounding gate      ◄── measured window, target <200ms
@@ -87,14 +99,14 @@ Live P50/P70/P100 against the running process:
 curl -s "http://127.0.0.1:8080/api/benchmark?n=80"
 ```
 
-Persistent deploy is **Docker**, not ngrok. The image does not bake the 57k index or e5 weights; mount `./data` (or a 10GB disk at `/app/data` on Fly/Render). Needs ~4 GB RAM.
+Local persistent run is **Docker Compose** (hybrid, ~4 GB RAM). Public run is **Railway** at the URL above (BM25-only, 1 GB).
 
 ```bash
 docker compose up --build
 python scripts/deploy_smoke.py --base http://127.0.0.1:8080
 ```
 
-Host files: `fly.toml` (Fly.io volume at `/app/data`) and `render.yaml` (Render disk). Set `SARVAM_API_KEY` in the host’s secret store. I have not deployed to Fly/Render from this machine (Railway logged out, Docker daemon was down when last checked).
+`fly.toml` / `render.yaml` exist for a 4 GB + 10 GB disk deploy. Fly app create was blocked on billing. Railway is the live host. Set `SARVAM_API_KEY` in the host secret store.
 
 ## What is in the 200ms number
 
@@ -110,7 +122,7 @@ Host files: `fly.toml` (Fly.io volume at `/app/data`) and `render.yaml` (Render 
 |---|---:|---:|---:|---:|---:|---:|
 | transcript → extractive output | **46.9ms** | **56.7ms** | 117.7ms | **128.8ms** | **200 / 200** | **0.71** |
 
-That window is **not** audio→answer. STT was not run (no `SARVAM_API_KEY`). Two real HTTP POSTs through the public ngrok URL were **403ms** and **264ms**. See `data/reports/deploy_test.json` and `data/reports/corpus_coverage.json`.
+That window is **not** audio→answer and is **not** the Railway public process (Railway is BM25-only). See `data/reports/bench.json` and `data/reports/corpus_coverage.json`.
 
 The earlier 12k-passage bench (P50 17.7 / recall 0.83) is superseded. 12k was only 21% of unique Hindi-val selected passages.
 
@@ -130,14 +142,23 @@ Splitting already-short MSMARCO passages **hurts** sparse retrieval. `whole` and
 
 On the 200-query / 57k-index bench the coverage gate abstained 63 times. Unsafe password prompts are refused before retrieval.
 
-**Voice (tested 2026-08-18, local HTTP, Saaras v3):** synthesized Lekha WAV → ffmpeg 16 kHz → Sarvam → RAG. See `data/reports/stt_http.json`.
+**Voice, local hybrid HTTP (2026-08-18, Saaras v3):** Lekha WAV → ffmpeg 16 kHz → Sarvam → RAG. See `data/reports/stt_http.json`.
 
 | Clip | Transcript | STT | RAG | HTTP wall | Result |
 |------|------------|----:|----:|----------:|--------|
 | कॉर्पोरेशन क्या है? | exact | 706ms | 422ms | 1142ms | grounded |
-| भारत की राजधानी क्या है? | `Bharat की राजधानी क्या है?` (then folded to भारत) | 796ms | 172ms | 987ms | grounded, Delhi not Mumbai |
+| भारत की राजधानी क्या है? | `Bharat की राजधानी क्या है?` (folded to भारत) | 796ms | 172ms | 987ms | grounded, Delhi not Mumbai |
 
-Full audio→answer is **not** under 200ms. STT alone was 700–1500ms on these runs. The 200ms number in the bench table is still **transcript → extract only**.
+**Voice, public Railway BM25-only (re-verified 2026-08-18):** same clips POSTed to `https://vaani-production-d1eb.up.railway.app`. See `data/reports/railway_public.json`.
+
+| Clip | Transcript | STT | RAG | HTTP wall | Result |
+|------|------------|----:|----:|----------:|--------|
+| कॉर्पोरेशन क्या है? | exact | 1330ms | 78ms | 1851ms* | grounded |
+| भारत की राजधानी क्या है? | `Bharat की राजधानी क्या है?` | 1156ms | 111ms | 1705ms* | grounded; extract does **not** contain दिल्ली |
+
+\*latest re-check: STT 1330/1156 ms, RAG 78/111 ms (wall ≈ STT+RAG).
+
+Full **audio→answer is not under 200ms**. STT alone was 700–1500ms. The 200ms bench table is **transcript → extract only**, and only on the local hybrid harness.
 
 ## Guardrails
 

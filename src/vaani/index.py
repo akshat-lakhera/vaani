@@ -13,7 +13,7 @@ from vaani.chunking import Chunk
 from vaani.config import Settings, get_settings
 
 
-@dataclass
+@dataclass(slots=True)
 class StoredChunk:
     chunk_id: str
     text: str
@@ -141,18 +141,59 @@ class HybridIndex:
 
     @classmethod
     def load(cls, path: Path | None = None, settings: Settings | None = None) -> "HybridIndex":
+        import gc
+
+        import orjson
+
         obj = cls(settings=settings)
         path = path or obj.settings.index_dir
-        meta = json.loads((path / "meta.json").read_text(encoding="utf-8"))
+        # orjson from bytes avoids a decoded Unicode copy of the 219MB sidecar.
+        meta = orjson.loads((path / "meta.json").read_bytes())
         obj.strategy = meta["strategy"]
         obj.dim = int(meta["dim"])
-        obj.chunks = [StoredChunk(**c) for c in meta["chunks"]]
-        obj.bm25 = BM25.from_state(meta["bm25"])
+        chunks: list[StoredChunk] = []
+        for c in meta["chunks"]:
+            text = c.get("text") or ""
+            parent = c.get("parent_text") or text
+            # Whole-passage chunks store text three times. Keep one string.
+            if parent == text:
+                parent = text
+            chunks.append(
+                StoredChunk(
+                    chunk_id=c.get("chunk_id") or "",
+                    text=text,
+                    embed_text="",
+                    parent_id=c.get("parent_id") or "",
+                    parent_text=parent,
+                    lang=c.get("lang") or "",
+                    query_type=c.get("query_type") or "",
+                    strategy=c.get("strategy") or "",
+                    source_query_id=c.get("source_query_id"),
+                )
+            )
+        obj.chunks = chunks
+        # Rebuilding or restoring the full BM25 state is the 1GB-killer.
+        # low_mem: compact BM25 from texts, no FAISS, no encoder.
+        if obj.settings.low_mem:
+            texts = [c.text for c in obj.chunks]
+            del meta
+            gc.collect()
+            obj.bm25.fit(texts)
+            obj.faiss_index = None
+            return obj
+        if meta.get("bm25"):
+            obj.bm25 = BM25.from_state(meta["bm25"])
+        del meta
+        gc.collect()
         dense_path = path / "dense.faiss"
         if dense_path.exists():
             import faiss
 
-            obj.faiss_index = faiss.read_index(str(dense_path))
+            mmap_flag = getattr(faiss, "IO_FLAG_MMAP", 0) | getattr(faiss, "IO_FLAG_READ_ONLY", 0)
+            try:
+                obj.faiss_index = faiss.read_index(str(dense_path), mmap_flag)
+            except Exception:  # noqa: BLE001
+                obj.faiss_index = faiss.read_index(str(dense_path))
             obj.faiss_index.hnsw.efSearch = obj.settings.hnsw_ef_search
         else:
             obj.faiss_index = None

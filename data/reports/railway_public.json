@@ -1,0 +1,129 @@
+{
+  "base": "https://vaani-production-d1eb.up.railway.app",
+  "resolved_ips": [
+    "64:ff9b::452e:2e4f",
+    "69.46.46.79"
+  ],
+  "note": "Railway public URL. Low-mem BM25-only (dense=false) to fit Trial 1GB.",
+  "steps": [
+    {
+      "name": "health",
+      "http": 200,
+      "wall_ms": 612.1,
+      "body": {
+        "ok": true,
+        "index_loaded": true,
+        "chunks": 57331,
+        "strategies": [
+          "whole"
+        ],
+        "stt_provider": "sarvam",
+        "stt_configured": true,
+        "llm_configured": false,
+        "model": "intfloat/multilingual-e5-small",
+        "dense": false
+      }
+    },
+    {
+      "name": "home",
+      "http": 200,
+      "wall_ms": 279.4,
+      "has_mic": true
+    },
+    {
+      "name": "ask_text_capital",
+      "http": 200,
+      "wall_ms": 395.1,
+      "status": "grounded",
+      "rag_ms": 110.31837295740843,
+      "within_budget": true,
+      "answer": "भारत दुनिया का दूसरा सबसे अधिक आबादी वाला देश है, और इसकी राजधानी दुनिया का चौथा सबसे बड़ा शहर है, जिसकी आबादी १.२५ करोड़ से अधिक है।",
+      "mentions_delhi": false,
+      "mentions_mumbai": false,
+      "citations": [
+        {
+          "passage_id": "hi-436148-8-7fcd094c42b2276e",
+          "text": "४. दिल्ली, भारत। भारत दुनिया का दूसरा सबसे अधिक आबादी वाला देश है, और इसकी राजधानी दुनिया का चौथा सबसे बड़ा शहर है, जिसकी आबादी १.२५ करोड़ से अधिक है। दिल्ली भारत के सबसे पुराने शह"
+        },
+        {
+          "passage_id": "hi-632694-8-1bd83adde5667dfb",
+          "text": "अवंती का शाब्दिक अर्थ: मध्य भारत के एक प्राचीन राज्य के नाम से जिसकी राजधानी उज्जैन थी। इतालवी अवंती का अर्थ है आगे देखना और आगे बढ़ना।"
+        },
+        {
+          "passage_id": "hi-840127-6-66daff2b4dc7ba13",
+          "text": "श्रीलंका की जनसंख्या 2016। श्रीलंका भारत के दक्षिण-पूर्व में स्थित एक छोटे से द्वीप की तरह लग सकता है, हालांकि इसकी महत्वपूर्ण जनसंख्या 21,416,445 है (2013 में 21,481,334 से कम), ज"
+        }
+      ]
+    },
+    {
+      "name": "refuse_password",
+      "http": 200,
+      "wall_ms": 370.4,
+      "status": "refuse",
+      "reason": "unsafe intent",
+      "answer": "I cannot answer that."
+    },
+    {
+      "name": "ask_audio_corporation",
+      "phrase": "कॉर्पोरेशन क्या है?",
+      "wav_bytes": 41646,
+      "http": 200,
+      "wall_ms": 1850.5,
+      "status": "grounded",
+      "transcript": "कॉर्पोरेशन क्या है?",
+      "language": "hi-IN",
+      "stt_ms": 1354.0076594799757,
+      "rag_ms": 81.406956538558,
+      "total_ms": 1435.4146160185337,
+      "within_budget": true,
+      "answer": "का अर्थ है रोल फॉर्मिंग कॉर्पोरेशन।",
+      "mentions_delhi": false,
+      "mentions_mumbai": false,
+      "reason": ""
+    },
+    {
+      "name": "ask_audio_capital",
+      "phrase": "भारत की राजधानी क्या है?",
+      "wav_bytes": 54220,
+      "http": 200,
+      "wall_ms": 1704.6,
+      "status": "grounded",
+      "transcript": "Bharat की राजधानी क्या है?",
+      "language": "hi-IN",
+      "stt_ms": 1156.8071646615863,
+      "rag_ms": 146.2346250191331,
+      "total_ms": 1303.0417896807194,
+      "within_budget": true,
+      "answer": "भारत दुनिया का दूसरा सबसे अधिक आबादी वाला देश है, और इसकी राजधानी दुनिया का चौथा सबसे बड़ा शहर है, जिसकी आबादी १.२५ करोड़ से अधिक है।",
+      "mentions_delhi": false,
+      "mentions_mumbai": false,
+      "reason": ""
+    }
+  ],
+  "persist_after_restart": {
+    "health": {
+      "ok": true,
+      "index_loaded": true,
+      "chunks": 57331,
+      "dense": false,
+      "stt_configured": true
+    },
+    "volume_ls": [
+      "dense.faiss 99M",
+      "eval.jsonl 293K",
+      "manifest.json 400B",
+      "meta.json 57M"
+    ],
+    "ok": true
+  },
+  "external_fetch": {
+    "url": "https://vaani-production-d1eb.up.railway.app/api/health",
+    "body": {
+      "ok": true,
+      "index_loaded": true,
+      "chunks": 57331,
+      "stt_configured": true,
+      "dense": false
+    }
+  }
+}
