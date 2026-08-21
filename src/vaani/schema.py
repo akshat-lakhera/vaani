@@ -74,3 +74,43 @@ class BenchSummary(BaseModel):
     budget_ms: float = 200.0
     note: str = ""
     extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class TranscribeResponse(BaseModel):
+    transcript: str
+    language: str = ""
+    provider: str = ""
+    stt_ms: float = 0.0
+
+
+class CompareRequest(BaseModel):
+    text: str
+    strategies: list[str] = Field(
+        default_factory=lambda: [
+            "whole",
+            "fixed_256",
+            "sentence",
+            "window_2",
+            "semantic",
+            "parent_child",
+            "metadata",
+        ]
+    )
+    language: str = ""
+
+
+class CompareStrategyResult(BaseModel):
+    strategy: str
+    chunks_created: int
+    status: str
+    answer: str
+    support: float = 0.0
+    rag_ms: float = 0.0
+    within_budget: bool = False
+    sample_chunks: list[str] = Field(default_factory=list)
+
+
+class CompareResponse(BaseModel):
+    query: str
+    results: list[CompareStrategyResult] = Field(default_factory=list)
+

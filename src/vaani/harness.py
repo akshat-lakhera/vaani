@@ -40,6 +40,28 @@ def _ms(start: float) -> float:
     return (time.perf_counter() - start) * 1000.0
 
 
+def _build_citations(hits: list, limit: int = 5) -> list[Citation]:
+    seen_parents: set[str] = set()
+    citations: list[Citation] = []
+    for h in hits:
+        pid = h[0].parent_id
+        if pid not in seen_parents:
+            seen_parents.add(pid)
+            citations.append(
+                Citation(
+                    passage_id=h[0].parent_id,
+                    lang=h[0].lang,
+                    query_type=h[0].query_type,
+                    text=h[0].parent_text,
+                    score=h[1],
+                    strategy=h[0].strategy,
+                )
+            )
+            if len(citations) >= limit:
+                break
+    return citations
+
+
 @dataclass
 class Pipeline:
     index: HybridIndex
@@ -102,17 +124,7 @@ class Pipeline:
         else:
             topic_score = max((h[3] for h in hits), default=0.0)
             topic_cut = 1.8
-        citations = [
-            Citation(
-                passage_id=h[0].parent_id,
-                lang=h[0].lang,
-                query_type=h[0].query_type,
-                text=h[0].parent_text,
-                score=h[1],
-                strategy=h[0].strategy,
-            )
-            for h in hits[:5]
-        ]
+        citations = _build_citations(hits, limit=5)
         ot = off_topic(topic_score, topic_cut)
         if ot.ok:
             ot = coverage_gate(query, [h[0].parent_text for h in hits[:3]], threshold=0.6)
@@ -148,17 +160,7 @@ class Pipeline:
         support = support_score(ext.answer, contexts) if ext else 0.0
         timings.guard_out_ms = _ms(t0)
 
-        citations = [
-            Citation(
-                passage_id=h[0].parent_id,
-                lang=h[0].lang,
-                query_type=h[0].query_type,
-                text=h[0].parent_text,
-                score=h[1],
-                strategy=h[0].strategy,
-            )
-            for h in hits[:5]
-        ]
+        citations = _build_citations(hits, limit=5)
 
         if ext is None or not g.ok:
             timings.total_rag_ms = _ms(wall)
@@ -216,12 +218,17 @@ class Pipeline:
         *,
         filename: str = "audio.webm",
         mime: str = "audio/webm",
+        language: str | None = None,
         polish_answer: bool = False,
     ) -> AskResponse:
         t0 = _now()
         try:
             tr: Transcript = transcribe_with_retry(
-                audio, filename=filename, mime=mime, settings=self.settings
+                audio,
+                filename=filename,
+                mime=mime,
+                language=language,
+                settings=self.settings,
             )
         except STTError as e:
             return AskResponse(
@@ -235,7 +242,8 @@ class Pipeline:
         return self.ask_text(
             tr.text,
             polish_answer=polish_answer,
-            language=tr.language,
+            language=tr.language or language or "",
             transcript=tr.text,
             stt_ms=stt_ms,
         )
+

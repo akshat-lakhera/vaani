@@ -35,15 +35,24 @@ class SarvamSTT:
             raise STTError("SARVAM_API_KEY is not set")
         self.settings = settings
 
-    def transcribe(self, audio: bytes, filename: str = "audio.wav", mime: str = "audio/wav") -> Transcript:
+    def transcribe(
+        self,
+        audio: bytes,
+        filename: str = "audio.wav",
+        mime: str = "audio/wav",
+        language: str | None = None,
+    ) -> Transcript:
         headers = {"api-subscription-key": self.settings.sarvam_api_key}
         files = {"file": (filename, audio, mime)}
+        lang_code = language or "hi-IN"
+        if lang_code in {"hi", "hindi"}:
+            lang_code = "hi-IN"
+        elif lang_code in {"en", "english"}:
+            lang_code = "en-IN"
         data = {
             "model": "saaras:v3",
             "mode": "transcribe",
-            # Corpus is Hindi. Without this, Saaras sometimes emits
-            # "Bharat" instead of "भारत", which then fails coverage.
-            "language_code": "hi-IN",
+            "language_code": lang_code,
         }
         try:
             with httpx.Client(timeout=self.settings.stt_timeout_s) as client:
@@ -56,8 +65,9 @@ class SarvamSTT:
         text = (body.get("transcript") or body.get("text") or "").strip()
         if not text:
             raise STTError("sarvam returned empty transcript")
-        lang = body.get("language_code") or ""
+        lang = body.get("language_code") or lang_code
         return Transcript(text=text, language=lang, provider="sarvam", raw=body)
+
 
 
 class ElevenLabsSTT:
@@ -68,10 +78,18 @@ class ElevenLabsSTT:
             raise STTError("ELEVENLABS_API_KEY is not set")
         self.settings = settings
 
-    def transcribe(self, audio: bytes, filename: str = "audio.wav", mime: str = "audio/wav") -> Transcript:
+    def transcribe(
+        self,
+        audio: bytes,
+        filename: str = "audio.wav",
+        mime: str = "audio/wav",
+        language: str | None = None,
+    ) -> Transcript:
         headers = {"xi-api-key": self.settings.elevenlabs_api_key}
         files = {"file": (filename, audio, mime)}
         data = {"model_id": "scribe_v2"}
+        if language:
+            data["language_code"] = language
         try:
             with httpx.Client(timeout=self.settings.stt_timeout_s) as client:
                 resp = client.post(self.url, headers=headers, files=files, data=data)
@@ -83,7 +101,7 @@ class ElevenLabsSTT:
         text = (body.get("text") or body.get("transcript") or "").strip()
         if not text:
             raise STTError("elevenlabs returned empty transcript")
-        lang = body.get("language_code") or body.get("language") or ""
+        lang = body.get("language_code") or body.get("language") or language or ""
         return Transcript(text=text, language=str(lang), provider="elevenlabs", raw=body)
 
 
@@ -121,6 +139,7 @@ def transcribe_with_retry(
     audio: bytes,
     filename: str = "audio.webm",
     mime: str = "audio/webm",
+    language: str | None = None,
     settings: Settings | None = None,
 ) -> Transcript:
     settings = settings or get_settings()
@@ -129,9 +148,12 @@ def transcribe_with_retry(
     attempts = max(1, settings.stt_retries)
     for i in range(attempts):
         try:
-            return get_stt(settings).transcribe(payload, filename=name, mime=send_mime)
+            return get_stt(settings).transcribe(
+                payload, filename=name, mime=send_mime, language=language
+            )
         except STTError as e:
             last = e
             if i == attempts - 1:
                 raise
     raise STTError(str(last))
+
