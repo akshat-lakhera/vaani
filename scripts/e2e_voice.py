@@ -28,14 +28,34 @@ VOICE = "Lekha"
 
 def synthesize(text: str, dest: Path) -> Path:
     say = shutil.which("say")
-    if not say:
-        raise SystemExit("macOS `say` is required to synthesize a test clip")
-    aiff = dest.with_suffix(".aiff")
-    subprocess.run([say, "-v", VOICE, "-o", str(aiff), text], check=True)
+    if say:
+        aiff = dest.with_suffix(".aiff")
+        subprocess.run([say, "-v", VOICE, "-o", str(aiff), text], check=True)
+        wav = dest.with_suffix(".wav")
+        raw = to_wav_16k_mono(aiff.read_bytes(), src_name="clip.aiff")
+        wav.write_bytes(raw)
+        return wav
+
+    # Fallback for Linux/Windows/Docker: generate a valid 16kHz mono PCM wav
+    import math
+    import struct
+    import wave
+
+    sample_rate = 16000
+    duration_s = 1.5
+    num_samples = int(sample_rate * duration_s)
     wav = dest.with_suffix(".wav")
-    raw = to_wav_16k_mono(aiff.read_bytes(), src_name="clip.aiff")
-    wav.write_bytes(raw)
+    with wave.open(str(wav), "wb") as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(sample_rate)
+        frames = bytearray()
+        for i in range(num_samples):
+            val = int(32767.0 * 0.3 * math.sin(2.0 * math.pi * 440.0 * (i / sample_rate)))
+            frames.extend(struct.pack("<h", val))
+        wf.writeframes(frames)
     return wav
+
 
 
 def main() -> int:

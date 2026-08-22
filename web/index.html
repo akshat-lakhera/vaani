@@ -1,54 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vaani — voice RAG for MSMARCO-XI</title>
+  <title>वाणी · Vaani — Voice RAG for MSMARCO-XI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
   <div class="shell">
     <header>
       <div class="brand">
-        <span class="mark">वाणी</span>
+        <div class="mark-wrapper">
+          <span class="mark">वाणी</span>
+          <span class="pulse-ring"></span>
+        </div>
         <div>
-          <h1>Vaani</h1>
-          <p class="sub">Speak a question. Get a grounded answer from MSMARCO-XI.</p>
+          <div class="title-row">
+            <h1>Vaani</h1>
+            <span class="badge-tag">HH GOA 2026</span>
+          </div>
+          <p class="sub">Voice-enabled grounded extractive RAG over MSMARCO-XI</p>
         </div>
       </div>
-      <div class="meta" id="health">loading index…</div>
+      <div class="header-actions">
+        <div class="meta-card" id="health-card">
+          <div class="status-indicator">
+            <span class="indicator-dot" id="live-dot"></span>
+            <span id="health-status">Connecting…</span>
+          </div>
+          <div class="meta-sub" id="health-details">Loading index…</div>
+        </div>
+        <div class="tool-buttons">
+          <button id="btn-bench-modal" class="btn-secondary" title="Run in-process benchmark">⚡ Benchmarks</button>
+          <button id="btn-compare-modal" class="btn-secondary" title="Compare chunking strategies">📊 Ablation</button>
+        </div>
+      </div>
     </header>
 
     <main>
-      <section class="ask">
-        <button id="mic" type="button" aria-label="Tap to talk">
-          <span class="dot"></span>
-          <span class="label">tap to talk</span>
-        </button>
-        <p class="hint" id="stt-hint" hidden>Voice needs <code>SARVAM_API_KEY</code> in <code>.env</code>. Typed questions still work.</p>
-        <form id="form">
-          <input id="q" type="text" autocomplete="off" placeholder="या टाइप करें — हिन्दी / मराठी / English" />
-          <button type="submit">Ask</button>
-        </form>
-        <label class="polish"><input type="checkbox" id="polish" /> polish with Grok <em>(outside 200ms)</em></label>
+      <!-- Prompt chips for quick testing -->
+      <section class="prompt-chips">
+        <span class="chip-label">Try asking:</span>
+        <button class="chip" data-q="भारत की राजधानी क्या है?">🇮🇳 भारत की राजधानी क्या है?</button>
+        <button class="chip" data-q="कॉर्पोरेशन क्या है?">🏢 कॉर्पोरेशन क्या है?</button>
+        <button class="chip" data-q="What is machine learning?">🤖 What is machine learning?</button>
+        <button class="chip chip-warn" data-q="मेरे बैंक खाते का पासवर्ड क्या है?">🔒 खाते का पासवर्ड (Refuse test)</button>
       </section>
 
-      <section class="result" id="result" hidden>
-        <div class="status-row">
-          <span class="pill" id="status">—</span>
-          <span class="pill quiet" id="budget">—</span>
-          <span class="pill quiet" id="support">—</span>
+      <!-- Voice & Text Ask Section -->
+      <section class="ask-card">
+        <div class="mic-container">
+          <button id="mic" type="button" aria-label="Tap to talk">
+            <div class="mic-ripple"></div>
+            <div class="mic-ripple delay"></div>
+            <div class="mic-core">
+              <svg class="mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+                <line x1="8" y1="23" x2="16" y2="23"/>
+              </svg>
+            </div>
+            <span class="mic-label">TAP TO TALK</span>
+            <span class="rec-timer" id="rec-timer" hidden>00:00</span>
+          </button>
         </div>
-        <p class="transcript" id="transcript"></p>
-        <h2 id="answer"></h2>
-        <p class="reason" id="reason"></p>
-        <div class="timings" id="timings"></div>
-        <ol class="cites" id="cites"></ol>
+
+        <p class="hint" id="stt-hint" hidden>
+          <span class="info-icon">ℹ️</span> Voice STT requires <code>SARVAM_API_KEY</code> or <code>ELEVENLABS_API_KEY</code>. Typed queries are fully functional.
+        </p>
+
+        <form id="form" class="ask-form">
+          <div class="input-wrapper">
+            <input id="q" type="text" autocomplete="off" placeholder="या टाइप करें — हिन्दी / English / Hinglish" />
+            <button type="submit" id="btn-ask">
+              <span>Ask</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+          <div class="options-bar">
+            <label class="polish-toggle">
+              <input type="checkbox" id="polish" />
+              <span class="toggle-track"></span>
+              <span class="toggle-text">Polish with Grok <em>(outside 200ms budget)</em></span>
+            </label>
+            <div class="lang-selector">
+              <label for="lang-select">Language:</label>
+              <select id="lang-select">
+                <option value="hi-IN" selected>Hindi (हिन्दी)</option>
+                <option value="en-IN">English</option>
+                <option value="auto">Auto-detect</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Response Result Card -->
+      <section class="result-card" id="result" hidden>
+        <div class="result-header">
+          <div class="status-row">
+            <span class="pill" id="status">—</span>
+            <span class="pill budget" id="budget">—</span>
+            <span class="pill quiet" id="support">—</span>
+            <span class="pill quiet" id="strategy-pill">—</span>
+          </div>
+          <div class="action-buttons">
+            <button id="btn-speak" class="icon-btn" title="Listen to answer">
+              <span class="btn-icon">🔊</span> Listen
+            </button>
+            <button id="btn-copy" class="icon-btn" title="Copy answer">
+              <span class="btn-icon">📋</span> Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="transcript-box" id="transcript-box" hidden>
+          <span class="transcript-tag">TRANSCRIPT</span>
+          <p class="transcript" id="transcript"></p>
+        </div>
+
+        <div class="answer-box">
+          <h2 id="answer"></h2>
+          <p class="reason" id="reason"></p>
+        </div>
+
+        <!-- Latency Waterfall Visualization -->
+        <div class="waterfall-section">
+          <div class="waterfall-header">
+            <span>Latency Waterfall</span>
+            <span id="budget-badge" class="badge-success">&lt; 200ms Target</span>
+          </div>
+          <div class="waterfall-bar" id="waterfall-bar"></div>
+          <div class="timings-grid" id="timings"></div>
+        </div>
+
+        <!-- Citations List -->
+        <div class="citations-section">
+          <div class="citations-header">
+            <h3>Grounded Citations</h3>
+            <span class="citations-count" id="cites-count">0 sources</span>
+          </div>
+          <ol class="cites" id="cites"></ol>
+        </div>
       </section>
     </main>
 
+    <!-- Benchmark Modal -->
+    <div id="modal-bench" class="modal-backdrop" hidden>
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2>⚡ Live Latency Benchmark</h2>
+          <button class="modal-close" id="close-bench">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc">Runs sequential real MSMARCO-XI queries against the active in-process pipeline to compute authentic P50 / P70 / P90 / P100 latencies.</p>
+          <div class="bench-controls">
+            <label>Queries:
+              <select id="bench-n">
+                <option value="20">20 queries (fast)</option>
+                <option value="50" selected>50 queries (standard)</option>
+                <option value="100">100 queries (comprehensive)</option>
+              </select>
+            </label>
+            <button id="btn-run-bench" class="btn-primary">Run Benchmark</button>
+          </div>
+          <div id="bench-loading" class="bench-loading" hidden>
+            <div class="spinner"></div>
+            <span>Evaluating queries one by one…</span>
+          </div>
+          <div id="bench-results" class="bench-results" hidden>
+            <div class="metric-cards">
+              <div class="metric-card"><span class="m-label">P50</span><span class="m-val" id="p50">-</span></div>
+              <div class="metric-card"><span class="m-label">P70</span><span class="m-val" id="p70">-</span></div>
+              <div class="metric-card"><span class="m-label">P90</span><span class="m-val" id="p90">-</span></div>
+              <div class="metric-card"><span class="m-label">P100 (Max)</span><span class="m-val" id="p100">-</span></div>
+            </div>
+            <div class="bench-submetrics">
+              <span id="bench-under-budget"></span>
+              <span id="bench-note"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategy Ablation Modal -->
+    <div id="modal-compare" class="modal-backdrop" hidden>
+      <div class="modal-card modal-large">
+        <div class="modal-header">
+          <h2>📊 Chunking Strategy Ablation</h2>
+          <button class="modal-close" id="close-compare">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc">Compare how different chunking strategies partition passages and score extractive answers for a given query.</p>
+          <div class="compare-controls">
+            <input id="compare-q" type="text" placeholder="Enter query for ablation test…" value="भारत की राजधानी क्या है?" />
+            <button id="btn-run-compare" class="btn-primary">Compare All</button>
+          </div>
+          <div id="compare-loading" class="bench-loading" hidden>
+            <div class="spinner"></div>
+            <span>Running chunking ablation…</span>
+          </div>
+          <div id="compare-results" class="compare-results" hidden>
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Strategy</th>
+                  <th>Chunks</th>
+                  <th>Status</th>
+                  <th>Latency</th>
+                  <th>Support</th>
+                  <th>Extractive Answer</th>
+                </tr>
+              </thead>
+              <tbody id="compare-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
-      HH Goa 2026 · Task 2 · extractive RAG path is the 200ms window · STT via Sarvam / ElevenLabs
+      <div class="footer-content">
+        <span><strong>Vaani</strong> · Voice RAG for Indic Languages · HH Goa 2026 Task 2</span>
+        <span>Extractive path &lt; 200ms · MSMARCO-XI Hindi Validation Index</span>
+      </div>
     </footer>
   </div>
   <script src="/static/app.js"></script>

@@ -12,7 +12,7 @@ from vaani.guardrails import _STOP, content_tokens, query_coverage
 from vaani.text import tokenize
 
 
-_GENITIVE = frozenset({"की", "का", "के", "of"})
+_GENITIVE = frozenset({"की", "का", "के", "चा", "ची", "चे", "च्या", "च्यांचे", "of"})
 _PRONOUN_OWNERS = frozenset(
     {
         "इसकी",
@@ -22,6 +22,17 @@ _PRONOUN_OWNERS = frozenset(
         "उसका",
         "उसके",
         "उनकी",
+        "त्याची",
+        "त्याचा",
+        "त्याचे",
+        "त्यांची",
+        "याची",
+        "याचा",
+        "याचे",
+        "यांची",
+        "माझी",
+        "माझा",
+        "माझे",
         "their",
         "its",
         "his",
@@ -31,14 +42,21 @@ _PRONOUN_OWNERS = frozenset(
 
 
 def genitive_pairs(text: str) -> list[tuple[str, str]]:
-    """(owner, prop) from 'owner की prop' / 'prop of owner'."""
+    """(owner, prop) from 'owner की prop' / 'owner ची prop' / 'prop of owner' / 'ownerची prop'."""
     toks = tokenize(text)
     pairs: list[tuple[str, str]] = []
+    marathi_suffixes = ("च्यांचे", "च्या", "ची", "चा", "चे")
     for i, t in enumerate(toks):
-        if t in {"की", "का", "के"} and i > 0 and i + 1 < len(toks):
+        if t in _GENITIVE and t != "of" and i > 0 and i + 1 < len(toks):
             pairs.append((toks[i - 1], toks[i + 1]))
         elif t == "of" and i > 0 and i + 1 < len(toks):
             pairs.append((toks[i + 1], toks[i - 1]))
+        elif i + 1 < len(toks):
+            for sfx in marathi_suffixes:
+                if t.endswith(sfx) and len(t) > len(sfx) + 1:
+                    base_owner = t[: -len(sfx)]
+                    pairs.append((base_owner, toks[i + 1]))
+                    break
     return pairs
 
 
