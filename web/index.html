@@ -140,13 +140,15 @@
           <div class="timings-grid" id="timings"></div>
         </div>
 
-        <!-- Citations List -->
-        <div class="citations-section">
+        <!-- Citations List (hidden by default) -->
+        <div class="citations-section" id="chunks-wrap" hidden>
           <div class="citations-header">
-            <h3>Grounded Citations</h3>
+            <button type="button" id="chunks-toggle" class="chunks-toggle" aria-expanded="false" aria-controls="cites">
+              View Retrieved Chunks
+            </button>
             <span class="citations-count" id="cites-count">0 sources</span>
           </div>
-          <ol class="cites" id="cites"></ol>
+          <ol class="cites" id="cites" hidden></ol>
         </div>
       </section>
     </main>

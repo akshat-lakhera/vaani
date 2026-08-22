@@ -12,9 +12,12 @@ class GenerateError(RuntimeError):
 
 SYSTEM = (
     "You rewrite a grounded extractive answer for a spoken assistant. "
-    "Use ONLY the provided passages. Do not add facts. "
+    "Reply with ONLY the direct, concise answer to the question — "
+    "the entity, number, name, or short defining phrase. "
+    "Do not restate background, lists, or extra sentences from the passages. "
+    "Use ONLY facts present in the extractive answer and passages. "
     "Keep the same language as the question. "
-    "Two short sentences max. No preamble."
+    "One phrase, or at most one short sentence. No preamble."
 )
 
 
@@ -43,7 +46,7 @@ def polish(
         resp = client.chat.completions.create(
             model=settings.llm_model,
             temperature=0.0,
-            max_tokens=180,
+            max_tokens=80,
             messages=[
                 {"role": "system", "content": SYSTEM},
                 {"role": "user", "content": user},

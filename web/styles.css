@@ -665,6 +665,36 @@ h1 {
   color: var(--ink);
 }
 
+.chunks-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-secondary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+.chunks-toggle:hover,
+.chunks-toggle[aria-expanded="true"] {
+  border-color: var(--sand);
+  color: var(--ink);
+}
+
+.cite-rank {
+  color: var(--sand);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.cite-text mark {
+  background: rgba(215, 181, 109, 0.28);
+  color: var(--ink);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
 .citations-count {
   font-size: 12px;
   color: var(--muted);

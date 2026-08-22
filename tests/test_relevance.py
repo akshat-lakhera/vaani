@@ -61,4 +61,4 @@ def test_extract_skips_conflicting_sentence():
     ext = extract(QUERY, [hit("m", MUMBAI, 0.4), hit("d", DELHI, 0.3)])
     assert ext is not None
     assert "मुंबई" not in ext.answer
-    assert "दिल्ली" in ext.answer or "राजधानी" in ext.answer
+    assert ext.answer == "दिल्ली"

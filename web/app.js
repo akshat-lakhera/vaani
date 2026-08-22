@@ -8,6 +8,23 @@ let chunks = [];
 let startedAt = 0;
 let recTimerInterval = null;
 
+const VAD = {
+  speechRms: 0.025,
+  silenceMs: 1100,
+  minSpeechMs: 280,
+  maxMs: 15000,
+  prerollMs: 280,
+};
+
+const vad = {
+  ctx: null,
+  analyser: null,
+  raf: 0,
+  heard: false,
+  speechAt: 0,
+  silenceFrom: 0,
+};
+
 // Initialize Health & Backend State
 async function checkHealth() {
   try {
@@ -121,22 +138,55 @@ function renderWaterfall(t) {
     .join("");
 }
 
+function highlightSnippet(text, answer) {
+  const src = escapeHtml(text || "");
+  const needle = String(answer || "").trim();
+  if (needle.length < 2) return src;
+  const esc = escapeHtml(needle).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  try {
+    return src.replace(new RegExp(esc, "i"), (m) => `<mark>${m}</mark>`);
+  } catch {
+    return src;
+  }
+}
+
+function setChunksOpen(open) {
+  const list = $("cites");
+  const toggle = $("chunks-toggle");
+  if (!list || !toggle) return;
+  list.hidden = !open;
+  toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  toggle.textContent = open ? "Hide Retrieved Chunks" : "View Retrieved Chunks";
+}
+
 function renderCitations(cites) {
+  const wrap = $("chunks-wrap");
   $("cites-count").textContent = `${cites.length} source${cites.length === 1 ? "" : "s"}`;
+  if (!cites.length) {
+    wrap.hidden = true;
+    $("cites").innerHTML = "";
+    return;
+  }
+  wrap.hidden = false;
+  setChunksOpen(false);
   $("cites").innerHTML = cites
-    .map(
-      (c, i) => `
+    .map((c, i) => {
+      const rank = c.rank || i + 1;
+      const id = escapeHtml(c.passage_id || c.chunk_id || "—");
+      const etype = escapeHtml(c.query_type || "—");
+      const lang = escapeHtml(c.lang || "—");
+      return `
       <li class="cite-card">
         <div class="cite-meta">
-          <span class="cite-id">[#${i + 1}] ${escapeHtml(c.passage_id)}</span>
-          ${c.lang ? `<span class="cite-tag">${escapeHtml(c.lang)}</span>` : ""}
-          ${c.query_type ? `<span class="cite-tag">${escapeHtml(c.query_type)}</span>` : ""}
+          <span class="cite-rank">#${rank}</span>
+          <span class="cite-id">${id}</span>
+          <span class="cite-tag">${etype}</span>
+          <span class="cite-tag">${lang}</span>
           <span class="cite-tag">Score: ${Number(c.score || 0).toFixed(3)}</span>
         </div>
-        <p class="cite-text">${escapeHtml(c.text)}</p>
-      </li>
-    `
-    )
+        <p class="cite-text">${highlightSnippet(c.text, currentAnswerText)}</p>
+      </li>`;
+    })
     .join("");
 }
 
@@ -219,6 +269,76 @@ function extFor(mime) {
   return "webm";
 }
 
+function stopVad() {
+  if (vad.raf) cancelAnimationFrame(vad.raf);
+  vad.raf = 0;
+  vad.analyser = null;
+  vad.heard = false;
+  vad.speechAt = 0;
+  vad.silenceFrom = 0;
+  if (vad.ctx) {
+    const ctx = vad.ctx;
+    vad.ctx = null;
+    ctx.close().catch(() => {});
+  }
+}
+
+function startVad(stream) {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  const ctx = new AC();
+  if (ctx.state === "suspended") ctx.resume().catch(() => {});
+  const src = ctx.createMediaStreamSource(stream);
+  const analyser = ctx.createAnalyser();
+  analyser.fftSize = 1024;
+  analyser.smoothingTimeConstant = 0.35;
+  src.connect(analyser);
+  vad.ctx = ctx;
+  vad.analyser = analyser;
+  vad.heard = false;
+  vad.speechAt = 0;
+  vad.silenceFrom = 0;
+  const buf = new Uint8Array(analyser.fftSize);
+
+  function rms() {
+    analyser.getByteTimeDomainData(buf);
+    let sum = 0;
+    for (let i = 0; i < buf.length; i++) {
+      const v = (buf[i] - 128) / 128;
+      sum += v * v;
+    }
+    return Math.sqrt(sum / buf.length);
+  }
+
+  function tick() {
+    if (!rec || rec.state !== "recording" || !vad.analyser) return;
+    const now = Date.now();
+    const elapsed = now - startedAt;
+    if (elapsed >= VAD.maxMs) {
+      stopRec();
+      return;
+    }
+    const level = rms();
+    if (elapsed > VAD.prerollMs && level >= VAD.speechRms) {
+      if (!vad.heard) {
+        vad.heard = true;
+        vad.speechAt = now;
+      }
+      vad.silenceFrom = 0;
+    } else if (vad.heard) {
+      if (!vad.silenceFrom) vad.silenceFrom = now;
+      const spoken = now - vad.speechAt;
+      const silent = now - vad.silenceFrom;
+      if (spoken >= VAD.minSpeechMs && silent >= VAD.silenceMs) {
+        stopRec();
+        return;
+      }
+    }
+    vad.raf = requestAnimationFrame(tick);
+  }
+  vad.raf = requestAnimationFrame(tick);
+}
+
 async function startRec() {
   if (!sttReady) {
     alert("Set SARVAM_API_KEY or ELEVENLABS_API_KEY in .env and restart server.");
@@ -234,6 +354,7 @@ async function startRec() {
       if (e.data && e.data.size) chunks.push(e.data);
     };
     rec.onstop = () => {
+      stopVad();
       stream.getTracks().forEach((t) => t.stop());
       recStream = null;
       clearInterval(recTimerInterval);
@@ -247,12 +368,13 @@ async function startRec() {
       askAudio(new Blob(chunks, { type }), extFor(type));
     };
 
-    rec.start();
+    rec.start(250);
     startedAt = Date.now();
     $("mic").classList.add("hot");
-    $("mic").querySelector(".mic-label").textContent = "LISTENING…";
+    $("mic").querySelector(".mic-label").textContent = "LISTENING… TAP TO SEND";
     $("rec-timer").hidden = false;
     $("rec-timer").textContent = "00:00";
+    startVad(stream);
 
     recTimerInterval = setInterval(() => {
       const sec = Math.floor((Date.now() - startedAt) / 1000);
@@ -266,6 +388,7 @@ async function startRec() {
 }
 
 function stopRec() {
+  stopVad();
   if (rec && rec.state !== "inactive") rec.stop();
   $("mic").classList.remove("hot");
 }
@@ -275,6 +398,10 @@ $("form").addEventListener("submit", (e) => {
   e.preventDefault();
   const q = $("q").value.trim();
   if (q) askText(q);
+});
+
+$("chunks-toggle").addEventListener("click", () => {
+  setChunksOpen($("cites").hidden);
 });
 
 $("mic").addEventListener("click", (e) => {

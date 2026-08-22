@@ -44,17 +44,20 @@ def _build_citations(hits: list, limit: int = 5) -> list[Citation]:
     seen_parents: set[str] = set()
     citations: list[Citation] = []
     for h in hits:
-        pid = h[0].parent_id
+        chunk = h[0]
+        pid = chunk.parent_id
         if pid not in seen_parents:
             seen_parents.add(pid)
             citations.append(
                 Citation(
-                    passage_id=h[0].parent_id,
-                    lang=h[0].lang,
-                    query_type=h[0].query_type,
-                    text=h[0].parent_text,
+                    passage_id=pid,
+                    chunk_id=chunk.chunk_id,
+                    lang=chunk.lang,
+                    query_type=chunk.query_type,
+                    text=chunk.parent_text,
                     score=h[1],
-                    strategy=h[0].strategy,
+                    strategy=chunk.strategy,
+                    rank=len(citations) + 1,
                 )
             )
             if len(citations) >= limit:

@@ -15,6 +15,8 @@ class Citation(BaseModel):
     text: str
     score: float = 0.0
     strategy: str = ""
+    rank: int = 0
+    chunk_id: str = ""
 
 
 class Timings(BaseModel):

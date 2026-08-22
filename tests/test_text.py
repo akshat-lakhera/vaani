@@ -9,6 +9,16 @@ def test_hindi_not_shattered():
     assert toks != ["द", "ल", "ल"]
 
 
+def test_tokenize_spans_keep_offsets():
+    from vaani.text import normalize, tokenize_spans
+
+    raw = "New Delhi is the capital."
+    norm = normalize(raw)
+    spans = tokenize_spans(raw)
+    assert [t for t, _s, _e in spans] == ["new", "delhi", "is", "the", "capital"]
+    assert norm[spans[0][1] : spans[1][2]] == "New Delhi"
+
+
 def test_english_words():
     assert tokenize("What is the capital of India?") == [
         "what",

@@ -30,23 +30,35 @@ def normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def tokenize(text: str) -> list[str]:
-    """Split on separators; keep Indic aksharas intact."""
-    text = normalize(text).lower()
+def tokenize_spans(text: str) -> list[tuple[str, int, int]]:
+    """Tokenize *text* and keep original-string offsets.
+
+    Offsets refer to ``normalize(text)``. Tokens are lowercased so they
+    match ``tokenize``; slices ``norm[start:end]`` keep source casing.
+    """
+    text = normalize(text)
     if not text:
         return []
-    tokens: list[str] = []
+    spans: list[tuple[str, int, int]] = []
     buf: list[str] = []
-    for ch in text:
+    start = 0
+    for i, ch in enumerate(text):
         if ch in _SEPARATORS:
             if buf:
-                tokens.append("".join(buf))
+                spans.append(("".join(buf).lower(), start, i))
                 buf.clear()
         else:
+            if not buf:
+                start = i
             buf.append(ch)
     if buf:
-        tokens.append("".join(buf))
-    return [t for t in tokens if t]
+        spans.append(("".join(buf).lower(), start, len(text)))
+    return spans
+
+
+def tokenize(text: str) -> list[str]:
+    """Split on separators; keep Indic aksharas intact."""
+    return [tok for tok, _s, _e in tokenize_spans(text)]
 
 
 def token_set(text: str) -> set[str]:
